@@ -1,0 +1,23 @@
+{
+  "name": "scl007-social-network",
+  "version": "1.0.0",
+  "description": "Creacion de una red social.",
+  "main": "scr/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+
+  "jest":{"verbose":true,
+  "collectCoverage":true},
+  
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ElizabethCG/SCL007-Social-Network.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ElizabethCG/SCL007-Social-Network/issues"
+  },
+  "homepage": "https://github.com/ElizabethCG/SCL007-Social-Network#readme"
+}
