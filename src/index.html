@@ -2,7 +2,14 @@
 <html lang="es" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Social Networkcd</title>
+    <script src="../Social network/SCL007-Social-Network/src/node_modules/firebase/firebase.js"></script>
+    <script>
+    let ref = new Firebase("https://console.firebase.google.com/project/social-network-a15f8/database/social-network-a15f8/data");
+    ref.child("appName").on("value", function(snapshot){
+console.log(snapshot.val());
+    });
+    </script>
   </head>
   <body>
 
