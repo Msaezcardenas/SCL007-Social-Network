@@ -33,25 +33,32 @@ El muro se considera el punto de comunión entre los integrantes de la red. Y lo
 
 
 * Quiénes son los principales usuarios de producto
+
 Mujeres entre 18 y 50 años interesadas principalmente en mantener dietas vegetarianas y/o veganas que privilegien su salud, el respeto animal y la ecología.
 
 * Cómo descubriste las necesidades de los usuarios
+
 Realizamos una encuestra orientadas a conocer el interés de los usuarios por este tipo de redes y sus principales necesidades al participar en una red de esta naturaleza.
 
 * Qué problema resuelve el producto para estos usuarios
+
 El producto permite a las personas interesadas en vegetarianismo/veganismo, formar redes de cooperación y apoyo para su proceso de transición a este estilo de vida como también con información relevante para sostenerlos como tipos de alimentos, alimentación equilibrada y sana, picadas, artículos de fomento a la vida sana, etc.
 
 * Cuáles son los objetivos de estos usuarios en relación con el producto
+
 Muchos de nuestros usuarios, son personas que se interesan por este estilo de vida y quisieran un sitio para orientarlos en su transición
 En general la mayoría de nuestros coinciden en la necesidad de contar con buenas recetas, datos para obtener sus alimentos, así sea en restaurantes o mercados, esquemas de alimentación, y un colectivo social que les permita  generar movimientos sociales,
 
 * Cuáles son las principales funcionalidades del producto y cuál es su prioridad
+
 Nombrar.
 
 * Cómo verificaste que el producto les está resolviendo sus problemas
+
 Encuestas
 
 * Cómo te asegurarás que estos usuarios usen este producto
+
 testeos de usabilidad
 
 
@@ -61,6 +68,8 @@ usuarios y tests de usabilidad.
 * [ ] Definición del producto
 
 * [ ] Resumen de entrevistas con usuarios.
+
+[Link encuestas a usuarios objetivo](https://es.surveymonkey.com/results/SM-YV92YGDQV/).
 Encuesta a usuarios entre 23 y 40 años
 en su mayoría mujeres
 8 de 12 vetarianas
