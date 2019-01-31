@@ -1,21 +1,26 @@
 <!DOCTYPE html>
-<html lang="es" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Social Networkcd</title>
-    <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
-    <script src="node_modules/firebase/firebase.js"></script>
-    <script>
-    let ref = new Firebase("https://console.firebase.google.com/project/social-network-a15f8/database/social-network-a15f8/data");
-    ref.child("appName").on("value", function(snapshot){
-console.log(snapshot.val());
-    });
-    </script>
-  </head>
-  <body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+  <form id="formulario">
+    <label for="nombre">Nombre:</label>
+    <input type="text" name="nombre" id="nombre" value=""><p></p>
+    <label for="mensaje">Mensaje:</label>
+    <textarea name="mensaje" id="mensaje" cols="80" rows="8"></textarea><p></p>
+    <input type="submit" name="" value="Enviar Mensaje">
+  </form> 
+  <p></p> 
+  <div id="fondoMensajes"></div>  
 
-
-    <script src="data.js"></script>
     <script src="main.js"></script>
-  </body>
+    <script src="data.js"></script>
+    <script src="node_modules/firebase/firebase.js"></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+</body>
 </html>
