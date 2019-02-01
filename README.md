@@ -70,24 +70,29 @@ usuarios y tests de usabilidad.
 * [ ] Resumen de entrevistas con usuarios.
 
 [Link encuestas a usuarios objetivo](https://es.surveymonkey.com/results/SM-YV92YGDQV/).
+Total encuestados 12
 Encuesta a usuarios entre 23 y 40 años
 en su mayoría mujeres
-8 de 12 vetarianas
+8 vetarianas
 
+Motivación para elegir este estilo de vida:  
 medio ambiente, industrialización, explotación de las especies, salud
-7 de 12 animalistas
+
+7 animalistas
 salud 7
 ecología 6
+
 9 obtienen la información para su dieta de internet
-3 de nutricionistas
+3 obtienen la información de nutricionistas
 
 8 compran en vegas y ferias
-5 supermercados
-2 en tiendas naturistas y especializadas
+5 compran en supermercados
+2 compran en tiendas naturistas y especializadas
 
-4 quisieran un sitio para orientarlos en su transición
-en general coinciden en recetas, datos, grupo organizado para presión, recetas, restaurantes
-esquemas de alimentación, colectivo social,
+4 quisieran un sitio para orientarlos en su transición.
+
+En general, los usuarios coinciden en querer un sitio con recetas, datos, restaurantes, esquemas de alimentación y colectivo social (grupo organizado para presión).
+
 
 * [ ] Link/screenshots prototipo de baja fidelidad.
 * [ ] Conclusiones de pruebas con el producto en HTML.
