@@ -22,17 +22,23 @@ function showMessageFromFirebase(){
     refmessage.on("value",function(snap){
         let todosLosMensajes = "";
         document.getElementById("messageBackground").innerHTML ="";
-        datos = snap.val();
-       
+        datos = snap.val(); 
+        //aqui se dibujan los padres  
         for(var key in datos){
             if(datos[key].Eliminado === 0){ 
-             todosLosMensajes += "</br>" + datos[key].Nombre + " : " + datos[key].Mensaje+" <input type='button' value='X' onclick=updateDelete('"+key+"')>";
-        }
-        if(datos[key].Principal === 1){
-
-
-
-        }
+             todosLosMensajes += "</br>" + datos[key].Nombre + " : " + datos[key].Mensaje+" <input type='button' value='X' onclick=updateDelete('"+key+"')>" +" <input type='button' value='Like'  onclick=sumLike('"+key+"')>" + datos[key].Like +" <input type='button' value='Respuesta' onclick=answerMessage('"+key+"')>";
+             //ahora que dibujamos los padres, dibujaremos a los hijos
+             let refMessageChild=firebase.database().ref().child("mensaje").child(key);
+             refMessageChild.on("value",function(snap){
+                 let datoChild=snap.val();
+                 for(var keyChild in datoChild){
+                    if(datoChild[keyChild].Eliminado === 0){ 
+                        todosLosMensajes += "</br>" + datoChild[keyChild].Nombre + " : " + datoChild[keyChild].Mensaje+" <input type='button' value='X' onclick=updateDeleteChild('"+key+"','"+keyChild+"')>";    
+                 
+                    }
+               }
+             });   
+            }
         }
       //  messageBackground.innerHTML = todosLosMensajes;
      document.getElementById("messageBackground").innerHTML += todosLosMensajes;
@@ -40,13 +46,43 @@ function showMessageFromFirebase(){
 }
 //cambia estado del mensaje(actualiza si la persona borra)
 function updateDelete(valor){
-    refmessage = firebase.database().ref().child("mensaje").child(valor);
-    console.log(refmessage);
-    refmessage.update({
-    Eliminado:1    
-    });
+    if(confirm("Desea eliminar mensaje")){
+        refmessage = firebase.database().ref().child("mensaje").child(valor);
+        refmessage.update({
+        Eliminado:1    
+        });
+    }
+  
 }
 
+//cambia estado del mensaje del mensaje hijo(actualiza si la persona borra)
+function updateDeleteChild(valor,valorChild){
+    if(confirm("Desea eliminar mensaje")){
+        refmessage = firebase.database().ref().child("mensaje").child(valor).child(valorChild);
+        refmessage.update({
+        Eliminado:1    
+        });
+    }
+ }
+
+function sumLike(keySum){
+    let addLike = 0;
+    refmessageLike = firebase.database().ref().child("mensaje").child(keySum);
+    refmessageLike.on("value",function(snap){
+        addLike = snap.val().Like;
+    });
+    refmessageLike.update({
+    Like:addLike+1 
+    });
+
+}
+//usuario será el nombre y correo de usuaro registrado
+function answerMessage(keyAnswer){
+    let email = "a@a.cl";
+    let messageAnswer = prompt("Respuesta");
+    refmessageAnswer= firebase.database().ref().child("mensaje").child(keyAnswer);
+    refmessageAnswer.push({Mensaje:messageAnswer, Nombre:'Usuario2', Eliminado:0,Principal:0,Correo:email,Like:0});
+}
 //Envía datos a Firebase
 function sendDataToFirebase(event){
     let email = "a@a.cl";
