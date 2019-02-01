@@ -113,7 +113,9 @@ Debe verse bien en dispositivos de pantallas grandes
 sugerimos seguir la técnica de `mobile first` (más detalles sobre esta técnica
 al final).
 
-Anexar link responsive
+Diseño de Alta Fidelidad:
+
+https://www.figma.com/file/BbiI5vzgQ9uYNDaIWAlwkePn/Untitled?node-id=0%3A1 
 
 ### Pruebas unitarias (unit tests)
 

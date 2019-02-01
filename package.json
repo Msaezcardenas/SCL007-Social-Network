@@ -6,10 +6,10 @@
   "scripts": {
     "test": "jest"
   },
-
-  "jest":{"verbose":true,
-  "collectCoverage":true},
-  
+  "jest": {
+    "verbose": true,
+    "collectCoverage": true
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ElizabethCG/SCL007-Social-Network.git"
@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/ElizabethCG/SCL007-Social-Network/issues"
   },
-  "homepage": "https://github.com/ElizabethCG/SCL007-Social-Network#readme"
+  "homepage": "https://github.com/ElizabethCG/SCL007-Social-Network#readme",
+  "dependencies": {
+    "firebase": "^5.8.1"
+  }
 }
