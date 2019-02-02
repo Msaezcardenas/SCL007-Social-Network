@@ -4,7 +4,32 @@
     <meta charset="utf-8">
     <title></title>
   </head>
+  <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
+ <script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDXW_PfHMN2JlyWR1owAOrq9oPQVs3rZsk",
+    authDomain: "socialveg-8b9ea.firebaseapp.com",
+    databaseURL: "https://socialveg-8b9ea.firebaseio.com",
+    projectId: "socialveg-8b9ea",
+    storageBucket: "socialveg-8b9ea.appspot.com",
+    messagingSenderId: "480080963526"
+  };
+  firebase.initializeApp(config);
+ </script>
   <body>
+    <h4>Registro de Usuarios</h4>
+    <input id="email" type="email" placeholder="Ingresa email">
+    <input id="contrasena" type="password" placeholder="Ingresa contraseña">
+    <button onclick="registrar()"> Enviar </button>
+
+    <h4>Ingreso de Usuarios</h4>
+    <input id="email2" type="email" placeholder="Ingresa email">
+    <input id="contrasena2" type="password" placeholder="Ingresa contraseña">
+    <button onclick="ingreso()"> Acceder </button>
+
+    <div id= "contenido">
+    </div>
 
 
     <script src="data.js"></script>
