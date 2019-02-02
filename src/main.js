@@ -1,106 +1,96 @@
-//Para trabajar el DOM//
-// console.log("Hola")
+function registrar(){
+    let email = document.getElementById('email').value;
+    let contrasena = document.getElementById('contrasena').value;
 
-window.onload = initialize;
-
-let formMesagge;
-let refmessage;
-let messageBackground;
-//inicializa la conección entre base de datos y javascript
-function initialize(){
-    formMessage = document.getElementById("formMessage");
-    formMessage.addEventListener("submit", sendDataToFirebase, false);
-    messageBackground = document.getElementById("messageBackground");
-    initializeFirebase();
-
-    showMessageFromFirebase();
-
+    firebase.auth().createUserWithEmailAndPassword(email, contrasena)
+    .then(function(){
+        verficar()
+    })
+    
+    .catch(function(error) {
+        // Handle Errors here.
+        let errorCode = error.code;
+        let errorMessage = error.message;
+        console.log(errorCode);
+        console.log(errorMessage);
+        // ...
+      });
 }
-//mostrando mensaje de base de datos
-function showMessageFromFirebase(){
-    refmessage = firebase.database().ref().child("mensaje");
-    refmessage.on("value",function(snap){
-        let todosLosMensajes = "";
-        document.getElementById("messageBackground").innerHTML ="";
-        datos = snap.val(); 
-        //aqui se dibujan los padres  
-        for(var key in datos){
-            if(datos[key].Eliminado === 0){ 
-             todosLosMensajes += "</br>" + datos[key].Nombre + " : " + datos[key].Mensaje+" <input type='button' value='X' onclick=updateDelete('"+key+"')>" +" <input type='button' value='Like'  onclick=sumLike('"+key+"')>" + datos[key].Like +" <input type='button' value='Respuesta' onclick=answerMessage('"+key+"')>";
-             //ahora que dibujamos los padres, dibujaremos a los hijos
-             let refMessageChild=firebase.database().ref().child("mensaje").child(key);
-             refMessageChild.on("value",function(snap){
-                 let datoChild=snap.val();
-                 for(var keyChild in datoChild){
-                    if(datoChild[keyChild].Eliminado === 0){ 
-                        todosLosMensajes += "</br>" + datoChild[keyChild].Nombre + " : " + datoChild[keyChild].Mensaje+" <input type='button' value='X' onclick=updateDeleteChild('"+key+"','"+keyChild+"')>";    
-                 
-                    }
-               }
-             });   
-            }
+
+function ingreso(){
+    
+    let email2 = document.getElementById('email2').value;
+    let contrasena2 = document.getElementById('contrasena2').value;
+    
+    firebase.auth().signInWithEmailAndPassword(email2, contrasena2)
+    
+    .catch(function(error) {
+        // Handle Errors here.
+        let errorCode = error.code;
+        let errorMessage = error.message;
+        console.log(errorCode);
+        console.log(errorMessage);
+        // ...
+      });
+}
+
+function observador(){
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            console.log('existe usuario activo')
+            aparece(user);
+          // User is signed in.
+          let displayName = user.displayName;
+          
+          let email = user.email;
+          
+          console.log('*****************');
+          console.log(user.emailVerified)
+          console.log('*****************');
+          
+          let emailVerified = user.emailVerified;
+          let photoURL = user.photoURL;
+          let isAnonymous = user.isAnonymous;
+          let uid = user.uid;
+          let providerData = user.providerData;
+          // ...
+        } else {
+          // User is signed out.
+          console.log('no existe usuario activo')
+          // ...
         }
-      //  messageBackground.innerHTML = todosLosMensajes;
-     document.getElementById("messageBackground").innerHTML += todosLosMensajes;
+      });
+}
+observador();
+
+function aparece(user){
+    let userDos = user;
+    let contenido = document.getElementById('contenido');
+    if(user.emailVerified){
+        contenido.innerHTML = `
+        <p>Bienvenido!</p>
+        <button onclick="cerrar()">Cerrar sesión</button> 
+        `;
+    } 
+}
+
+function cerrar(){
+    firebase.auth().signOut()
+    .then(function(){
+        console.log('Saliendo...')
+    })
+    .catch(function(error){
+        console.log(error)
     })
 }
-//cambia estado del mensaje(actualiza si la persona borra)
-function updateDelete(valor){
-    if(confirm("Desea eliminar mensaje")){
-        refmessage = firebase.database().ref().child("mensaje").child(valor);
-        refmessage.update({
-        Eliminado:1    
-        });
-    }
-  
-}
 
-//cambia estado del mensaje del mensaje hijo(actualiza si la persona borra)
-function updateDeleteChild(valor,valorChild){
-    if(confirm("Desea eliminar mensaje")){
-        refmessage = firebase.database().ref().child("mensaje").child(valor).child(valorChild);
-        refmessage.update({
-        Eliminado:1    
-        });
-    }
- }
-
-function sumLike(keySum){
-    let addLike = 0;
-    refmessageLike = firebase.database().ref().child("mensaje").child(keySum);
-    refmessageLike.on("value",function(snap){
-        addLike = snap.val().Like;
-    });
-    refmessageLike.update({
-    Like:addLike+1 
-    });
-
-}
-//usuario será el nombre y correo de usuaro registrado
-function answerMessage(keyAnswer){
-    let email = "a@a.cl";
-    let messageAnswer = prompt("Respuesta");
-    refmessageAnswer= firebase.database().ref().child("mensaje").child(keyAnswer);
-    refmessageAnswer.push({Mensaje:messageAnswer, Nombre:'Usuario2', Eliminado:0,Principal:0,Correo:email,Like:0});
-}
-//Envía datos a Firebase
-function sendDataToFirebase(event){
-    let email = "a@a.cl";
-    event.preventDefault();
-    refmessage.push({Mensaje: event.target.mensaje.value, Nombre:event.target.nombre.value, Eliminado:0,Principal:0,Correo:email,Like:0});
-    
-}
- //Parámetros para conexión de base de datos
-function initializeFirebase(){
-  // Initialize Firebase
-	let config = {
-		apiKey: 'AIzaSyB-jbfNQ2raBjBe0Y8iDER0k1VVQIYx01M',
-		authDomain: 'social-network-a15f8.firebaseapp.com',
-		databaseURL: 'https://social-network-a15f8.firebaseio.com',
-        projectId: 'social-network-a15f8',
-        storageBucket: 'social-network-a15f8.appspot.com',
-        messagingSenderId: '994003009333'
-	};
-	// eslint-disable-next-line no-undef
-	firebase.initializeApp(config);
+function verficar(){
+    let user = firebase.auth().currentUser;  
+    user.sendEmailVerification().then(function() {
+      // Email sent.
+      console.log('Enviando correo...');
+    }).catch(function(error) {
+      // An error happened.
+      console.log(error);
+    }); 
 }
