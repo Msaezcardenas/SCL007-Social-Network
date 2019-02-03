@@ -27,6 +27,7 @@ document.getElementById("editarMensaje").addEventListener("click",
            <h1>Mi muro</h1>
            <textarea name="editMensaje" id="editMensaje" cols="50" rows="8"> ${editText} </textarea>
            <button id="guardarMensaje">Guardar mensaje</button>
+           <button id="deleteMessage">Eliminar mensaje</button>
            <button id="privacidad">Privacidad</button>
            <button id="likes">Likes</button>
 
