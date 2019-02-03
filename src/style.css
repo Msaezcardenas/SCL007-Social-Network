@@ -1,0 +1,35 @@
+body{
+    margin:0;
+}
+
+.encabezado, .contenido, .contenido-lateral, pie-pagina{
+    padding: 1em 2em;
+}
+
+.contenido, .contenido-lateral, pie-pagina{
+    float: left;
+    box-sizing: border-box;
+}
+.encabezado{
+    background-color: #438106;
+    height: 100xp;
+}
+
+.contenido{
+    width: 60%;
+
+}
+
+.contenido-lateral{
+    width: 40%;
+    background-color: rgb(red, green, blue);
+    height: 500px;
+}
+
+.post{
+    background-color: rgba(red, green, blue, alpha);
+    height: 100%;
+    margin-bottom: #000;
+    height: 50px;
+
+}
