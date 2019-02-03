@@ -1,5 +1,5 @@
 TN:
-SF:C:\Users\Elizabeth\Documents\javascript\Red-social\SCL007-Social-Network\src\data.js
+SF:C:\Users\Elizabeth\Documents\javascript\Red-social\SCL007-Social-Network\src\js\data.js
 FN:10,initialize
 FN:20,showMessageFromFirebase
 FN:22,(anonymous_2)
@@ -76,5 +76,19 @@ BRDA:49,2,1,0
 BRDA:61,3,0,0
 BRDA:61,3,1,0
 BRF:8
+BRH:0
+end_of_record
+TN:
+SF:C:\Users\Elizabeth\Documents\javascript\Red-social\SCL007-Social-Network\src\js\mainEC.js
+FN:4,(anonymous_0)
+FNF:1
+FNH:0
+FNDA:0,(anonymous_0)
+DA:4,1
+DA:5,0
+DA:6,0
+LF:3
+LH:1
+BRF:0
 BRH:0
 end_of_record

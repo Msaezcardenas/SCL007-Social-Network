@@ -1,4 +1,4 @@
-require('../src/data.js');
+require('../src/js/data.js');
 
 // EJEMPLO DE TEST
 
