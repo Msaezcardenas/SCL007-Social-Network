@@ -3,21 +3,57 @@
   "version": "1.0.0",
   "description": "Creacion de una red social.",
   "main": "scr/index.js",
+
   "scripts": {
+
     "test": "jest"
   },
+<<<<<<< HEAD
   "jest": {
     "verbose": true,
     "collectCoverage": true
   },
+=======
+
+
+
+  "author": "Squad 5 Red-Social",
+  "license": "ISC",
+  "eslint": "^5.12.1",
+  "eslint-config-airbnb-base": "^13.1.0",
+  "eslint-plugin-import": "^2.16.0",
+
+
+
+  "jest":{"verbose":true,
+  "collectCoverage":true},
+
+
+
+
+
+
+>>>>>>> 484bb9da6996c8261795f723494254b5238d3b82
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ElizabethCG/SCL007-Social-Network.git"
   },
-  "author": "",
-  "license": "ISC",
+
+
+
+
   "bugs": {
     "url": "https://github.com/ElizabethCG/SCL007-Social-Network/issues"
   },
-  "homepage": "https://github.com/ElizabethCG/SCL007-Social-Network#readme"
+
+
+  "homepage": "https://github.com/ElizabethCG/SCL007-Social-Network#readme",
+
+  "dependencies": {
+
+
+    "firebase": "^5.8.1"
+  }
+
+
 }

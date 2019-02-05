@@ -1,21 +1,104 @@
 <!DOCTYPE html>
 <html lang="es" dir="ltr">
   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <link rel="stylesheet" href="../src/style/style.css">
+      <link rel="stylesheet" href="../src/style/grid.css">
+      <link rel="stylesheet" href="../src/style/styleEC.css"> <!-- STYLE.CSS ELIZABETH -->
+      <title>Document</title>
     <meta charset="utf-8">
-    <title>Social Networkcd</title>
-    <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
-    <script src="node_modules/firebase/firebase.js"></script>
-    <script>
-    let ref = new Firebase("https://console.firebase.google.com/project/social-network-a15f8/database/social-network-a15f8/data");
-    ref.child("appName").on("value", function(snapshot){
-console.log(snapshot.val());
-    });
-    </script>
+    <title></title>
   </head>
+
   <body>
+    <!-- Registro e Ingreso de usuarios -->
+
+    <h4>Registro de Usuarios</h4>
+    <input id="email" type="email" placeholder="Ingresa email">
+    <input id="contrasena" type="password" placeholder="Ingresa contraseña">
+    <button onclick="registrar()"> Enviar </button>
+
+    <h4>Ingreso de Usuarios</h4>
+    <input id="email2" type="email" placeholder="Ingresa email">
+    <input id="contrasena2" type="password" placeholder="Ingresa contraseña">
+    <button onclick="ingreso()"> Acceder </button>
+
+    <div id= "contenido">
+    </div>
+    <br>
+   <!-- Muro  -->
+   <!-- Creación de post -->
+   
+
+  <form id="formMessage">
+    <label for="nombre">Nombre:</label>
+    <input type="text" name="nombre" id="nombre" value=""><p></p>
+    <label for="mensaje">Mensaje:</label>
+    <textarea name="mensaje" id="mensaje" cols="" rows=""></textarea><p></p>
+    <input type="submit" name="" value="Enviar Mensaje">
+    <label id="like">Me gusta:</label>
+    <input type="button" id="likeButton" name="" value="Me gusta">
+
+  </form>
+  <p></p>
+  <div id="messageBackground"></div>
 
 
-    <script src="data.js"></script>
-    <script src="main.js"></script>
-  </body>
+
+  <!-- DIV PARA PRUEBAS ELIZABETH -->
+  <div id="root"></div>
+  <!-- CONTENEDOR PRUEBAS ELIZABETH -->
+  <!-- EL ID DE ARTICLE DEBIERA SER EL ID-MURO -->
+  <article id="idArticle">
+   <div class="container">
+     <div class="row">
+       <div id ="textoyboton" class="col-8">
+         <h1>Mi muro</h1>
+         <p id="editable">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit aut inventore ipsa quasi nobis aperiam recusandae consectetur animi quaerat placeat? Recusandae, nemo. Qui facilis maiores eligendi, impedit modi sapiente repellendus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis assumenda dolorem odio labore quasi, quas beatae ratione ipsum sint natus blanditiis id corporis quae doloribus a repudiandae est, in dolore.</p>
+       </div>
+       <div class="col-4">
+       <img id="idImg" src="./assets/img/stock-vector-vegan-friendly-icon.jpg" alt="">
+       </div>
+     </div>
+   </div>
+   </article>
+   <div class="container" class="container2" id="buttonHidden">
+     <div class="row">
+       <div class="col-8">
+         <button id="editarMensaje">Editar mensaje</button>
+         <button id="privacidad">Privacidad</button>
+         <button id="likes">Likes</button>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
+    <script>
+     // Initialize Firebase
+     var config = {
+       apiKey: "AIzaSyDXW_PfHMN2JlyWR1owAOrq9oPQVs3rZsk",
+       authDomain: "socialveg-8b9ea.firebaseapp.com",
+       databaseURL: "https://socialveg-8b9ea.firebaseio.com",
+       projectId: "socialveg-8b9ea",
+       storageBucket: "socialveg-8b9ea.appspot.com",
+       messagingSenderId: "480080963526"
+     };
+     firebase.initializeApp(config);
+   
+    </script>
+    <script src="../src/js/main.js"></script>
+    <script src="../src/js/data.js"></script>
+
+    <script src="node_modules/firebase/firebase.js"></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+
+
+    <!-- ARCHIVOS TRABAJO ELIZABETH -->
+    <script src="../src/js/mainEC.js"></script>
+    <script src="../src/js/dataEC.js"></script>
+    <!-- ARCHIVO PARA TEST ELIZABETH
+    <script src="../test/dataEC.spec.js"></script> -->
+
+
+</body>
 </html>
