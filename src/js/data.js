@@ -44,6 +44,7 @@ function showMessageFromFirebase(){
      document.getElementById("messageBackground").innerHTML += todosLosMensajes;
     })
 }
+
 //cambia estado del mensaje(actualiza si la persona borra)
 function updateDelete(valor){
     if(confirm("Desea eliminar mensaje")){
@@ -55,16 +56,6 @@ function updateDelete(valor){
     }
 
 }
-
-//cambia estado del mensaje del mensaje hijo(actualiza si la persona borra)
-function updateDeleteChild(valor,valorChild){
-    if(confirm("Desea eliminar mensaje")){
-        refmessage = firebase.database().ref().child("mensaje").child(valor).child(valorChild);
-        refmessage.update({
-        Eliminado:1
-        });
-    }
- }
 
 function sumLike(keySum){
     let addLike = 0;

@@ -1,111 +1,65 @@
-/* Quitar características predefinidas del navegador */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+@charset "utf-8";
+/* CSS Document */
+ 
+ 
+body{
+		background:rgba(204,204,204,1);
 }
-
-/* Estilos globales grid system */
-.container {
-  width: 100%;
-  margin: 0 auto;
+ 
+ 
+.ventana{
+		background:rgba(0,0,102,1);
+		width:30%;
+		color:rgba(255,255,255,1);
+		font-family:Arial, Helvetica, sans-serif;
+		font-size:18px;
+		text-align:center;
+		padding:33px;
+		min-height:250px;
+		border-radius:22px;
+		position:absolute;
+		left:34%;
+		top:25%;
+		display:none;
 }
-
-.row:before, .row:after {
-  content: " ";
-  display: table;
+ 
+#cerrar{
+		position:absolute;
+		right:3px;
+		top:1px;
 }
-
-.row:after { /*Para que las columnas no colapsen*/
-  clear: both;
+ 
+ 
+header{
+		background:rgba(0,153,204,1);
+		width:1000px;
+		height:128px;
+		margin:auto;
+		border-radius:22px 22px 0 0;
 }
-
-[class*="col-"] {
-  min-height: 7px;
-  padding: 12px; /* gutters */
-  float: left;
-  max-width: 100%;
+ 
+ 
+nav{
+		background:rgba(0,102,255,1);
+		width:1000px;
+		height:50px;
+		margin:auto;
 }
-
-.col-1 {
-	/* (1 / 12) x 100 */
-	width: 8.333333%;
+ 
+ 
+#contenedor{
+		background:rgba(255,255,255,1);
+		padding:33px;
+		box-sizing:border-box;
+		width:1000px;
+		height:700px;
+		margin:auto;
 }
-
-.col-2 {
-	/* (2 / 12) x 100 */
-	width: 16.666667%;
-}
-
-.col-3 {
-	/* (3 / 12) x 100 */
-	width: 25%;
-}
-
-.col-4 {
-	/* (4 / 12) x 100 */
-	width: 33.333333%;
-}
-
-.col-5 {
-	/* (5 / 12) x 100 */
-	width: 41.666667%;
-}
-
-.col-6 {
-	/* (6 / 12) x 100 */
-	width: 50%;
-}
-
-.col-7 {
-	/* (7 / 12) x 100 */
-	width: 58.333333%;
-}
-
-.col-8 {
-	/* (8 / 12) x 100 */
-	width: 66.666667%;
-}
-
-.col-9 {
-	/* (9 / 12) x 100 */
-	width: 75%;
-}
-
-.col-10 {
-	/* (10 / 12) x 100 */
-	width: 83.333333%;
-}
-
-.col-11 {
-	/* (11 / 12) x 100 */
-	width: 91.666667%;
-}
-
-.col-12 {
-	/* (12 / 12) x 100 */
-	width: 100%;
-}
-
-
-@media (max-width: 480px){
-  [class*="col-"]{
-    width: 100%;
-	}
-
-
-  @media (max-width: 768px){
-    [class*="col-"]{
-      width: 50%;
-  	}
-
-    /* @media (max-width: 1024px){
-      [class*="col-"]{
-        width: 50%;
-      }  */
-
-
-	#logo {
-		display: none;
-	}
+ 
+footer{
+		background:rgba(0,0,0,1);
+		width:1000px;
+		height:128px;
+		margin:auto;
+		border-radius:0 0 22px 22px;
 }
