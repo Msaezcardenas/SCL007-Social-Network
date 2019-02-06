@@ -3,7 +3,13 @@ body {
 }
 
 header {
-  background-color: black;
+  background-color: green;
+  height: 40px;
+}
+
+.conteiner.imgMenu {
+  width: 10px;
+  height: 10px;
 }
 
 .menu {
