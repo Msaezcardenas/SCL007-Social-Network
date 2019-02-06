@@ -9,28 +9,28 @@
       <link rel="stylesheet" href="../src/style/styleEC.css"> <!-- STYLE.CSS ELIZABETH -->
       <title>Document</title>
     <meta charset="utf-8">
-    <title></title>
   </head>
 
   <body>
     <!-- Registro e Ingreso de usuarios -->
-
+    <div id=“login” class=“style-display:block “>
     <h4>Registro de Usuarios</h4>
     <input id="email" type="email" placeholder="Ingresa email">
     <input id="contrasena" type="password" placeholder="Ingresa contraseña">
     <button onclick="registrar()"> Enviar </button>
-
+    </div>
+    <div id=“registró” class=“style-display:none“>
     <h4>Ingreso de Usuarios</h4>
     <input id="email2" type="email" placeholder="Ingresa email">
     <input id="contrasena2" type="password" placeholder="Ingresa contraseña">
     <button onclick="ingreso()"> Acceder </button>
-
     <div id= "contenido">
     </div>
     <br>
+  </div>
    <!-- Muro  -->
    <!-- Creación de post -->
-   
+   <div id=“muro” class=“style-display:none“>  
 
   <form id="formMessage">
     <label for="nombre">Nombre:</label>
@@ -45,7 +45,7 @@
   <p></p>
   <div id="messageBackground"></div>
 
-
+</div>
 
   <!-- DIV PARA PRUEBAS ELIZABETH -->
   <div id="root"></div>
