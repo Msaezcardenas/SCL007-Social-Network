@@ -8,6 +8,12 @@
 
     "test": "jest"
   },
+<<<<<<< HEAD
+  "jest": {
+    "verbose": true,
+    "collectCoverage": true
+  },
+=======
 
 
 
@@ -27,6 +33,7 @@
 
 
 
+>>>>>>> 484bb9da6996c8261795f723494254b5238d3b82
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ElizabethCG/SCL007-Social-Network.git"

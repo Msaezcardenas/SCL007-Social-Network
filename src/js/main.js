@@ -22,12 +22,15 @@ function ingreso(){
     let email2 = document.getElementById('email2').value;
     let contrasena2 = document.getElementById('contrasena2').value;
     
-    firebase.auth().signInWithEmailAndPassword(email2, contrasena2)
-    
+    firebase.auth().signInWithEmailAndPassword(email2, contrasena2).then(function(){
+        document.getElementById("userLogin").style.display = "none";
+        document.getElementById("userWall").style.display = "block";
+    })
     .catch(function(error) {
         // Handle Errors here.
         let errorCode = error.code;
         let errorMessage = error.message;
+        alert("Combinación o contraseña incorrecta");
         console.log(errorCode);
         console.log(errorMessage);
         // ...
@@ -93,4 +96,10 @@ function verficar(){
       // An error happened.
       console.log(error);
     }); 
+}
+//se crea funcion para registro usuario
+function registerUser(){
+    document.getElementById("userLogin").style.display = "none";
+    document.getElementById("userRegister").style.display = "block";
+
 }
