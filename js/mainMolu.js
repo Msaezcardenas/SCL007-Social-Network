@@ -1,12 +1,18 @@
-function registrar(){
-    let email = document.getElementById('email').value;
-    let contrasena = document.getElementById('contrasena').value;
+import {saveUser} from './dataMolu.js'
 
-    firebase.auth().createUserWithEmailAndPassword(email, contrasena)
+// Se declara función para registrar usuarios//
+document.getElementById("signIn").addEventListener("click", signIn)
+function signIn(){
+    let email = document.getElementById('email').value;
+    let password = document.getElementById('password').value;
+
+    // codigo desde firebase para crear usuario nuevo//
+    firebase.auth().createUserWithEmailAndPassword(email, password)
     .then(function(){
         verficar()
     })
-    
+
+    // si la función no se cumple se  ejecutará un error//
     .catch(function(error) {
         // Handle Errors here.
         let errorCode = error.code;
@@ -16,16 +22,28 @@ function registrar(){
         // ...
       });
 }
+// Se declara función para ingresar una vez registrado//
+document.getElementById("login").addEventListener("click", login)
 
-function ingreso(){
-    
+function login(){
+
     let email2 = document.getElementById('email2').value;
-    let contrasena2 = document.getElementById('contrasena2').value;
-    
-    firebase.auth().signInWithEmailAndPassword(email2, contrasena2).then(function(){
-        document.getElementById("userLogin").style.display = "none";
-        document.getElementById("userWall").style.display = "block";
+    let password2 = document.getElementById('password2').value;
+
+// <<<<<<< HEAD:src/js/main.js
+//     firebase.auth().signInWithEmailAndPassword(email2, contrasena2).then(function(){
+//         document.getElementById("userLogin").style.display = "none";
+//         document.getElementById("userWall").style.display = "block";
+//     })
+// =======
+    firebase.auth().signInWithEmailAndPassword(email2, password2)
+
+    .then(function(){
+        console.log('Ingresado');
     })
+
+    // si no se cumple alguna condición se ejecutara un error//
+// >>>>>>> 2d6b7c24f93b6f7ab1486f969403280dcfda5880:src/js/mainMolu.js
     .catch(function(error) {
         // Handle Errors here.
         let errorCode = error.code;
@@ -37,25 +55,29 @@ function ingreso(){
       });
 }
 
-function observador(){
+//Esta función monitorea si hay un nuevo registro de usuario o si hay una sesión abierta//
+// se agrega export para utilizar la función en data.js
+
+export const stateChanged = function (){
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
             console.log('existe usuario activo')
             aparece(user);
-          // User is signed in.
+          // Si el usuario existes
           let displayName = user.displayName;
-          
+
           let email = user.email;
-          
+
           console.log('*****************');
           console.log(user.emailVerified)
           console.log('*****************');
-          
+
           let emailVerified = user.emailVerified;
           let photoURL = user.photoURL;
           let isAnonymous = user.isAnonymous;
           let uid = user.uid;
           let providerData = user.providerData;
+          saveUser(email, uid);
           // ...
         } else {
           // User is signed out.
@@ -64,19 +86,22 @@ function observador(){
         }
       });
 }
-observador();
+//con esta línea declaro que al ejecutarse main.js se ejecutará automaticamente stateChanged//
+//observador();
 
+//Se declara función que aparecera cuando hay un usuario activo//
 function aparece(user){
     let userDos = user;
     let contenido = document.getElementById('contenido');
     if(user.emailVerified){
         contenido.innerHTML = `
         <p>Bienvenido!</p>
-        <button onclick="cerrar()">Cerrar sesión</button> 
+        <button onclick="cerrar()">Cerrar sesión</button>
         `;
-    } 
+    }
 }
 
+//función para cerrar sesión//
 function cerrar(){
     firebase.auth().signOut()
     .then(function(){
@@ -87,15 +112,16 @@ function cerrar(){
     })
 }
 
+//función que envía email de verificación//
 function verficar(){
-    let user = firebase.auth().currentUser;  
+    let user = firebase.auth().currentUser;
     user.sendEmailVerification().then(function() {
       // Email sent.
       console.log('Enviando correo...');
     }).catch(function(error) {
       // An error happened.
       console.log(error);
-    }); 
+    });
 }
 //se crea funcion para registro usuario
 function registerUser(){
