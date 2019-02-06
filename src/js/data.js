@@ -26,21 +26,22 @@ function showMessageFromFirebase(){
         //aqui se dibujan los padres
         for(var key in datos){
             if(datos[key].Eliminado === 0){
-             todosLosMensajes += "</br>" + datos[key].Nombre + " : " + datos[key].Mensaje+" <input type='button' value='X' onclick=updateDelete('"+key+"')>" +" <input type='button' value='Like'  onclick=sumLike('"+key+"')>" + datos[key].Like +" <input type='button' value='Respuesta' onclick=answerMessage('"+key+"')>";
+             todosLosMensajes += "<div class='divMuro'></br>" + datos[key].Nombre + " : " + datos[key].Mensaje+" <img src='imagenes/eliminar.png' class='imgMuroBorrar' onclick=updateDelete('"+key+"')>" +" <img src='imagenes/mgusta.jpg' class='imgMuro' onclick=sumLike('"+key+"')>" + datos[key].Like +" <img src='imagenes/comentar.png' class='imgMuro' onclick=answerMessage('"+key+"')>";
              //ahora que dibujamos los padres, dibujaremos a los hijos
              let refMessageChild=firebase.database().ref().child("mensaje").child(key);
              refMessageChild.on("value",function(snap){
                  let datoChild=snap.val();
                  for(var keyChild in datoChild){
                     if(datoChild[keyChild].Eliminado === 0){
-                        todosLosMensajes += "</br>" + datoChild[keyChild].Nombre + " : " + datoChild[keyChild].Mensaje+" <input type='button' value='X' onclick=updateDeleteChild('"+key+"','"+keyChild+"')>";
-
+                        todosLosMensajes += "</br><a class='aMuro'>" + datoChild[keyChild].Nombre + " : " + datoChild[keyChild].Mensaje+"</a> <img src='imagenes/eliminar.png' class='imgMuroBorrar' onclick=updateDeleteChild('"+key+"','"+keyChild+"')>";
                     }
                }
              });
+             todosLosMensajes+="</div></br>";
             }
         }
       //  messageBackground.innerHTML = todosLosMensajes;
+      
      document.getElementById("messageBackground").innerHTML += todosLosMensajes;
     })
 }
