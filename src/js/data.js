@@ -71,16 +71,14 @@ function sumLike(keySum){
 }
 //usuario será el nombre y correo de usuaro registrado
 function answerMessage(keyAnswer){
-    let email = "a@a.cl";
     let messageAnswer = prompt("Respuesta");
     refmessageAnswer= firebase.database().ref().child("mensaje").child(keyAnswer);
-    refmessageAnswer.push({Mensaje:messageAnswer, Nombre:'Usuario2', Eliminado:0,Principal:0,Correo:email,Like:0});
+    refmessageAnswer.push({Mensaje:messageAnswer, Nombre:'Usuario2', Eliminado:0,Principal:0});
 }
 //Envía datos a Firebase
 function sendDataToFirebase(event){
-    let email = "a@a.cl";
     event.preventDefault();
-    refmessage.push({Mensaje: event.target.mensaje.value, Nombre:event.target.nombre.value, Eliminado:0,Principal:0,Correo:email,Like:0});
+    refmessage.push({Mensaje: event.target.mensaje.value, Nombre:event.target.nombre.value, Eliminado:0,Principal:0});
 
 }
  //Parámetros para conexión de base de datos
