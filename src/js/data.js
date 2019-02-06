@@ -1,9 +1,9 @@
 //Para trabajar el DOM//
-// console.log("Hola")
 
+import {stateChanged} from './mainMolu.js';
 window.onload = initialize;
 
-let formMesagge;
+let formMessage;
 let refmessage;
 let messageBackground;
 //inicializa la conección entre base de datos y javascript
@@ -12,6 +12,7 @@ function initialize(){
     formMessage.addEventListener("submit", sendDataToFirebase, false);
     messageBackground = document.getElementById("messageBackground");
     initializeFirebase();
+    stateChanged();
 
     showMessageFromFirebase();
 
@@ -22,7 +23,7 @@ function showMessageFromFirebase(){
     refmessage.on("value",function(snap){
         let todosLosMensajes = "";
         document.getElementById("messageBackground").innerHTML ="";
-        datos = snap.val();
+        let datos = snap.val();
         //aqui se dibujan los padres
         for(var key in datos){
             if(datos[key].Eliminado === 0){

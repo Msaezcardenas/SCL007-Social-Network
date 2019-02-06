@@ -6,7 +6,7 @@
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
       <link rel="stylesheet" href="../src/style/styleMarce.css">
       <!--<link rel="stylesheet" href="../src/style/style.css">
-      
+
       <link rel="stylesheet" href="../src/style/grid.css">
       <link rel="stylesheet" href="../src/style/styleEC.css">--> <!-- STYLE.CSS ELIZABETH -->
       <title>Document</title>
@@ -15,28 +15,60 @@
   </head>
 
   <body>
+<!-- <<<<<<< HEAD -->
     <!-- Registro e Ingreso de usuarios -->
-<div id="userRegister" style="display:none" class="divlogin"> <!--se crea para mostrar el registro de usuario--> 
+ <div id="userRegister" style="display:none" class="divlogin"> <!--se crea para mostrar el registro de usuario-->
   <h4>Registro de Usuarios</h4>
-  <input id="email" type="email" placeholder="Ingresa email" class="inputlogin">
-  <input id="contrasena" type="password" placeholder="Ingresa contraseña" class="inputlogin">
-  <button onclick="registrar()"> Enviar </button>
+  <input id="email" type="email" placeholder="Ingresa email" >
+  <input id="password" type="password" placeholder="Ingresa contraseña" >
+  <button id="signIn"> Enviar </button>
 </div>
 
-<div id="userLogin" style="display: block" class="divlogin"><!--se crea para mostrar el login--> 
+<div id="userLogin" style="display: block" class="divlogin"> <!--se crea para mostrar el login -->
     <h4>Ingreso de Usuarios</h4>
-    <input id="email2" type="email" placeholder="Ingresa email" class="inputlogin">
-    <input id="contrasena2" type="password" placeholder="Ingresa contraseña" class="inputlogin">
-    <button onclick="ingreso()"> Acceder </button><p></p>
-    <button onclick="registerUser()">Registrese aquí</button>
+    <input id="email2" type="email" placeholder="Ingresa email" >
+    <input id="password2" type="password" placeholder="Ingresa contraseña">
+    <button id="login"> Acceder </button>
+
+    <!-- <button onclick="registerUser()">Registrese aquí</button> -->
   </div>
+<!-- ======= -->
+
+      <header id="mainMenu">
+          <div class="container">
+            <div class="row">
+              <div class="col-4">
+                <a class="imgMenu" id="logo" href="#home"><img src="./assets/img/vegan-6-735650.png" alt=""></a>
+              </div>
+              <!-- <div class="col-8">
+                <a class="menu" id="home" href="#home">Inicio</a>
+                <a class="menu" id="marvelDc" href="#Marvel-DC">Marvel-DC</a>
+              </div> -->
+            </div>
+          </div>
+        </header>
+
+    <!-- Registro e Ingreso de usuarios -->
+
+
+    <!-- <h4>Registro de Usuarios</h4>
+    <input id="email" type="email" placeholder="Ingresa email">
+    <input id="password" type="password" placeholder="Ingresa contraseña">
+    <button id="signIn"> Enviar </button>
+
+    <h4>Ingreso de Usuarios</h4>
+    <input id="email2" type="email" placeholder="Ingresa email">
+    <input id="password2" type="password" placeholder="Ingresa contraseña">
+    <button id="login"> Acceder </button> -->
+
+<!-- >>>>>>> 2d6b7c24f93b6f7ab1486f969403280dcfda5880 -->
     <div id= "contenido">
     </div>
-    <br>
+    <br> -->
    <!-- Muro  -->
    <!-- Creación de post -->
-   
-   <div id="userWall" style="display: none" class="divlogin"><!--se crea para mostrar el muro--> 
+
+   <div id="userWall" style="display: none" class="divlogin"><!--se crea para mostrar el muro-->
   <form id="formMessage">
     <label for="nombre">Nombre:</label>
     <input type="text" name="nombre" id="nombre" value=""><p></p>
@@ -69,6 +101,7 @@
      </div>
    </div>
    </article>
+
    <div class="container" class="container2" id="buttonHidden">
      <div class="row">
        <div class="col-8">
@@ -78,10 +111,11 @@
          <button id="likes">Likes</button>
     </div>
 
-    <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
-    <script>
-     // Initialize Firebase
-     var config = {
+<!-- <<<<<<< HEAD -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script> -->
+    <!-- <script> -->
+     <!-- // Initialize Firebase -->
+     <!-- var config = {
        apiKey: "AIzaSyDXW_PfHMN2JlyWR1owAOrq9oPQVs3rZsk",
        authDomain: "socialveg-8b9ea.firebaseapp.com",
        databaseURL: "https://socialveg-8b9ea.firebaseio.com",
@@ -89,11 +123,17 @@
        storageBucket: "socialveg-8b9ea.appspot.com",
        messagingSenderId: "480080963526"
      };
-     firebase.initializeApp(config);
-   
-    </script>
-    <script src="../src/js/main.js"></script>
-    <script src="../src/js/data.js"></script>
+     firebase.initializeApp(config); -->
+
+    <!-- </script> -->
+    <!-- <script src="../src/js/main.js"></script> -->
+    <!-- <script src="../src/js/data.js"></script> -->
+<!-- ======= -->
+
+    <script src="../src/js/main.js" type="module"></script>
+    <script src="../src/js/mainMolu.js" type="module"></script>
+    <script src="../src/js/data.js" type="module"></script>
+<!-- >>>>>>> 2d6b7c24f93b6f7ab1486f969403280dcfda5880 -->
 
     <script src="node_modules/firebase/firebase.js"></script>
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
