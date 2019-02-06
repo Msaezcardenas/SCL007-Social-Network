@@ -1,0 +1,117 @@
+@media screen and (max-width: 540px){
+    .divlogin{
+        width: 90%;
+        height: auto;
+        background-color: #438106;
+        text-align: center;
+        color: black;
+        }
+
+    .input{
+        width: 40%;
+        height: auto;
+        color: black;
+    }
+    .divMuro{
+        width: 85%;
+        height: auto;
+        background-color: #438106;
+        color: black;
+        border-style: solid;
+        border-color: white;
+        border-radius: 25px;
+        text-align: left;
+        font-size: medium;
+    }
+    .aMuro{
+        text-align: center;
+        color: blue;
+    }
+    .imgMuro{
+        height: 20px;
+        width: 20px;
+    }
+    .imgMuroBorrar{
+        height: 10px;
+        width: 10px;
+    }
+
+}
+
+@media screen and (min-width: 541px) and (max-width: 720px){
+    .divlogin{
+        width: 90%;
+        height: auto;
+        background-color: #438106;
+        text-align: center;
+        color: white;
+        }
+
+    .input{
+        width: 40%;
+        height: auto;
+        color: white;
+    }
+    .divMuro{
+        width: 85%;
+        height: auto;
+        background-color: #438106;
+        color: white;
+        border-style: solid;
+        border-color: red;
+        border-radius: 25px;
+        text-align: left;
+    }
+    .aMuro{
+        text-align: center;
+        color: blue;
+    }
+    .imgMuro{
+        height: 35px;
+        width: 35px;
+    }
+    .imgMuroBorrar{
+        height: 15px;
+        width: 15px;
+    }
+
+}
+
+@media screen and (min-width: 721px){
+    .divlogin{
+        width: 100%;
+        height: auto;
+        background-color: #438106;
+        text-align: center;
+        color: white;
+        }
+
+    .inputlogin{
+        width: 40%;
+        height: auto;
+        color: white;
+    }
+    .divMuro{
+        width: 85%;
+        height: auto;
+        background-color: #438106;
+        color: white;
+        border-style: solid;
+        border-color: red;
+        border-radius: 25px;
+        text-align: left;
+    }
+    .aMuro{
+        text-align: center;
+        color: blue;
+    }
+    .imgMuro{
+        height: 50px;
+        width: 50px;
+    }
+    .imgMuroBorrar{
+        height: 20px;
+        width: 20px;
+    }
+
+}
