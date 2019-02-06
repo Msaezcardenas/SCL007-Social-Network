@@ -16,7 +16,7 @@ function initialize(){
     showMessageFromFirebase();
 
 }
-//mostrando mensaje de base de datos
+//mostrando mensaje de base de datos, ref=referencia
 function showMessageFromFirebase(){
     refmessage = firebase.database().ref().child("mensaje");
     refmessage.on("value",function(snap){
