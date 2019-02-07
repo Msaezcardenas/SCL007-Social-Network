@@ -1,5 +1,6 @@
 # Bienvenido a SocialVegan
 
+<<<<<<< HEAD
 ![Img](.\src\imagenes\socialVeganInicio.png)
 
 ## Índice
@@ -19,6 +20,9 @@
 
 
 
+=======
+![Img](\src\imagenes\socialVeganInicio.png)
+>>>>>>> ff0093574093d97d917d37f1d835858da0542c05
 ## Introducción
 
 Una emprendedora nos ha encargado crear una red social y nos ha dado ciertos temas
