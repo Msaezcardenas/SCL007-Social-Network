@@ -104,8 +104,12 @@ function verficar(){
     user.sendEmailVerification().then(function() {
       // Email sent.
       console.log('Enviando correo...');
+      alert("Usuario registrado");
+      document.getElementById("userLogin").style.display = "block";
+      document.getElementById("userRegister").style.display = "none";
     }).catch(function(error) {
       // An error happened.
+      alert("datos ya registrados");
       console.log(error);
     });
 }
