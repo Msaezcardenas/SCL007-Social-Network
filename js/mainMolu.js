@@ -31,11 +31,11 @@ function login(){
     let password2 = document.getElementById('password2').value;
     
     firebase.auth().signInWithEmailAndPassword(email2, password2)
-
     .then(function(){
         console.log('Ingresado');
-    })
-    
+        document.getElementById("userLogin").style.display = "none";
+        document.getElementById("userWall").style.display = "block";
+    }) 
     // si no se cumple alguna condición se ejecutara un error//
     .catch(function(error) {
         // Handle Errors here.
@@ -56,14 +56,11 @@ export const stateChanged = function (){
             console.log('existe usuario activo')
             aparece(user);
           // Si el usuario existes
-          let displayName = user.displayName;
-          
+          let displayName = user.displayName;         
           let email = user.email;
-          
           console.log('*****************');
           console.log(user.emailVerified)
           console.log('*****************');
-          
           let emailVerified = user.emailVerified;
           let photoURL = user.photoURL;
           let isAnonymous = user.isAnonymous;
@@ -86,10 +83,7 @@ function aparece(user){
     let userDos = user;
     let contenido = document.getElementById('contenido');
     if(user.emailVerified){
-        contenido.innerHTML = `
-        <p>Bienvenido!</p>
-        <button onclick="cerrar()">Cerrar sesión</button> 
-        `;
+        contenido.innerHTML = "<p>Bienvenido</p> <button onclick='cerrar()'>Cerrar sesión</button>";
     } 
 }
 
@@ -114,11 +108,4 @@ function verficar(){
       // An error happened.
       console.log(error);
     }); 
-}
-//se crea funcion para registro usuario
-document.getElementById("registrar").addEventListener("click", registerUser);
-function registerUser(){
-    document.getElementById("userLogin").style.display = "none";
-    document.getElementById("userRegister").style.display = "block";
-
 }
