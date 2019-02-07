@@ -1,6 +1,6 @@
 //Para trabajar el DOM//
+// console.log("Hola")
 
-import {stateChanged} from './mainMolu.js';
 window.onload = initialize;
 
 let formMessage;
@@ -12,12 +12,11 @@ function initialize(){
     formMessage.addEventListener("submit", sendDataToFirebase, false);
     messageBackground = document.getElementById("messageBackground");
     initializeFirebase();
-    stateChanged();
 
     showMessageFromFirebase();
 
 }
-//mostrando mensaje de base de datos
+//mostrando mensaje de base de datos, ref=referencia
 function showMessageFromFirebase(){
     refmessage = firebase.database().ref().child("mensaje");
     refmessage.on("value",function(snap){
@@ -27,7 +26,7 @@ function showMessageFromFirebase(){
         //aqui se dibujan los padres
         for(var key in datos){
             if(datos[key].Eliminado === 0){
-             todosLosMensajes += "<div class='divMuro'></br>" + datos[key].Nombre + " : " + datos[key].Mensaje+" <img src='imagenes/eliminar.png' class='imgMuroBorrar' onclick=updateDelete('"+key+"')>" +" <img src='imagenes/mgusta.jpg' class='imgMuro' onclick=sumLike('"+key+"')>" + datos[key].Like +" <img src='imagenes/comentar.png' class='imgMuro' onclick=answerMessage('"+key+"')>";
+             todosLosMensajes += "<div class='divMuro'></br>" + datos[key].Nombre + " : " + datos[key].Mensaje+" <img src='imagenes/eliminar.png' class='imgMuroBorrar' onclick=updateDelete('"+key+"')>" +" <img src='imagenes/palta.png' class='imgMuro' onclick=sumLike('"+key+"')>" + datos[key].Like +" <img src='imagenes/comm.png' class='imgMuro' onclick=answerMessage('"+key+"')>";
              //ahora que dibujamos los padres, dibujaremos a los hijos
              let refMessageChild=firebase.database().ref().child("mensaje").child(key);
              refMessageChild.on("value",function(snap){
@@ -46,7 +45,6 @@ function showMessageFromFirebase(){
      document.getElementById("messageBackground").innerHTML += todosLosMensajes;
     })
 }
-
 //cambia estado del mensaje(actualiza si la persona borra)
 function updateDelete(valor){
     if(confirm("Desea eliminar mensaje")){
@@ -70,6 +68,7 @@ function updateDeleteChild(valor,valorChild){
  }
 
 function sumLike(keySum){
+    console.log("dfdfdf");
     let addLike = 0;
     refmessageLike = firebase.database().ref().child("mensaje").child(keySum);
     refmessageLike.on("value",function(snap){
@@ -80,16 +79,58 @@ function sumLike(keySum){
     });
 
 }
+//para que el modal se cierre
+window.onclick = function(event) {
+    let modal = document.getElementById('myModal');
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+
+  // evento listener para el modal
+  let span = document.getElementsByClassName("close")[0];
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+  document.getElementById("btnModal").addEventListener("click", cerrarModal)
+  function cerrarModal(){
+    let modal = document.getElementById("myModal");
+    let usuario=document.getElementById("nameResponse").value;
+    let mensaje=document.getElementById("mesageResponse").value;
+    if(usuario != "" && usuario != null && mensaje != "" && mensaje != null)
+    {
+        console.log(mensaje);
+        console.log(usuario);   
+        refmessageAnswer= firebase.database().ref().child("mensaje").child(keyAnswerMessage);
+        refmessageAnswer.push({Mensaje:mensaje, Nombre:usuario, Eliminado:0,Principal:0,Like:0});
+        keyAnswerMessage="";
+    }
+    else
+    {
+        modal.style.display = "none";
+        alert("El mensaje o el usuario no puede estar en blanco");
+    }
+    modal.style.display = "none";
+  }
 //usuario será el nombre y correo de usuaro registrado
+let keyAnswerMessage;
 function answerMessage(keyAnswer){
-    let messageAnswer = prompt("Respuesta");
-    refmessageAnswer= firebase.database().ref().child("mensaje").child(keyAnswer);
-    refmessageAnswer.push({Mensaje:messageAnswer, Nombre:'Usuario2', Eliminado:0,Principal:0});
+    //let messageAnswer = prompt("Respuesta");
+    keyAnswerMessage=keyAnswer;
+    let modal = document.getElementById("myModal");
+    modal.style.display = "block";
 }
 //Envía datos a Firebase
 function sendDataToFirebase(event){
     event.preventDefault();
-    refmessage.push({Mensaje: event.target.mensaje.value, Nombre:event.target.nombre.value, Eliminado:0,Principal:0});
+    if(event.target.mensaje.value != null && event.target.mensaje.value != "" && event.target.nombre.value != "" && event.target.nombre.value!= null){
+        refmessage.push({Mensaje: event.target.mensaje.value, Nombre:event.target.nombre.value, Eliminado:0,Principal:0,Like:0});
+    }
+    else
+    {
+        alert("Mensaje y/o Usuario no puede estar en balnco");
+    }
+    
 
 }
  //Parámetros para conexión de base de datos
