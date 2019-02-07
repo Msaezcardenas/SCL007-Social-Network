@@ -1,6 +1,28 @@
 # Bienvenido a SocialVegan
 
+<<<<<<< HEAD
+![Img](.\src\imagenes\socialVeganInicio.png)
+
+## Índice
+
+* [Introducción](#introducción)
+* [Definición del producto](#definición-del-producto)
+* [Resumen de entrevistas con usuarios](#resumen-de-entrevistas-con-usuarios)
+* [Historias de usuario](#historias-de-usuario)
+* [Diseño de la Interfaz de Usuario (prototipo de baja fidelidad)](#Diseño-de-la-Interfaz-de-Usuario-(prototipo-de-baja-fidelidad))
+* [Implementación de la Interfaz de Usuario](#Implementación-de-la Interfaz-de-Usuario)
+* [Consideraciones técnicas](#consideraciones-técnicas)
+* [Primeros pasos](#primeros-pasos)
+* [Contenido de referencia](#contenido-de-referencia)
+* [Checklist](#checklist)
+
+***
+
+
+
+=======
 ![Img](\src\imagenes\socialVeganInicio.png)
+>>>>>>> ff0093574093d97d917d37f1d835858da0542c05
 ## Introducción
 
 Una emprendedora nos ha encargado crear una red social y nos ha dado ciertos temas
@@ -20,7 +42,7 @@ cómo conociste el mercado de las redes sociales,
 Para iniciar nuestra proyecto investigamos sobre los tipos de redes sociales exitentes su clasificación y las necesidades específicas que cada una de ellas cubre
 
 cómo descubriste las necesidades de los usuarios,
-Realizando investigación, encuestas, 
+Realizando investigación, encuestas,
 
 cómo llegaste  la definición final de tu producto.
 al analizar todos los datos recabados y testearlos
@@ -69,7 +91,7 @@ usuarios y tests de usabilidad.
 
 
 #### Resumen de entrevistas con usuarios.
-Para revisar las encuestas realizadas, por favor pinche 
+Para revisar las encuestas realizadas, por favor pinche
 [aquí](https://es.surveymonkey.com/results/SM-YV92YGDQV/).
 
 * Resumen de los puntos principales:
