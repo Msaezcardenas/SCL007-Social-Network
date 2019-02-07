@@ -1,12 +1,12 @@
 @charset "utf-8";
 /* CSS Document */
- 
- 
+
+
 body{
 		background:rgba(204,204,204,1);
 }
- 
- 
+
+
 .ventana{
 		background:rgba(0,0,102,1);
 		width:30%;
@@ -22,14 +22,14 @@ body{
 		top:25%;
 		display:none;
 }
- 
+
 #cerrar{
 		position:absolute;
 		right:3px;
 		top:1px;
 }
- 
- 
+
+
 header{
 		background:rgba(0,153,204,1);
 		width:1000px;
@@ -37,16 +37,16 @@ header{
 		margin:auto;
 		border-radius:22px 22px 0 0;
 }
- 
- 
+
+
 nav{
 		background:rgba(0,102,255,1);
 		width:1000px;
 		height:50px;
 		margin:auto;
 }
- 
- 
+
+
 #contenedor{
 		background:rgba(255,255,255,1);
 		padding:33px;
@@ -55,7 +55,7 @@ nav{
 		height:700px;
 		margin:auto;
 }
- 
+
 footer{
 		background:rgba(0,0,0,1);
 		width:1000px;

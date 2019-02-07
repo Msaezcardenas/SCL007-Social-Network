@@ -11,7 +11,7 @@ function signIn(){
     .then(function(){
         verficar()
     })
-    
+
     // si la función no se cumple se  ejecutará un error//
     .catch(function(error) {
         // Handle Errors here.
@@ -26,16 +26,16 @@ function signIn(){
 document.getElementById("login").addEventListener("click", login)
 
 function login(){
-    
+
     let email2 = document.getElementById('email2').value;
     let password2 = document.getElementById('password2').value;
-    
+
     firebase.auth().signInWithEmailAndPassword(email2, password2)
     .then(function(){
         console.log('Ingresado');
         document.getElementById("userLogin").style.display = "none";
         document.getElementById("userWall").style.display = "block";
-    }) 
+    })
     // si no se cumple alguna condición se ejecutara un error//
     .catch(function(error) {
         // Handle Errors here.
@@ -56,7 +56,7 @@ export const stateChanged = function (){
             console.log('existe usuario activo')
             aparece(user);
           // Si el usuario existes
-          let displayName = user.displayName;         
+          let displayName = user.displayName;
           let email = user.email;
           console.log('*****************');
           console.log(user.emailVerified)
@@ -84,7 +84,7 @@ function aparece(user){
     let contenido = document.getElementById('contenido');
     if(user.emailVerified){
         contenido.innerHTML = "<p>Bienvenido</p> <button onclick='cerrar()'>Cerrar sesión</button>";
-    } 
+    }
 }
 
 //función para cerrar sesión//
@@ -100,12 +100,16 @@ function cerrar(){
 
 //función que envía email de verificación//
 function verficar(){
-    let user = firebase.auth().currentUser;  
+    let user = firebase.auth().currentUser;
     user.sendEmailVerification().then(function() {
       // Email sent.
       console.log('Enviando correo...');
+      alert("Usuario registrado");
+      document.getElementById("userLogin").style.display = "block";
+      document.getElementById("userRegister").style.display = "none";
     }).catch(function(error) {
       // An error happened.
+      alert("datos ya registrados");
       console.log(error);
-    }); 
+    });
 }
