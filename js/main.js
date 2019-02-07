@@ -116,6 +116,7 @@ function verficar(){
     }); 
 }
 //se crea funcion para registro usuario
+document.getElementById("registrar").addEventListener("click", registerUser);
 function registerUser(){
     document.getElementById("userLogin").style.display = "none";
     document.getElementById("userRegister").style.display = "block";
