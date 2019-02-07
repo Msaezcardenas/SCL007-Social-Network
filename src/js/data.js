@@ -1,9 +1,6 @@
-
 //Para trabajar el DOM//
 // console.log("Hola")
-
 window.onload = initialize;
-
 let formMessage;
 let refmessage;
 let messageBackground;
@@ -13,9 +10,7 @@ function initialize(){
     formMessage.addEventListener("submit", sendDataToFirebase, false);
     messageBackground = document.getElementById("messageBackground");
     initializeFirebase();
-
     showMessageFromFirebase();
-
 }
 //mostrando mensaje de base de datos, ref=referencia
 function showMessageFromFirebase(){
@@ -43,7 +38,7 @@ function showMessageFromFirebase(){
             }
         }
       //  messageBackground.innerHTML = todosLosMensajes;
-
+      
      document.getElementById("messageBackground").innerHTML += todosLosMensajes;
     })
 }
@@ -53,12 +48,9 @@ function updateDelete(valor){
         refmessage = firebase.database().ref().child("mensaje").child(valor);
         refmessage.update({
         Eliminado:1
-
         });
     }
-
 }
-
 //cambia estado del mensaje del mensaje hijo(actualiza si la persona borra)
 function updateDeleteChild(valor,valorChild){
     if(confirm("Desea eliminar mensaje")){
@@ -68,7 +60,6 @@ function updateDeleteChild(valor,valorChild){
         });
     }
  }
-
 function sumLike(keySum){
     console.log("dfdfdf");
     let addLike = 0;
@@ -79,7 +70,6 @@ function sumLike(keySum){
     refmessageLike.update({
     Like:addLike+1
     });
-
 }
 //para que el modal se cierre
 window.onclick = function(event) {
@@ -134,8 +124,6 @@ function sendDataToFirebase(event){
     {
         alert("Mensaje y/o Usuario no puede estar en balnco");
     }
-    
-
 }
  //Parámetros para conexión de base de datos
 function initializeFirebase(){
