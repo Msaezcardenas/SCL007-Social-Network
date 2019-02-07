@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html lang="es" dir="ltr">
+
+  <head>
+
+      <meta charset="UTF-8">
+
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <link rel="stylesheet" href="../src/style/styleMarce.css">
+     <!--<link rel="stylesheet" href="../src/style/style.css">     <link rel="stylesheet" href="../src/style/grid.css">
+     <link rel="stylesheet" href="../src/style/styleEC.css">--> <!-- STYLE.CSS ELIZABETH -->
+     <title>Document</title>
+   <meta charset="utf-8">
+   <title></title>
+ </head>
+  <body>
+   <!-- Registro e Ingreso de usuarios -->
+<div id="userRegister" style="display:none" class="divlogin"> <!--se crea para mostrar el registro de usuario-->
+ 
+    <h4>Registro de Usuarios</h4>
+    <input id="email" type="email" placeholder="Ingresa email">
+    <input id="password" type="password" placeholder="Ingresa contraseña">
+    <button id="signIn"> Enviar </button>
+
+</div><div id="userLogin" style="display: block" class="divlogin"><!--se crea para mostrar el login-->
+     <h4>Ingreso de Usuarios</h4>
+    <input id="email2" type="email" placeholder="Ingresa email">
+    <input id="password2" type="password" placeholder="Ingresa contraseña">
+    <button id="login"> Acceder </button>
+ </div>
+   <div id= "contenido">
+   </div>
+   <br>
+  <!-- Muro  -->
+  <!-- Creación de post -->  <div id="userWall" style="display: none" class="divlogin"><!--se crea para mostrar el muro-->
+ <form id="formMessage">
+   <label for="nombre">Nombre:</label>
+   <input type="text" name="nombre" id="nombre" value=""><p></p>
+   <label for="mensaje">Mensaje:</label>
+   <textarea name="mensaje" id="mensaje" cols="" rows=""></textarea><p></p>
+   <input type="submit" name="" value="Enviar Mensaje" class="inputlogin">
+   <label id="like">Me gusta:</label>
+   <input type="button" id="likeButton" name="" value="Me gusta" class="inputlogin">
+ </form>
+ <p></p>
+ <div id="messageBackground"></div>
+</div>
+ <div id="root"></div>
+   <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
+   <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyDXW_PfHMN2JlyWR1owAOrq9oPQVs3rZsk",
+      authDomain: "socialveg-8b9ea.firebaseapp.com",
+      databaseURL: "https://socialveg-8b9ea.firebaseio.com",
+      projectId: "socialveg-8b9ea",
+      storageBucket: "socialveg-8b9ea.appspot.com",
+      messagingSenderId: "480080963526"
+    };
+    firebase.initializeApp(config);   </script>
+       <script src="../src/js/main.js" type="module"></script>
+       <script src="../src/js/mainMolu.js" type="module"></script>
+       <script src="../src/js/data.js" type="module"></script>
+       <script src="node_modules/firebase/firebase.js"></script>
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+   
+  </body>
+</html>
