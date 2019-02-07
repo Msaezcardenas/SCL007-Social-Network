@@ -1,9 +1,9 @@
 //Para trabajar el DOM//
-// console.log("Hola")
 
+import {stateChanged} from './mainMolu.js';
 window.onload = initialize;
 
-let formMesagge;
+let formMessage;
 let refmessage;
 let messageBackground;
 //inicializa la conección entre base de datos y javascript
@@ -12,17 +12,18 @@ function initialize(){
     formMessage.addEventListener("submit", sendDataToFirebase, false);
     messageBackground = document.getElementById("messageBackground");
     initializeFirebase();
+    stateChanged();
 
     showMessageFromFirebase();
 
 }
-//mostrando mensaje de base de datos, ref=referencia
+//mostrando mensaje de base de datos
 function showMessageFromFirebase(){
     refmessage = firebase.database().ref().child("mensaje");
     refmessage.on("value",function(snap){
         let todosLosMensajes = "";
         document.getElementById("messageBackground").innerHTML ="";
-        datos = snap.val();
+        let datos = snap.val();
         //aqui se dibujan los padres
         for(var key in datos){
             if(datos[key].Eliminado === 0){
@@ -57,6 +58,16 @@ function updateDelete(valor){
     }
 
 }
+
+//cambia estado del mensaje del mensaje hijo(actualiza si la persona borra)
+function updateDeleteChild(valor,valorChild){
+    if(confirm("Desea eliminar mensaje")){
+        refmessage = firebase.database().ref().child("mensaje").child(valor).child(valorChild);
+        refmessage.update({
+        Eliminado:1
+        });
+    }
+ }
 
 function sumLike(keySum){
     let addLike = 0;

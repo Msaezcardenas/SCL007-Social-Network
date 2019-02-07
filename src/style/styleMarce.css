@@ -5,6 +5,7 @@
         background:  #C9EEAC;
         text-align: center;
         color: black;
+        margin-top: 240px;
         }
 
     .input{
@@ -115,3 +116,10 @@
     }
 
 }
+ .bodyImg{
+     background-image: url("../imagenes/found1.png");
+ }
+ 
+ .head{
+
+ }
