@@ -24,20 +24,21 @@ function showMessageFromFirebase(){
         let todosLosMensajes = "";
         document.getElementById("messageBackground").innerHTML ="";
         let datos = snap.val();
-        //aqui se dibujan los padres
+        //aqui se dibujan los padres, mensaje que escribe usuario es el padre y el comentario el hijo(child)
         for(var key in datos){
             if(datos[key].Eliminado === 0){
-             todosLosMensajes += "<div class='divMuro'></br>" + datos[key].Nombre + " : " + datos[key].Mensaje+" <img src='imagenes/eliminar.png' class='imgMuroBorrar' onclick=updateDelete('"+key+"')>" +" <img src='imagenes/palta.png' class='imgMuro' onclick=sumLike('"+key+"')>" + datos[key].Like +" <img src='imagenes/comm.png' class='imgMuro' onclick=answerMessage('"+key+"')>";
+             todosLosMensajes += "<div class='divWallMessage'><div class='divHeaderMuro'>" + datos[key].Nombre + "</div><div class='divBodyWall'>" + datos[key].Mensaje+" </div>";
              //ahora que dibujamos los padres, dibujaremos a los hijos
              let refMessageChild=firebase.database().ref().child("mensaje").child(key);
              refMessageChild.on("value",function(snap){
                  let datoChild=snap.val();
                  for(var keyChild in datoChild){
                     if(datoChild[keyChild].Eliminado === 0){
-                        todosLosMensajes += "</br><a class='aMuro'>" + datoChild[keyChild].Nombre + " : " + datoChild[keyChild].Mensaje+"</a> <img src='imagenes/eliminar.png' class='imgMuroBorrar' onclick=updateDeleteChild('"+key+"','"+keyChild+"')>";
+                        todosLosMensajes += "<div class='divBodyResWall'><a class='aMuro'>" + datoChild[keyChild].Nombre + " : " + datoChild[keyChild].Mensaje+"</a> <img src='imagenes/eliminar.png' class='imgMuroBorrar' onclick=updateDeleteChild('"+key+"','"+keyChild+"')></div>";
                     }
                }
              });
+             todosLosMensajes+="<div class='divFooterWall'><div class='divSelect'><img src='imagenes/palta.png' class='imgMuro' onclick=sumLike('"+key+"')>" + datos[key].Like +"</div><div class='divSelect'><img src='imagenes/comm.png' class='imgMuro' onclick=answerMessage('"+key+"')></div><div class='divSelect'><img src='imagenes/eliminar.png' class='imgMuro' onclick=updateDelete('"+key+"')></div></div>"
              todosLosMensajes+="</div></br>";
             }
         }
@@ -86,11 +87,11 @@ window.onclick = function(event) {
     if (event.target == modal) {
       modal.style.display = "none";
     }
-  }
-
-  // evento listener para el modal
-  let span = document.getElementsByClassName("close")[0];
-  span.onclick = function() {
+  }  
+  document.getElementById("cerrarModal").addEventListener("click", closeModal)
+  function closeModal()
+  {
+    let modal = document.getElementById('myModal');
     modal.style.display = "none";
   }
   document.getElementById("btnModal").addEventListener("click", cerrarModal)
@@ -105,6 +106,8 @@ window.onclick = function(event) {
         refmessageAnswer= firebase.database().ref().child("mensaje").child(keyAnswerMessage);
         refmessageAnswer.push({Mensaje:mensaje, Nombre:usuario, Eliminado:0,Principal:0,Like:0});
         keyAnswerMessage="";
+        document.getElementById("nameResponse").value="";
+        document.getElementById("mesageResponse").value="";
     }
     else
     {

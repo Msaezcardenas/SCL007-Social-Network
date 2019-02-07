@@ -1,3 +1,4 @@
+/*responsive celular*/
 @media screen and (max-width: 540px){
     .divlogin{
         width: 90%;
@@ -8,10 +9,11 @@
         margin-top: 240px;
         }
 
-    .input{
+    .inputlogin{
         width: 40%;
         height: auto;
-        color: black;
+        color: rgb(75, 112, 235);
+        border-radius: 12px;
     }
     .divMuro{
         width: 85%;
@@ -26,7 +28,6 @@
     }
     .aMuro{
         text-align: center;
-        color: blue;
     }
     .imgMuro{
         height: 20px;
@@ -36,9 +37,31 @@
         height: 10px;
         width: 10px;
     }
+    .divHeaderMuro{
+        background-color: #FFFFFF;
+        text-align: center;
+        font-size: 18px;
+      }
+      .divHeaderModal{
+        color: #000;
+        text-align: center;
+        font-size: 18px;
+      }
+      .divBodyWall{
+        background-color: #C4C4C4;
+        text-align: justify;
+        font-size: 15px;
+      }
+    
+      .divBodyResWall{
+        background-color: #C4C4C4;
+        text-align: justify;
+        color: #000;
+        font-size: 13px;
+      }
 
 }
-
+/*responsive otros dispositivos*/
 @media screen and (min-width: 541px) and (max-width: 720px){
     .divlogin{
         width: 90%;
@@ -48,10 +71,11 @@
         color: black;
         }
 
-    .input{
+    .inputlogin{
         width: 40%;
         height: auto;
-        color: black;
+        color: rgb(75, 112, 235);
+        border-radius: 12px;
     }
     .divMuro{
         width: 85%;
@@ -65,7 +89,6 @@
     }
     .aMuro{
         text-align: center;
-        color: blue;
     }
     .imgMuro{
         height: 35px;
@@ -75,9 +98,31 @@
         height: 15px;
         width: 15px;
     }
+    .divHeaderMuro{
+        background-color: #FFFFFF;
+        text-align: center;
+        font-size: 30px;
+      }
+      .divBodyWall{
+        background-color: #C4C4C4;
+        text-align: justify;
+        font-size: 28px;
+      }
+    
+      .divBodyResWall{
+        background-color: #C4C4C4;
+        text-align: justify;
+        color: #000;
+        font-size: 26px;
+      }
+      .divHeaderModal{
+        color: #000;
+        text-align: center;
+        font-size: 30px;
+      }
 
 }
-
+/*responsive tablet o superior*/
 @media screen and (min-width: 721px){
     .divlogin{
         width: 100%;
@@ -90,7 +135,8 @@
     .inputlogin{
         width: 40%;
         height: auto;
-        color: black;
+        color: rgb(75, 112, 235);
+        border-radius: 12px;
     }
     .divMuro{
         width: 85%;
@@ -104,7 +150,6 @@
     }
     .aMuro{
         text-align: center;
-        color: blue;
     }
     .imgMuro{
         height: 50px;
@@ -114,8 +159,31 @@
         height: 20px;
         width: 20px;
     }
+    .divHeaderMuro{
+        background-color: #FFFFFF;
+        text-align: center;
+        font-size: 35px;
+      }
+      .divHeaderModal{
+        color: #000;
+        text-align: center;
+        font-size: 35px;
+      }
+      .divBodyWall{
+        background-color: #C4C4C4;
+        text-align: justify;
+        font-size: 30px;
+      }
+    
+      .divBodyResWall{
+        background-color: #C4C4C4;
+        text-align: justify;
+        color: #000;
+        font-size: 28px;
+      }
 
 }
+/*fondo de pantallas*/
  .bodyImg{
      background-image: url("../imagenes/found1.png");
  }
@@ -133,6 +201,7 @@
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+   
   }
   
   /* Modal Content */
@@ -142,6 +211,7 @@
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
+    background-image: url(../imagenes/found1.png);
   }
   
   /* The Close Button */
@@ -158,3 +228,21 @@
     text-decoration: none;
     cursor: pointer;
   } 
+  /*css de muro*/
+
+  .divFooterWall{
+    background-color: #FFFFFF;
+  }
+
+  .divSelect{
+      width: 33%;
+      display:inline-block;
+  }
+  .divWallMessage{
+      width: 100%;
+  }
+  .cerrarModal{
+      font-size: 30px;
+      margin-left: 90%;
+      font-weight: bold;
+  }

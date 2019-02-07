@@ -37,14 +37,19 @@
    </div>
    <br>
   <!-- Muro  -->
-  <!-- Creación de post -->  <div id="userWall" style="display: none" class="divlogin"><!--se crea para mostrar el muro-->
- <form id="formMessage">
-   <label for="nombre">Nombre:</label>
-   <input type="text" name="nombre" id="nombre" value=""><p></p>
-   <label for="mensaje">Mensaje:</label>
-   <textarea name="mensaje" id="mensaje" cols="" rows=""></textarea><p></p>
-   <input type="submit" name="" value="Enviar Mensaje" class="inputlogin">
- </form>
+  <!-- Creación de post -->  
+  <div id="userWall" style="display: none" ><!--se crea para mostrar el muro-->
+ <div class="divMuro">
+    <form id="formMessage" class="divHeaderModal">
+        <p></p>
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" id="nombre" value=""><p></p>
+        <label for="mensaje">Mensaje:</label>
+        <textarea name="mensaje" id="mensaje" cols="" rows=""></textarea><p></p>
+        <input type="submit" name="" value="Enviar Mensaje" class="inputlogin">
+      </form>
+ </div>
+  
  <p></p>
  <div id="messageBackground"></div>
 </div>
@@ -54,10 +59,12 @@
  <div id="myModal" class="modal">
   <!-- Modal content -->
   <div class="modal-content">
-    <span class="close">&times;</span>
-    <p>Nombre  : <input type="text" id="nameResponse"></p>
-    <p>Mensaje : <textarea id="mesageResponse"></textarea></p>
-    <p><input type="button" value="Enviar" id="btnModal"></p>
+    <div class="cerrarModal"><input type="button" value="X" id="cerrarModal"></div>
+    <div class="divMuro">
+        <p class="divHeaderModal">Nombre  : <input type="text" id="nameResponse"></p>
+        <p class="divHeaderModal"> Mensaje : <textarea id="mesageResponse"></textarea></p>
+        <p><input type="button" value="Enviar" id="btnModal" class="inputlogin"></p>
+    </div>
   </div>
 </div>
  <!--fin modal de respuesta-->
