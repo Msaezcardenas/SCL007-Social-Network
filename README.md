@@ -1,6 +1,9 @@
 # Bienvenido a SocialVegan
 
 ![Img](.\src\imagenes\socialVeganInicio.png)
+![socialveganinicio](https://user-images.githubusercontent.com/45245032/52438778-d082cd80-2af8-11e9-8fc2-7329f0e1ddc0.png)
+
+
 
 ## Índice
 
