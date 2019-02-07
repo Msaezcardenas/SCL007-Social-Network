@@ -1,6 +1,6 @@
 # Bienvenido a SocialVegan
 
-![Img](..\src\imagenes\socialVeganInicio.png)
+![Img](src\imagenes\socialVeganInicio.png)
 ## Introducción
 
 Una emprendedora nos ha encargado crear una red social y nos ha dado ciertos temas
