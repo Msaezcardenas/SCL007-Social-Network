@@ -1,11 +1,9 @@
-# Creando una Red Social
-![](stock-vector-vegan-friendly-icon.png)
+# Bienvenido a SocialVegan
 
+![Img](\src\imagenes\socialVeganInicio.png)
 ## Introducción
 
-Una emprendedora nos ha encargado crear una red social. No nos da mucho detalle
-sobre qué tipo de red social quiere, sólo nos dice que creemos la mejor que
-podamos, y que luego la convenzamos de lanzarla al mercado. Nos da ciertos temas
+Una emprendedora nos ha encargado crear una red social y nos ha dado ciertos temas
 en los que le gustaría invertir:
 
 * Alimentación
@@ -14,16 +12,18 @@ en los que le gustaría invertir:
 * Salud
 * Energías Renovables
 
+A raiz de nuestra investigacion hemos decidido crear una red social de Alimentación Vegetariana/Vegana
 
 ### Definición del producto
 
 cómo conociste el mercado de las redes sociales,
+Para iniciar nuestra proyecto investigamos sobre los tipos de redes sociales exitentes su clasificación y las necesidades específicas que cada una de ellas cubre
 
 cómo descubriste las necesidades de los usuarios,
+Realizando investigación, encuestas, 
 
 cómo llegaste  la definición final de tu producto.
-
-* Anexar : fotos de entrevistas, cuestionarios y/o sketches**
+al analizar todos los datos recabados y testearlos
 
 * Cuáles son los elementos básicos que tiene una red social
 El elemento básico de una red social está conformado por las personas que la integran y los puntos de convergencia ellos. Estos puntos pueden ser un tema en común o actividades en común.
@@ -67,9 +67,13 @@ usuarios y tests de usabilidad.
 
 * [ ] Definición del producto
 
-* [ ] Resumen de entrevistas con usuarios.
 
-[Link encuestas a usuarios objetivo](https://es.surveymonkey.com/results/SM-YV92YGDQV/).
+#### Resumen de entrevistas con usuarios.
+Para revisar las encuestas realizadas, por favor pinche 
+[aquí](https://es.surveymonkey.com/results/SM-YV92YGDQV/).
+
+* Resumen de los puntos principales:
+
 Total encuestados 12
 Encuesta a usuarios entre 23 y 40 años
 en su mayoría mujeres
@@ -98,34 +102,25 @@ En general, los usuarios coinciden en querer un sitio con recetas, datos, restau
 * [ ] Conclusiones de pruebas con el producto en HTML.
 
 ### Historias de usuario
+Para revisar nuestras historias de usuario, por favor pincha
+[aquí](https://drive.google.com/drive/folders/1pvTZKcE55xdAUkaaZS0a6C-rbvwYRHWf)
 
-Anexar links
-[Explicación historias Usuario](http://jmbeas.es/guias/historias-de-usuario/).
-[Historias de Usuario Red social](https://drive.google.com/drive/folders/1pvTZKcE55xdAUkaaZS0a6C-rbvwYRHWf)
+
 ### Diseño de la Interfaz de Usuario (prototipo de baja fidelidad)
 
+![](\src\imagenes\PBF.png)
 
 
-### Responsive
-
-Debe verse bien en dispositivos de pantallas grandes
-(computadoras/es, laptops, etc.) y pequeñas (tablets, celulares, etc.). Te
-sugerimos seguir la técnica de `mobile first` (más detalles sobre esta técnica
-al final).
 
 Diseño de Alta Fidelidad:
 
-https://www.figma.com/file/BbiI5vzgQ9uYNDaIWAlwkePn/Untitled?node-id=0%3A1 
+![](\src\imagenes\socialVegan.png)
 
-### Pruebas unitarias (unit tests)
+https://www.figma.com/file/BbiI5vzgQ9uYNDaIWAlwkePn/Untitled?node-id=0%3A1
 
-cubrir un mínimo del 70%
 
 ### Implementación de la Interfaz de Usuario (UI y comportamiento de Interfaz de Usuario)
 
-La idea para este producto es que el producto a desarrollar siga los
-lineamientos propuestos en el diseño de la interfaz de usuario. Asegúrate a lo
-largo de la implementación que los elementos propuestos están siendo
-implementados correctamente.
+Describir funcionalidades de la interfaz.
 
 La interfaz debe permitir lo siguiente:
