@@ -1,7 +1,9 @@
 # Bienvenido a SocialVegan
 
-<<<<<<< HEAD
-![Img](.\src\imagenes\socialVeganInicio.png)
+
+![socialveganinicio](https://user-images.githubusercontent.com/45245032/52438778-d082cd80-2af8-11e9-8fc2-7329f0e1ddc0.png)
+
+
 
 ## Índice
 
@@ -10,19 +12,12 @@
 * [Resumen de entrevistas con usuarios](#resumen-de-entrevistas-con-usuarios)
 * [Historias de usuario](#historias-de-usuario)
 * [Diseño de la Interfaz de Usuario (prototipo de baja fidelidad)](#Diseño-de-la-Interfaz-de-Usuario-(prototipo-de-baja-fidelidad))
-* [Implementación de la Interfaz de Usuario](#Implementación-de-la Interfaz-de-Usuario)
-* [Consideraciones técnicas](#consideraciones-técnicas)
-* [Primeros pasos](#primeros-pasos)
-* [Contenido de referencia](#contenido-de-referencia)
-* [Checklist](#checklist)
+* [Implementación de la Interfaz de Usuario](#Implementación-de-la-Interfaz-de-Usuario)
 
 ***
 
 
 
-=======
-![Img](\src\imagenes\socialVeganInicio.png)
->>>>>>> ff0093574093d97d917d37f1d835858da0542c05
 ## Introducción
 
 Una emprendedora nos ha encargado crear una red social y nos ha dado ciertos temas
@@ -130,13 +125,14 @@ Para revisar nuestras historias de usuario, por favor pincha
 
 ### Diseño de la Interfaz de Usuario (prototipo de baja fidelidad)
 
-![](\src\imagenes\PBF.png)
 
+![pbf](https://user-images.githubusercontent.com/45245032/52440353-adf2b380-2afc-11e9-9472-c4949f12c71d.png)
 
 
 Diseño de Alta Fidelidad:
 
-![](\src\imagenes\socialVegan.png)
+![socialvegan](https://user-images.githubusercontent.com/45245032/52440498-0aee6980-2afd-11e9-9f02-1901527ea67b.png)
+
 
 https://www.figma.com/file/BbiI5vzgQ9uYNDaIWAlwkePn/Untitled?node-id=0%3A1
 
