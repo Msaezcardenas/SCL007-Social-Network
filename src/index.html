@@ -49,6 +49,18 @@
  <div id="messageBackground"></div>
 </div>
  <div id="root"></div>
+ <!--Inicio modal de respuesta MArratia-->
+
+ <div id="myModal" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Nombre  : <input type="text" id="nameResponse"></p>
+    <p>Mensaje : <textarea id="mesageResponse"></textarea></p>
+    <p><input type="button" value="Enviar" id="btnModal"></p>
+  </div>
+</div>
+ <!--fin modal de respuesta-->
    <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
    <!-- <script>
     // Initialize Firebase
@@ -60,11 +72,13 @@
       storageBucket: "socialveg-8b9ea.appspot.com",
       messagingSenderId: "480080963526"
     };
+
     firebase.initializeApp(config);   </script> -->
        <script src="./js/main.js" type="module"></script>
        <script src="./js/mainMolu.js" type="module"></script>
        <script src="./js/data.js" type="module"></script>
        <!-- <script src="./node_modules/firebase/firebase.js"></script> -->
+
        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
   </body>
