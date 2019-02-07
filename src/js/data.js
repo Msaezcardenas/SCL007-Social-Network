@@ -99,7 +99,7 @@ window.onclick = function(event) {
     let usuario=document.getElementById("nameResponse").value;
     let mensaje=document.getElementById("mesageResponse").value;
     if(usuario != "" && usuario != null && mensaje != "" && mensaje != null)
-    {
+    { 
         console.log(mensaje);
         console.log(usuario);   
         refmessageAnswer= firebase.database().ref().child("mensaje").child(keyAnswerMessage);
