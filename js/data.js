@@ -31,7 +31,7 @@ function showMessageFromFirebase(){
                     if(datoChild[keyChild].Eliminado === 0){
                         todosLosMensajes += "<div class='divBodyResWall'><a class='aMuro'>" + datoChild[keyChild].Nombre + " : " + datoChild[keyChild].Mensaje+"</a> <img src='imagenes/borrar.png' class='imgMuroBorrar' onclick=updateDeleteChild('"+key+"','"+keyChild+","+datoChild[keyChild].Email+"')><br></br></div>";
                     }
-               }
+               } 
              });
              todosLosMensajes+="<div class='divFooterWall'><div class='divSelect'><img src='imagenes/palta.png' class='imgMuro' onclick=sumLike('"+key+"')>" + datos[key].Like +"</div><div class='divSelect'><img src='imagenes/comm.png' class='imgMuro' onclick=answerMessage('"+key+"')></div><div class='divSelect'><img src='imagenes/borrar.png' class='imgMuro' onclick=updateDelete('"+key+"','"+datos[key].Email+"')></div><div class='divSelect'><a target='_blank' href='http://www.facebook.com/sharer.php?u=https://elizabethcg.github.io/SCL007-Social-Network/'><img src='imagenes/face.png' class='imgMuro' /></a></div></div>"
              todosLosMensajes+="</div></br>";
