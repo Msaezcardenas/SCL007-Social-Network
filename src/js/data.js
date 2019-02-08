@@ -26,18 +26,18 @@ function showMessageFromFirebase(){
         //aqui se dibujan los padres, mensaje que escribe usuario es el padre y el comentario el hijo(child)
         for(var key in datos){
             if(datos[key].Eliminado === 0){
-             todosLosMensajes += "<div class='divWallMessage'><div class='divHeaderMuro'>" + datos[key].Nombre + "</div><div class='divBodyWall'>" + datos[key].Mensaje+" </div>";
+             todosLosMensajes += "<div class='divWallMessage'><div class='divHeaderMuro'>" + datos[key].Nombre + "</div><div class='divBodyWall'><br></br>" + datos[key].Mensaje+"<br></br></div>";
              //ahora que dibujamos los padres, dibujaremos a los hijos
              let refMessageChild=firebase.database().ref().child("mensaje").child(key);
              refMessageChild.on("value",function(snap){
                  let datoChild=snap.val();
                  for(var keyChild in datoChild){
                     if(datoChild[keyChild].Eliminado === 0){
-                        todosLosMensajes += "<div class='divBodyResWall'><a class='aMuro'>" + datoChild[keyChild].Nombre + " : " + datoChild[keyChild].Mensaje+"</a> <img src='imagenes/eliminar.png' class='imgMuroBorrar' onclick=updateDeleteChild('"+key+"','"+keyChild+"')></div>";
+                        todosLosMensajes += "<div class='divBodyResWall'><a class='aMuro'>" + datoChild[keyChild].Nombre + " : " + datoChild[keyChild].Mensaje+"</a> <img src='imagenes/borrar.png' class='imgMuroBorrar' onclick=updateDeleteChild('"+key+"','"+keyChild+"')><br></br></div>";
                     }
                }
              });
-             todosLosMensajes+="<div class='divFooterWall'><div class='divSelect'><img src='imagenes/palta.png' class='imgMuro' onclick=sumLike('"+key+"')>" + datos[key].Like +"</div><div class='divSelect'><img src='imagenes/comm.png' class='imgMuro' onclick=answerMessage('"+key+"')></div><div class='divSelect'><img src='imagenes/eliminar.png' class='imgMuro' onclick=updateDelete('"+key+"')></div></div>"
+             todosLosMensajes+="<div class='divFooterWall'><div class='divSelect'><img src='imagenes/palta.png' class='imgMuro' onclick=sumLike('"+key+"')>" + datos[key].Like +"</div><div class='divSelect'><img src='imagenes/comm.png' class='imgMuro' onclick=answerMessage('"+key+"')></div><div class='divSelect'><img src='imagenes/borrar.png' class='imgMuro' onclick=updateDelete('"+key+"')></div></div>"
              todosLosMensajes+="</div></br>";
             }
         }
