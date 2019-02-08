@@ -34,8 +34,8 @@
         width: 20px;
     }
     .imgMuroBorrar{
-        height: 10px;
-        width: 10px;
+        height: 15px;
+        width: 15pxx;
     }
     .divHeaderMuro{
         background-color: #FFFFFF;
@@ -62,10 +62,6 @@
         color: #000;
         font-size: 13px;
       }
-<<<<<<< HEAD
-=======
-
->>>>>>> f7a0cb7efdd8cec650fffce8630bfc5b78adef98
 }
 /*responsive otros dispositivos*/
 @media screen and (min-width: 541px) and (max-width: 720px){
@@ -76,10 +72,6 @@
         text-align: center;
         color: black;
         }
-<<<<<<< HEAD
-=======
-
->>>>>>> f7a0cb7efdd8cec650fffce8630bfc5b78adef98
     .inputlogin{
         width: 40%;
         height: auto;
@@ -132,10 +124,6 @@
         text-align: center;
         font-size: 30px;
       }
-<<<<<<< HEAD
-=======
-
->>>>>>> f7a0cb7efdd8cec650fffce8630bfc5b78adef98
 }
 /*responsive tablet o superior*/
 @media screen and (min-width: 721px){
@@ -199,10 +187,6 @@
         color: #000;
         font-size: 28px;
       }
-<<<<<<< HEAD
-=======
-
->>>>>>> f7a0cb7efdd8cec650fffce8630bfc5b78adef98
 }
 /*fondo de pantallas*/
  .bodyImg{
@@ -257,7 +241,7 @@
     border-style: solid;
   }
   .divSelect{
-      width: 33%;
+      width: 25%;
       display:inline-block;
   }
   .divWallMessage{
