@@ -44,7 +44,7 @@ function (){
         console.log(errorCode);
         console.log(errorMessage);
         // ...
-      });
+      }); 
 }
 
 //Esta función monitorea si hay un nuevo registro de usuario o si hay una sesión abierta//

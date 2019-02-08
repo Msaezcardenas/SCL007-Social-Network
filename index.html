@@ -4,12 +4,13 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <meta http-equiv="X-UA-Compatible" content="ie=edge">
-     <link rel="stylesheet" href="../src/style/styleMarce.css">
-     <link rel="stylesheet" href="../src/style/stylesMolu.css">
+     <link rel="stylesheet" href="./style/styleMarce.css">
+     <link rel="stylesheet" href="./style/stylesMolu.css">
      <title>Document</title>
    <meta charset="utf-8">
  </head>
   <body class="bodyImg">
+
 
 <ul class="navInicio" style="display:block">      
       
@@ -18,7 +19,7 @@
   <li><a href="https://www.facebook.com/KuyenRayen/">Cosmetica Vegana</a></li>
   <li><a href="https://www.petalatino.com/blog/nuevo-estudio-sugiere-que-si-todos-fueramos-veganos-podriamos-salvar-8-millones-de-vidas-humanas-al-ano/">Estudios</a></li>
 
-</ul>
+<ul>
 
 <div class="vegImg" style="text-align: left"><img src="imagenes/veg.png" width="70" /></div>
 <div id="userLogin" style="display: block" class="divlogin"><!--se crea para mostrar el login-->
@@ -48,7 +49,7 @@
    
    <br>
   <!-- Muro  -->
-  <!-- Creación de post -->  
+  <!-- Creación de post -->
   <div id="userWall" style="display: none" ><!--se crea para mostrar el muro-->
  <div class="divMuro">
     <form id="formMessage" class="divHeaderModal">
@@ -60,7 +61,7 @@
         <input type="submit" name="" value="Enviar Mensaje" class="inputlogin">
       </form>
  </div>
-  
+
  <p></p>
  <div id="messageBackground"></div>
 </div>
@@ -79,21 +80,11 @@
 </div>
  <!--fin modal de respuesta-->
    <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
-   <script>
-    // Initialize Firebase
-    var config = {
-      apiKey: "AIzaSyDXW_PfHMN2JlyWR1owAOrq9oPQVs3rZsk",
-      authDomain: "socialveg-8b9ea.firebaseapp.com",
-      databaseURL: "https://socialveg-8b9ea.firebaseio.com",
-      projectId: "socialveg-8b9ea",
-      storageBucket: "socialveg-8b9ea.appspot.com",
-      messagingSenderId: "480080963526"
-    };
-    firebase.initializeApp(config);   </script>
-       <script src="../src/js/main.js" type="module"></script>
-       <script src="../src/js/mainMolu.js" type="module"></script>
-       <script src="../src/js/data.js"></script>
-       <script src="node_modules/firebase/firebase.js"></script>
+
+       <script src="./js/main.js" type="module"></script>
+       <script src="./js/mainMolu.js" type="module"></script>
+       <script src="./js/data.js"></script>
+      
        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   </body>
 </html>
