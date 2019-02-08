@@ -58,10 +58,6 @@
         color: #000;
         font-size: 13px;
       }
-<<<<<<< HEAD
-=======
-
->>>>>>> f7a0cb7efdd8cec650fffce8630bfc5b78adef98
 }
 /*responsive otros dispositivos*/
 @media screen and (min-width: 541px) and (max-width: 720px){
@@ -72,10 +68,6 @@
         text-align: center;
         color: black;
         }
-<<<<<<< HEAD
-=======
-
->>>>>>> f7a0cb7efdd8cec650fffce8630bfc5b78adef98
     .inputlogin{
         width: 40%;
         height: auto;
@@ -125,19 +117,19 @@
         text-align: center;
         font-size: 30px;
       }
-<<<<<<< HEAD
-=======
 
->>>>>>> f7a0cb7efdd8cec650fffce8630bfc5b78adef98
 }
 /*responsive tablet o superior*/
 @media screen and (min-width: 721px){
+
     .divlogin{
-        width: 100%;
+        width: 60%;
         height: auto;
         background-color:  #C9EEAC;
         text-align: center;
         color: black;
+        margin-left: 250px;
+        border-radius: 12px;
         }
     .inputlogin{
         width: 40%;
@@ -188,10 +180,6 @@
         color: #000;
         font-size: 28px;
       }
-<<<<<<< HEAD
-=======
-
->>>>>>> f7a0cb7efdd8cec650fffce8630bfc5b78adef98
 }
 /*fondo de pantallas*/
  .bodyImg{
