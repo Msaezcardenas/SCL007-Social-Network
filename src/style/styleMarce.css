@@ -24,6 +24,7 @@
         border-radius: 25px;
         text-align: left;
         font-size: medium;
+        margin-left: 6%;
     }
     .aMuro{
         text-align: center;
@@ -40,6 +41,9 @@
         background-color: #FFFFFF;
         text-align: center;
         font-size: 18px;
+        border-color: black;
+        border-width: 2px;
+        border-style: solid;
       }
       .divHeaderModal{
         color: #000;
@@ -107,6 +111,9 @@
         background-color: #FFFFFF;
         text-align: center;
         font-size: 30px;
+        border-color: black;
+        border-width: 2px;
+        border-style: solid;
       }
       .divBodyWall{
         background-color: #C4C4C4;
@@ -146,7 +153,7 @@
         border-radius: 12px;
     }
     .divMuro{
-        width: 85%;
+        width: 75%;
         height: auto;
         background-color:  #C9EEAC;
         color: black;
@@ -154,6 +161,7 @@
         border-color: white;
         border-radius: 25px;
         text-align: left;
+        margin-left: 10%;
     }
     .aMuro{
         text-align: center;
@@ -170,6 +178,9 @@
         background-color: #FFFFFF;
         text-align: center;
         font-size: 35px;
+        border-color: black;
+        border-width: 2px;
+        border-style: solid;
       }
       .divHeaderModal{
         color: #000;
@@ -241,13 +252,17 @@
   /*css de muro*/
   .divFooterWall{
     background-color: #FFFFFF;
+    border-color: black;
+    border-width: 2px;
+    border-style: solid;
   }
   .divSelect{
       width: 33%;
       display:inline-block;
   }
   .divWallMessage{
-      width: 100%;
+      width: 75%;
+      margin-left: 10%;
   }
   .cerrarModal{
       font-size: 30px;
