@@ -1,30 +1,32 @@
 <!DOCTYPE html>
-
 <html lang="es" dir="ltr">
-
   <head>
-
       <meta charset="UTF-8">
-
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
      <meta http-equiv="X-UA-Compatible" content="ie=edge">
      <link rel="stylesheet" href="../src/style/styleMarce.css">
-     <!--<link rel="stylesheet" href="../src/style/style.css">     <link rel="stylesheet" href="../src/style/grid.css">
-     <link rel="stylesheet" href="../src/style/styleEC.css">--> <!-- STYLE.CSS ELIZABETH -->
+     <link rel="stylesheet" href="../src/style/stylesMolu.css">
      <title>Document</title>
    <meta charset="utf-8">
  </head>
   <body class="bodyImg">
+
+<ul>      
+      
+  <li><a href="default.asp">Home</a></li>
+  <li><a href="news.asp">News</a></li>
+  <li><a href="contact.asp">Contact</a></li>
+  <li><a href="about.asp">About</a></li>
+
+</ul>
+
+
    <!-- Registro e Ingreso de usuarios -->
 <div id="userRegister" style="display:none" class="divlogin"> <!--se crea para mostrar el registro de usuario-->
- 
     <h4>Registro de Usuarios</h4>
     <input id="email" type="email" placeholder="Ingresa email">
     <input id="password" type="password" placeholder="Ingresa contraseña">
     <button id="signIn"> Enviar </button>
-
 </div><div id="userLogin" style="display: block" class="divlogin"><!--se crea para mostrar el login-->
      <h4>Ingreso de Usuarios</h4>
     <input id="email2" type="email" placeholder="Ingresa email">
@@ -54,7 +56,6 @@
 </div>
  <div id="root"></div>
  <!--Inicio modal de respuesta MArratia-->
-
  <div id="myModal" class="modal">
   <!-- Modal content -->
   <div class="modal-content">
@@ -84,6 +85,5 @@
        <script src="../src/js/data.js"></script>
        <script src="node_modules/firebase/firebase.js"></script>
        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-   
   </body>
 </html>
