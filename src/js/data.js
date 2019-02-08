@@ -33,11 +33,11 @@ function showMessageFromFirebase(){
                  let datoChild=snap.val();
                  for(var keyChild in datoChild){
                     if(datoChild[keyChild].Eliminado === 0){
-                        todosLosMensajes += "<div class='divBodyResWall'><a class='aMuro'>" + datoChild[keyChild].Nombre + " : " + datoChild[keyChild].Mensaje+"</a> <img src='imagenes/borrar.png' class='imgMuroBorrar' onclick=updateDeleteChild('"+key+"','"+keyChild+"')><br></br></div>";
+                        todosLosMensajes += "<div class='divBodyResWall'><a class='aMuro'>" + datoChild[keyChild].Nombre + " : " + datoChild[keyChild].Mensaje+"</a> <img src='imagenes/borrar.png' class='imgMuroBorrar' onclick=updateDeleteChild('"+key+"','"+keyChild+","+datoChild[keyChild].Email+"')><br></br></div>";
                     }
                }
              });
-             todosLosMensajes+="<div class='divFooterWall'><div class='divSelect'><img src='imagenes/palta.png' class='imgMuro' onclick=sumLike('"+key+"')>" + datos[key].Like +"</div><div class='divSelect'><img src='imagenes/comm.png' class='imgMuro' onclick=answerMessage('"+key+"')></div><div class='divSelect'><img src='imagenes/borrar.png' class='imgMuro' onclick=updateDelete('"+key+"')></div></div>"
+             todosLosMensajes+="<div class='divFooterWall'><div class='divSelect'><img src='imagenes/palta.png' class='imgMuro' onclick=sumLike('"+key+"')>" + datos[key].Like +"</div><div class='divSelect'><img src='imagenes/comm.png' class='imgMuro' onclick=answerMessage('"+key+"')></div><div class='divSelect'><img src='imagenes/borrar.png' class='imgMuro' onclick=updateDelete('"+key+"','"+datos[key].Email+"')></div></div>"
              todosLosMensajes+="</div></br>";
             }
         }
@@ -47,25 +47,37 @@ function showMessageFromFirebase(){
     })
 }
 //cambia estado del mensaje(actualiza si la persona borra)
-function updateDelete(valor){
-    if(confirm("Desea eliminar mensaje")){
-        refmessage = firebase.database().ref().child("mensaje").child(valor);
-        refmessage.update({
-        Eliminado:1
-
-        });
+function updateDelete(valor,email){
+    if(email === document.getElementById("email2").value){
+        if(confirm("Desea eliminar mensaje")){
+            refmessage = firebase.database().ref().child("mensaje").child(valor);
+            refmessage.update({
+            Eliminado:1
+    
+            });
+        }
     }
-
+    else
+    {
+        alert("Solo el usuario propietario puede eiminar el mensaje");
+    }
 }
 
 //cambia estado del mensaje del mensaje hijo(actualiza si la persona borra)
-function updateDeleteChild(valor,valorChild){
-    if(confirm("Desea eliminar mensaje")){
-        refmessage = firebase.database().ref().child("mensaje").child(valor).child(valorChild);
-        refmessage.update({
-        Eliminado:1
-        });
+function updateDeleteChild(valor,valorChild,email){
+    if(email === document.getElementById("email2").value){
+        if(confirm("Desea eliminar mensaje")){
+            refmessage = firebase.database().ref().child("mensaje").child(valor).child(valorChild);
+            refmessage.update({
+            Eliminado:1
+            });
+        }
     }
+    else
+    {
+        alert("Solo el usuario propietario puede eiminar el mensaje");
+    }
+  
  }
 
 function sumLike(keySum){
@@ -100,10 +112,10 @@ window.onclick = function(event) {
     let mensaje=document.getElementById("mesageResponse").value;
     if(usuario != "" && usuario != null && mensaje != "" && mensaje != null)
     { 
-        console.log(mensaje);
-        console.log(usuario);   
+        let email=document.getElementById("email2").value;
+        console.log(email);  
         refmessageAnswer= firebase.database().ref().child("mensaje").child(keyAnswerMessage);
-        refmessageAnswer.push({Mensaje:mensaje, Nombre:usuario, Eliminado:0,Principal:0,Like:0});
+        refmessageAnswer.push({Mensaje:mensaje, Nombre:usuario, Eliminado:0,Principal:0,Like:0,Email:email});
         keyAnswerMessage="";
         document.getElementById("nameResponse").value="";
         document.getElementById("mesageResponse").value="";
@@ -119,6 +131,7 @@ window.onclick = function(event) {
 let keyAnswerMessage;
 function answerMessage(keyAnswer){
     //let messageAnswer = prompt("Respuesta");
+
     keyAnswerMessage=keyAnswer;
     let modal = document.getElementById("myModal");
     modal.style.display = "block";
@@ -126,15 +139,17 @@ function answerMessage(keyAnswer){
 //Envía datos a Firebase
 function sendDataToFirebase(event){
     event.preventDefault();
+    let email=document.getElementById("email2").value;
+    console.log(email);  
     if(event.target.mensaje.value != null && event.target.mensaje.value != "" && event.target.nombre.value != "" && event.target.nombre.value!= null){
-        refmessage.push({Mensaje: event.target.mensaje.value, Nombre:event.target.nombre.value, Eliminado:0,Principal:0,Like:0});
+        refmessage.push({Mensaje: event.target.mensaje.value, Nombre:event.target.nombre.value, Eliminado:0,Principal:0,Like:0,Email:email});
+        document.getElementById("nombre").value="";
+        document.getElementById("mensaje").value="";
     }
     else
     {
         alert("Mensaje y/o Usuario no puede estar en balnco");
     }
-    
-
 }
  //Parámetros para conexión de base de datos
 function initializeFirebase(){
