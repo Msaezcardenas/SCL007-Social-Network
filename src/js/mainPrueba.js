@@ -25,7 +25,7 @@ function signIn(){
 // Se declara función para ingresar una vez registrado//
 document.getElementById("login").addEventListener("click", login)
 
-function (){
+function login(){
 
     let email2 = document.getElementById('email2').value;
     let password2 = document.getElementById('password2').value;
@@ -44,7 +44,7 @@ function (){
         console.log(errorCode);
         console.log(errorMessage);
         // ...
-      }); 
+      });
 }
 
 //Esta función monitorea si hay un nuevo registro de usuario o si hay una sesión abierta//
@@ -118,12 +118,7 @@ function verficar(){
 //se crea funcion para registro usuario
 document.getElementById("registrar").addEventListener("click", registerUser);
 function registerUser(){
-    document.getElementById("userLogin").style.display = "block";
+    document.getElementById("userLogin").style.display = "none";
     document.getElementById("userRegister").style.display = "block";
 
-}
-
-document.getElementsById("login").addEventListener("click", showNavbar);
-function showNavbar(){
-    document.getElementsByClassName("navInicio").style.display = "block";
 }

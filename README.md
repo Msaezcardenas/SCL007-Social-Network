@@ -11,8 +11,8 @@
 * [Definición del producto](#definición-del-producto)
 * [Resumen de entrevistas con usuarios](#resumen-de-entrevistas-con-usuarios)
 * [Historias de usuario](#historias-de-usuario)
-* [Diseño Interfaz de Usuario (prototipo de baja fidelidad)](#Diseño-Interfaz-de-Usuario-(prototipo-de-baja-fidelidad))
-* [Diseño Interfaz de Usuario (prototipo de alta fidelidad)](#Diseño-Interfaz-de-Usuario-(prototipo-de-alta-fidelidad))
+* [Diseño Interfaz de Usuario (PBF)](#Diseño-Interfaz-de-Usuario-(PBA))
+* [Diseño Interfaz de Usuario (PAF)](#Diseño-Interfaz-de-Usuario-(PAF))
 * [Test de usabilidad](#test-de-usabilidad)
 * [Implementación de la Interfaz de Usuario](#Implementación-de-la-Interfaz-de-Usuario)
 
@@ -87,14 +87,14 @@ En general, los usuarios coinciden en querer un sitio con recetas, datos, restau
 [aquí](https://drive.google.com/drive/folders/1pvTZKcE55xdAUkaaZS0a6C-rbvwYRHWf).
 
 
-### Diseño de la Interfaz de Usuario (prototipo de baja fidelidad)
+## Diseño de la Interfaz de Usuario (prototipo de baja fidelidad)
 
 Para el prototipo de baja fidelidad, realizamos un sketch tratando de plasmar los resultados de la etapa anterior, incluyendo todos los requerimientos que recabamos de la encuesta inicial.
 
 ![pbf](https://user-images.githubusercontent.com/45245032/52440353-adf2b380-2afc-11e9-9472-c4949f12c71d.png)
 
 
-### Diseño de la Interfaz de Usuario (prototipo de alta fidelidad)
+## Diseño de la Interfaz de Usuario (prototipo de alta fidelidad)
 
 En esta etapa, desarrollamos un prototipo en Figma, imitando el aspecto que consideramos debe tener el producto final.
 
@@ -143,7 +143,7 @@ Se aumentó la distancia entre posteos para identificar dónde inicia y termina 
 
 
 
-### Implementación de la Interfaz de Usuario (UI y comportamiento de Interfaz de Usuario)
+## Implementación de la Interfaz de Usuario (UI y comportamiento de Interfaz de Usuario)
 
 La interfaz implementada permite al usuario realizar las siguientes acciones:
 
