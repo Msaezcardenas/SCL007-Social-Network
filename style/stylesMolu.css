@@ -43,3 +43,31 @@ li a:hover:not(.active) {
 .active {
  background-color: #4CAF50;
 }
+/*responsive para el header, cambia el tamaño de las letras segun el porte de la pantalla*/
+@media screen and (max-width: 540px){
+    .divHeader{
+        font-size: 9px;
+    }
+    .imgHeader{
+        width: 40px;
+        height: 40px;
+    }
+}
+@media screen and (min-width: 541px) and (max-width: 720px){
+    .divHeader{
+        font-size: 18px;
+    }
+    .imgHeader{
+        width: 50px;
+        height: 50px;;
+    }
+}
+@media screen and (min-width: 721px){
+    .divHeader{
+        font-size: 20px;
+    }
+    .imgHeader{
+        width: 60px;
+        height: 60px;;
+    }
+}
