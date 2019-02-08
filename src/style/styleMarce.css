@@ -8,7 +8,6 @@
         color: black;
         margin-top: 240px;
         }
-
     .inputlogin{
         width: 40%;
         height: auto;
@@ -63,7 +62,10 @@
         color: #000;
         font-size: 13px;
       }
+<<<<<<< HEAD
+=======
 
+>>>>>>> f7a0cb7efdd8cec650fffce8630bfc5b78adef98
 }
 /*responsive otros dispositivos*/
 @media screen and (min-width: 541px) and (max-width: 720px){
@@ -74,7 +76,10 @@
         text-align: center;
         color: black;
         }
+<<<<<<< HEAD
+=======
 
+>>>>>>> f7a0cb7efdd8cec650fffce8630bfc5b78adef98
     .inputlogin{
         width: 40%;
         height: auto;
@@ -127,7 +132,10 @@
         text-align: center;
         font-size: 30px;
       }
+<<<<<<< HEAD
+=======
 
+>>>>>>> f7a0cb7efdd8cec650fffce8630bfc5b78adef98
 }
 /*responsive tablet o superior*/
 @media screen and (min-width: 721px){
@@ -138,7 +146,6 @@
         text-align: center;
         color: black;
         }
-
     .inputlogin{
         width: 40%;
         height: auto;
@@ -192,7 +199,10 @@
         color: #000;
         font-size: 28px;
       }
+<<<<<<< HEAD
+=======
 
+>>>>>>> f7a0cb7efdd8cec650fffce8630bfc5b78adef98
 }
 /*fondo de pantallas*/
  .bodyImg{
@@ -240,14 +250,12 @@
     cursor: pointer;
   } 
   /*css de muro*/
-
   .divFooterWall{
     background-color: #FFFFFF;
     border-color: black;
     border-width: 2px;
     border-style: solid;
   }
-
   .divSelect{
       width: 33%;
       display:inline-block;
