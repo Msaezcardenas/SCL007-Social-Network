@@ -131,3 +131,4 @@ document.getElementById("login").addEventListener("click", showNavbar);
 function showNavbar(){
     document.getElementsByClassName("navInicio").style.display = "block";
 }
+ 

@@ -35,7 +35,7 @@ function login(){
         console.log('Ingresado');
         document.getElementById("userLogin").style.display = "none";
         document.getElementById("userWall").style.display = "block";
-    })
+    }) 
     // si no se cumple alguna condición se ejecutara un error//
     .catch(function(error) {
         // Handle Errors here.
