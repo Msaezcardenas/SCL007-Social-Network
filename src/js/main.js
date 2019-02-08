@@ -1,4 +1,4 @@
-import {saveUser} from './dataMolu.js' 
+import {saveUser} from './dataMolu.js'
 
 // Se declara función para registrar usuarios//
 document.getElementById("signIn").addEventListener("click", signIn)
@@ -43,7 +43,7 @@ function login (){
         console.log(errorCode);
         console.log(errorMessage);
         // ...
-      }); 
+      });
 }
 
 //Esta función monitorea si hay un nuevo registro de usuario o si hay una sesión abierta//
@@ -129,6 +129,5 @@ function registerDiv(){
 }
 document.getElementById("login").addEventListener("click", showNavbar);
 function showNavbar(){
-    document.getElementsByClassName("navInicio").style.display = "block";
+    document.getElementById("navInicio1").style.display = "block";
 }
- 
