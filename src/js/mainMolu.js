@@ -43,6 +43,7 @@ function login(){
         let errorMessage = error.message;
         console.log(errorCode);
         console.log(errorMessage);
+        alert("Combinación de Usuario y Contraseña incorrecta!");
         // ...
       });
 }

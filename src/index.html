@@ -9,36 +9,34 @@
      <title>Document</title>
    <meta charset="utf-8">
  </head>
-  <body class="bodyImg">
-
-
-<ul class="navInicio" style="display:block">      
-      
-  <li><a href="https://www.lacasadelvegan.cl/">Tiendas</a></li>
-  <li><a href="https://es-la.facebook.com/VeganBunker/">Restaurantes</a></li>
-  <li><a href="https://www.facebook.com/KuyenRayen/">Cosmetica Vegana</a></li>
-  <li><a href="https://www.petalatino.com/blog/nuevo-estudio-sugiere-que-si-todos-fueramos-veganos-podriamos-salvar-8-millones-de-vidas-humanas-al-ano/">Estudios</a></li>
-
-<ul>
-
-<div class="vegImg" style="text-align: left"><img src="imagenes/veg.png" width="70" /></div>
+<body class="bodyImg">
+<div class="divHeader">
+    <ul class="navInicio" style="display:block">   
+        <li><img src="imagenes/veg.png" class="imgHeader" /></li>   
+        <li><a href="https://www.lacasadelvegan.cl/">Tiendas</a></li>
+        <li><a href="https://es-la.facebook.com/VeganBunker/">Restaurantes</a></li>
+        <li><a href="https://www.facebook.com/KuyenRayen/">Cosmetica Vegana</a></li>
+        <li><a href="https://www.petalatino.com/blog/nuevo-estudio-sugiere-que-si-todos-fueramos-veganos-podriamos-salvar-8-millones-de-vidas-humanas-al-ano/">Estudios</a></li>
+    </ul>
+  </div>
 <div id="userLogin" style="display: block" class="divlogin"><!--se crea para mostrar el login-->
   <h4>Ingreso de Usuarios</h4>
  <input id="email2" type="email" placeholder="Ingresa email">
  <input id="password2" type="password" placeholder="Ingresa contraseña">
  <button id="login"> Acceder </button>
+ <!--se agrega el link para crear el registro-->
+ <p>Si desea crear una cuenta presione <button id="registerNew">aquí</button></p>
 
 </div>
 <br>
 <br>
    <!-- Registro e Ingreso de usuarios -->
-<div id="userRegister" style="display: block"  class="divlogin"> <!--se crea para mostrar el registro de usuario-->
+<div id="userRegister" style="display: none"  class="divlogin"> <!--se crea para mostrar el registro de usuario-->
     <h4>Registro de Usuarios</h4>
     <input id="name" placeholder="Nombre">
-    <input id="lastName" placeholder="apeliido"> <br> <br>
+    <input id="lastName" placeholder="apellido"> <br> <br>
     <input id="email" type="email" placeholder="Ingresa email"> <br> <br>
     <input id="password" type="password" placeholder="Ingresa contraseña">
-
     <button id="signIn"> Registrarse </button>
 
 </div>
@@ -80,11 +78,9 @@
 </div>
  <!--fin modal de respuesta-->
    <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
-
        <script src="./js/main.js" type="module"></script>
        <script src="./js/mainMolu.js" type="module"></script>
-       <script src="./js/data.js"></script>
-      
+       <script src="./js/data.js"></script>    
        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   </body>
 </html>

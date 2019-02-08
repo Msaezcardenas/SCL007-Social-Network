@@ -7,6 +7,8 @@
         text-align: center;
         color: black;
         margin-top: 240px;
+        margin-left: 5%;
+        border-radius: 12px;
         }
     .inputlogin{
         width: 40%;
@@ -34,8 +36,8 @@
         width: 20px;
     }
     .imgMuroBorrar{
-        height: 10px;
-        width: 10px;
+        height: 15px;
+        width: 15pxx;
     }
     .divHeaderMuro{
         background-color: #FFFFFF;
@@ -55,7 +57,7 @@
         text-align: justify;
         font-size: 15px;
       }
-    
+
       .divBodyResWall{
         background-color: #C4C4C4;
         text-align: justify;
@@ -71,6 +73,8 @@
         background-color:  #C9EEAC;
         text-align: center;
         color: black;
+        margin-left: 5%;
+        border-radius: 12px;
         }
     .inputlogin{
         width: 40%;
@@ -87,6 +91,7 @@
         border-color: red;
         border-radius: 25px;
         text-align: left;
+        margin-top: 240px
     }
     .aMuro{
         text-align: center;
@@ -112,7 +117,7 @@
         text-align: justify;
         font-size: 28px;
       }
-    
+
       .divBodyResWall{
         background-color: #C4C4C4;
         text-align: justify;
@@ -137,6 +142,8 @@
         color: black;
         margin-left: 250px;
         border-radius: 12px;
+        margin-left: 20%;
+        margin-top: 240px;
         }
     .inputlogin{
         width: 40%;
@@ -154,6 +161,7 @@
         border-radius: 25px;
         text-align: left;
         margin-left: 10%;
+        margin-top: 240px
     }
     .aMuro{
         text-align: center;
@@ -184,7 +192,7 @@
         text-align: justify;
         font-size: 30px;
       }
-    
+
       .divBodyResWall{
         background-color: #C4C4C4;
         text-align: justify;
@@ -196,7 +204,7 @@
  .bodyImg{
      background-image: url("../imagenes/found1.png");
  }
- 
+
 /*Estilo para el modal*/
 .modal {
     display: none; /* Hidden by default */
@@ -210,9 +218,9 @@
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-   
+
   }
-  
+
   /* Modal Content */
   .modal-content {
     background-color: #fefefe;
@@ -222,7 +230,7 @@
     width: 80%;
     background-image: url(../imagenes/found1.png);
   }
-  
+
   /* The Close Button */
   .close {
     color: #aaaaaa;
@@ -230,13 +238,13 @@
     font-size: 28px;
     font-weight: bold;
   }
-  
+
   .close:hover,
   .close:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;
-  } 
+  }
   /*css de muro*/
   .divFooterWall{
     background-color: #FFFFFF;
@@ -245,7 +253,7 @@
     border-style: solid;
   }
   .divSelect{
-      width: 33%;
+      width: 25%;
       display:inline-block;
   }
   .divWallMessage{
@@ -256,4 +264,4 @@
       font-size: 30px;
       margin-left: 90%;
       font-weight: bold;
-  } 
+  }
