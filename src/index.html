@@ -4,15 +4,15 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <meta http-equiv="X-UA-Compatible" content="ie=edge">
-     <link rel="stylesheet" href="../src/style/styleMarce.css">
-     <link rel="stylesheet" href="../src/style/stylesMolu.css">
+     <link rel="stylesheet" href="./style/styleMarce.css">
+     <link rel="stylesheet" href="./style/stylesMolu.css">
      <title>Document</title>
    <meta charset="utf-8">
  </head>
   <body class="bodyImg">
 
-<ul>      
-      
+<ul>
+
   <li><a href="default.asp">Home</a></li>
   <li><a href="news.asp">News</a></li>
   <li><a href="contact.asp">Contact</a></li>
@@ -38,7 +38,7 @@
    </div>
    <br>
   <!-- Muro  -->
-  <!-- Creación de post -->  
+  <!-- Creación de post -->
   <div id="userWall" style="display: none" ><!--se crea para mostrar el muro-->
  <div class="divMuro">
     <form id="formMessage" class="divHeaderModal">
@@ -50,7 +50,7 @@
         <input type="submit" name="" value="Enviar Mensaje" class="inputlogin">
       </form>
  </div>
-  
+
  <p></p>
  <div id="messageBackground"></div>
 </div>
@@ -65,11 +65,11 @@
         <p class="divHeaderModal"> Mensaje : <textarea id="mesageResponse"></textarea></p>
         <p><input type="button" value="Enviar" id="btnModal" class="inputlogin"></p>
     </div>
-  </div> 
+  </div>
 </div>
  <!--fin modal de respuesta-->
    <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
-   <script>
+   <!-- <script>
     // Initialize Firebase
     var config = {
       apiKey: "AIzaSyDXW_PfHMN2JlyWR1owAOrq9oPQVs3rZsk",
@@ -79,11 +79,11 @@
       storageBucket: "socialveg-8b9ea.appspot.com",
       messagingSenderId: "480080963526"
     };
-    firebase.initializeApp(config);   </script>
-       <script src="../src/js/main.js" type="module"></script>
-       <script src="../src/js/mainMolu.js" type="module"></script>
-       <script src="../src/js/data.js"></script>
-       <script src="node_modules/firebase/firebase.js"></script>
+    firebase.initializeApp(config);   </script> -->
+       <script src="./js/main.js" type="module"></script>
+       <script src="./js/mainMolu.js" type="module"></script>
+       <script src="./js/data.js"></script>
+       <!-- <script src="node_modules/firebase/firebase.js"></script> -->
        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   </body>
 </html>

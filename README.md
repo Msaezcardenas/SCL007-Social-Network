@@ -11,12 +11,9 @@
 * [Definición del producto](#definición-del-producto)
 * [Resumen de entrevistas con usuarios](#resumen-de-entrevistas-con-usuarios)
 * [Historias de usuario](#historias-de-usuario)
-* [Diseño de la Interfaz de Usuario (prototipo de baja fidelidad)](#Diseño-de-la-Interfaz-de-Usuario-(prototipo-de-baja-fidelidad))
-
-* [Diseño de la Interfaz de Usuario (prototipo de alta fidelidad)](#Diseño-de-la-Interfaz-de-Usuario-(prototipo-de-alta-fidelidad))
-
+* [Diseño Interfaz de Usuario (prototipo de baja fidelidad)](#Diseño-Interfaz-de-Usuario-(prototipo-de-baja-fidelidad))
+* [Diseño Interfaz de Usuario (prototipo de alta fidelidad)](#Diseño-Interfaz-de-Usuario-(prototipo-de-alta-fidelidad))
 * [Test de usabilidad](#test-de-usabilidad)
-
 * [Implementación de la Interfaz de Usuario](#Implementación-de-la-Interfaz-de-Usuario)
 
 ***
