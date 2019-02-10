@@ -129,6 +129,6 @@ function registerDiv(){
 }
 document.getElementById("login").addEventListener("click", showNavbar);
 function showNavbar(){
-    document.getElementsByClassName("navInicio").style.display = "block";
+    document.getElementById("navInicio").style.display = "block";
 }
  

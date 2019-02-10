@@ -39,6 +39,10 @@
         height: 15px;
         width: 15pxx;
     }
+    .imgEdit{
+        width: 30px;
+        height: 30px;
+    }
     .divHeaderMuro{
         background-color: #FFFFFF;
         text-align: center;
@@ -63,6 +67,17 @@
         text-align: justify;
         color: #000;
         font-size: 13px;
+      }
+      /*div que edita información de usuario si lo desea*/
+      .Edition{
+            width: 90%;
+            height: auto;
+            background:  #C9EEAC;
+            text-align: center;
+            color: black;
+            margin-top: 240px;
+            margin-left: 5%;
+            border-radius: 12px;
       }
 }
 /*responsive otros dispositivos*/
