@@ -30,11 +30,24 @@ function login(){
     let email2 = document.getElementById('email2').value;
     let password2 = document.getElementById('password2').value;
 
-    firebase.auth().signInWithEmailAndPassword(email2, password2)
-    .then(function(){
+    firebase.auth().signInWithEmailAndPassword(email2, password2).then(function(){
         console.log('Ingresado');
         document.getElementById("userLogin").style.display = "none";
         document.getElementById("userWall").style.display = "block";
+        let extension;
+        //se agrega codigo para buscar el usuario en la tabla de users
+        refmessage=firebase.database().ref().child("users");
+        refmessage.on("value",function(snap){
+        let datos=snap.val();
+        let key;
+            for(key in datos){
+                if(datos[key].email===document.getElementById("email2").value){
+                    document.getElementById("welcomeuser").innerHTML=datos[key].Nombre;
+                    showImage(datos[key].extension);//foto
+                }
+            }    
+        });
+
     }) 
     // si no se cumple alguna condición se ejecutara un error//
     .catch(function(error) {
@@ -45,6 +58,16 @@ function login(){
         console.log(errorMessage);
         alert("Combinación de Usuario y Contraseña incorrecta!");
         // ...
+      });
+}
+//imgWall este control dibujara la imagen
+function showImage(extension){
+    let storageRef= firebase.storage().ref();
+    let starsRef = storageRef.child('images/'+document.getElementById("email2").value+"."+extension);
+    starsRef.getDownloadURL().then(function(url) {
+        // Insert url into an <img> tag to "download"
+        let img=document.getElementById("imgWall");
+        img.src=url;
       });
 }
 
