@@ -15,9 +15,10 @@
         <li><img src="imagenes/veg.png" class="imgHeader"></li>   
         <li><a href="https://www.lacasadelvegan.cl/">Tiendas</a></li>
         <li><a href="https://es-la.facebook.com/VeganBunker/">Restaurantes</a></li>
-        <li><a href="https://www.facebook.com/KuyenRayen/">Cosmetica Vegana</a></li>
+        <li><a href="https://www.facebook.com/KuyenRayen/">Cosmética Vegana</a></li>
         <li><a href="https://www.petalatino.com/blog/nuevo-estudio-sugiere-que-si-todos-fueramos-veganos-podriamos-salvar-8-millones-de-vidas-humanas-al-ano/">Estudios</a></li>
-    </ul>
+        <li><button id="callPerfil">Perfil Usuario</button></li>
+      </ul>
   </div>
   <!--div que contiene comandos para editar si el usuario lo desea-->
   <div id="divEdition" style="display: none" class="divlogin">
@@ -58,12 +59,15 @@
    <br>
   <!-- Muro  -->
   <!-- Creación de post -->
-  <div id="userWall" style="display: none" ><!--se crea para mostrar el muro-->
+  <div id="userWall" style="display: none"><!--se crea para mostrar el muro-->
+    
  <div class="divMuro">
     <form id="formMessage" class="divHeaderModal">
         <p></p>
-        <label for="nombre">Nombre:</label>
-        <input type="text" name="nombre" id="nombre" value=""><p></p>
+        <img id="imgWall" class="imgResponsive">
+        <p></p>
+        Bienvenido <label id="welcomeuser"></label>
+       <p></p>
         <label for="mensaje">Mensaje:</label>
         <textarea name="mensaje" id="mensaje" cols="" rows=""></textarea><p></p>
         <input type="submit" name="" value="Enviar Mensaje" class="inputlogin">
@@ -80,7 +84,7 @@
   <div class="modal-content">
     <div class="cerrarModal"><input type="button" value="X" id="cerrarModal"></div>
     <div class="divMuro">
-        <p class="divHeaderModal">Nombre  : <input type="text" id="nameResponse"></p>
+        <p class="divHeaderModal">Nombre  : <label id="nameResponse"></label></p>
         <p class="divHeaderModal"> Mensaje : <textarea id="mesageResponse"></textarea></p>
         <p><input type="button" value="Enviar" id="btnModal" class="inputlogin"></p>
     </div>
@@ -111,6 +115,38 @@
       </div>
     </div>
      <!--fin modal de editar hijo-->
+<!--Creando perfil de usuario-->
+
+ <div id="userWallPerfil" style="display: none" ><!--se crea para mostrar el muro-->
+  <div class="divMuro">
+    <!--Creando perfil de usuario-->
+ <div id="divPerfil" style="display: block" class="divMuro">
+     <form id="formMessagePerfil" class="divHeaderModal"><p></p>
+      <img id="imagenPerfil" class="imgResponsive"><p></p>
+          <label id="namePerfil"></label><p></p>
+         <textarea name="mensaje" id="mensajePerfil" cols="" rows="" placeholder="Comenta" ></textarea><p></p>
+         <input type="button" name="" id="sendMessagePerfil" value="Enviar Comentario" class="inputComent">
+       </form><p></p>
+  </div>
+  <p></p>
+</div>
+  <p></p>
+  <div id="messagePerfil"></div>
+ </div><p></p>
+  <!-- Fin perfil usuario -->
+
+
+
+
+
+
+
+
+
+
+
+
+
    <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
        <script src="./js/main.js" type="module"></script>
        <script src="./js/mainMolu.js" type="module"></script>
