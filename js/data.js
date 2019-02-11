@@ -281,7 +281,7 @@ function sendDataToFirebase(event){
   function showImage(extension){
     let storageRef= firebase.storage().ref();
     let starsRef = storageRef.child('images/'+document.getElementById("email2").value+"."+extension);
-    console.log(starsRef);
+    
     starsRef.getDownloadURL().then(function(url) {
         // Insert url into an <img> tag to "download"
         let img=document.getElementById("imagenPerfil");
@@ -292,7 +292,7 @@ function sendDataToFirebase(event){
 //mostrando mensaje de base de datos solo del usuario dueño del perfil, ref=referencia
 function showMessagePerfilFirebase(){
     let extension;
-    //vamos a buscar la inforamcion del usuario por medio del correo
+    //vamos a buscar la informacion del usuario por medio del correo
     refmessage=firebase.database().ref().child("users");
     refmessage.on("value",function(snap){
         let datos=snap.val();
