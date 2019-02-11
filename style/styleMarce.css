@@ -10,6 +10,11 @@
         margin-left: 5%;
         border-radius: 12px;
         }
+    .imgResponsive{
+        width: 120px;
+        height: 120px;
+        border-radius: 90px;
+    }
     .inputlogin{
         width: 40%;
         height: auto;
@@ -67,19 +72,15 @@
         text-align: justify;
         color: #000;
         font-size: 13px;
+      } 
+
+        .divHeaderModaldos{
+            color: #000;
+            text-align: center;
+            font-size: 18px;
+          }
       }
       /*div que edita información de usuario si lo desea*/
-      .Edition{
-            width: 90%;
-            height: auto;
-            background:  #C9EEAC;
-            text-align: center;
-            color: black;
-            margin-top: 240px;
-            margin-left: 5%;
-            border-radius: 12px;
-      }
-}
 /*responsive otros dispositivos*/
 @media screen and (min-width: 541px) and (max-width: 720px){
     .divlogin{
@@ -90,6 +91,11 @@
         color: black;
         margin-left: 5%;
         border-radius: 12px;
+        }
+        .imgResponsive{
+            width: 220px;
+            height: 220px;
+            border-radius: 90px;
         }
     .inputlogin{
         width: 40%;
@@ -160,6 +166,11 @@
         margin-left: 20%;
         margin-top: 240px;
         }
+        .imgResponsive{
+            width: 320px;
+            height: 320px;
+            border-radius: 90px;
+        }
     .inputlogin{
         width: 40%;
         height: auto;
@@ -214,6 +225,20 @@
         color: #000;
         font-size: 28px;
       }
+      .buttonComent{
+        border-radius: 80%;
+      }
+      .divComentUsers{
+        width: 60%;
+        height: auto;
+        background-color:  #C9EEAC;
+        text-align: center;
+        color: black;
+        margin-left: 250px;
+        border-radius:50%;
+        margin-left: 20%;
+        margin-top: 500px;
+        }
 }
 /*fondo de pantallas*/
  .bodyImg{
