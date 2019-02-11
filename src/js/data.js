@@ -57,17 +57,18 @@ function showMessageFromFirebase(){
   let keyEdit;
   //funcion que recive y busca el mensaje
 function editMessage(key){
+    let modal = document.getElementById('myModalEdit');
     refmessage = firebase.database().ref().child("mensaje").child(key);
     refmessage.on("value",function(snap){
     let datos = snap.val();
-    if(datos.Email===document.getElementById("email2").value){
-        let modal = document.getElementById('myModalEdit');
+    if(datos.Email===document.getElementById("email2").value){  
         modal.style.display = "block";
         document.getElementById('editTextArea').innerHTML=datos.Mensaje;
         keyEdit=key;
     }
     else{
         alert("usted no puede modificar este mensaje");
+        modal.style.display = "none";
     }
 });
 }
@@ -89,19 +90,18 @@ function updateComment(){
 
 //cambia estado del mensaje(actualiza si la persona borra)
 function updateDelete(valor,email){
+    debugger;
     if(email === document.getElementById("email2").value){
         if(confirm("Desea eliminar mensaje")){
             refmessage = firebase.database().ref().child("mensaje").child(valor);
             refmessage.update({
-            Eliminado:1
-    
+            Eliminado:1    
             });
         }
     }
     else
     {
         alert("Solo el usuario propietario puede eliminar el mensaje");
-
     }
 }
 //funcion para editar hijo (comentarios de mensaje principal usuario)
@@ -110,19 +110,18 @@ let keyEditChildTwo;
 function editMessageChild(key,keyChild){
     refmessage = firebase.database().ref().child("mensaje").child(key).child(keyChild);
     refmessage.on("value",function(snap){
-    let datos = snap.val();
-    if(datos.Email === document.getElementById("email2").value){
-        let modal=document.getElementById("myModalEditChild");
-        modal.style.display = "block";
-        document.getElementById("editTextAreaChild").innerHTML=datos.Mensaje;
-        keyEditChild=key;
-        keyEditChildTwo=keyChild;
-    }else{
-        alert("Sólo puede modificar el dueño del mensaje");
-    }
-    
-});
-
+        let datos = snap.val();
+        if(datos.Email === document.getElementById("email2").value){
+            document.getElementById('ModalEditChild').style.display="block";
+            document.getElementById("editTextAreaChild").value="";
+            document.getElementById("editTextAreaChild").value=datos.Mensaje;
+            keyEditChild=key;
+            keyEditChildTwo=keyChild;
+        }else{
+            alert("Sólo puede modificar el dueño del mensaje");
+            document.getElementById('ModalEditChild').style.display="none";
+        } 
+    });
 }
 //console.log(datos);
 document.getElementById("btnModalEditChild").addEventListener("click", updateCommentChild)
@@ -133,25 +132,15 @@ function updateCommentChild(){
         refmessage.update({
             Mensaje:msg
         });
-
+        document.getElementById("editTextAreaChild").value="";
     }
-   let modal = document.getElementById('myModalEditChild');
-    modal.style.display = "none";
+    document.getElementById('ModalEditChild').style.display="none";
 }
 document.getElementById("cerrarModalEditChild").addEventListener("click", closeModalEditChild)
   function closeModalEditChild()
   {
-    let modal = document.getElementById('myModalEditChild');
-    modal.style.display = "none";
+    document.getElementById('ModalEditChild').style.display="none";
   }
-
-
-
-
-
-
-
-
 //cambia estado del mensaje del mensaje hijo(actualiza si la persona borra)
 function updateDeleteChild(valor,valorChild,email){
     if(email === document.getElementById("email2").value){
@@ -161,6 +150,7 @@ function updateDeleteChild(valor,valorChild,email){
             Eliminado:1
             });
         }
+        document.getElementById('ModalEditChild').style.display="none";
     }
     else
     {
@@ -189,11 +179,15 @@ window.onclick = function(event) {
     if (event.target == modal2) {
       modal2.style.display = "none";
     }
+    let modal3 = document.getElementById('ModalEditChild');
+    if (event.target == modal3) {
+      modal3.style.display = "none";
+    }
   }  
   document.getElementById("cerrarModal").addEventListener("click", closeModal)
   function closeModal()
   {
-    let modal = document.getElementById('myModal');
+    document.getElementById('myModal').style.display="none";
     modal.style.display = "none";
   }
   document.getElementById("btnModal").addEventListener("click", cerrarModal)
