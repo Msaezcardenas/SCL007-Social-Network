@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <link rel="stylesheet" href="./style/styleMarce.css">
+     <link rel="stylesheet" href="./style/stylesMolu.css">
+     <title>Prueba</title>
+   <meta charset="utf-8">
+ </head>
+<body class="bodyImg">
+<!-- Muro  -->
+  <!-- Creación de requerimientos nutricionales -->
+  <div id="userWall" style="display: block" ><!--se crea para mostrar el muro-->
+    <div class="divMuro">
+      <!--Creando perfil de usuario-->
+      
+   <div id="divPerfil" style="display: block" class="divMuro">
+      <h1>Datos personales</h1>
+       <form id="formMessage" class="divHeaderModal"><p></p>
+        <h6> Genero <select class="select"  id="genero"   onchange="">
+          <option>seleccione</option>
+          <option value="1">Femenino</option>
+          <option value="2">Masculino</option>
+        </select></h6><p></p>
+        <h6> Edad<input type="text" name="ageUser" id="ageUser" placeholder="Edad" > </h6> <p></p>
+        <h6> Altura<input type="text" name="heightUsers" id="heightUsers" placeholder="Metros" > </h6> <p></p>
+        <h6> Peso<input type="text" name="weightUsers" id="weightUsers" placeholder="Kilos"> </h6><p></p>
+        <h6> Nivel de actividad<select class="select"  id="activity"   onchange="">
+              <option value="sel">Seleccione</option>
+              <option value="1.200">No realiza actividad física; trabaja sentado la mayor parte del tiempo; camina muy poco</option><p></p>
+              <option value="1.375">Caminar distancias largas, se traslada en bicicleta, o realiza ejercicio moderado de 1 a 3 días/ semana</option><p></p>
+              <option value="1.550">Ejercicio moderado o intenso de 3 a 5 días por semana</option><p></p>
+              <option value="1.725">Ejercicio intenso de 6 a 7 días por semana</option><p></p>
+              <option value="1.900">Entrena 2 veces al día. Nivel recomendado para deportistas profesionales</option><p></p>
+            </select> </h6>
+         <h6>IMC <label id="imcUsers"></label></h6> <p></p>
+         <h6>Grasa Corporal <label id="grasaUser"></label></h6> <p></p>
+         <h6>Masa Magra <label id="magraUser"></label></h6> <p></p>
+         <h6>Requerimientos Energéticos Totales <label id="retUser"></label></h6> <p></p>
+         <input type="button" value="Calcular" id="calc">
+         </form><p></p>
+
+    </div>
+    <p></p>
+</div>
+    <p></p>
+    <div id="messagePerfil"></div>
+   </div><p></p>
+             
+ 
+
+
+   <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
+   <script src="./js/dataPerfil.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</body>
+</html>
