@@ -171,6 +171,11 @@
             height: 320px;
             border-radius: 90px;
         }
+        .imgEdit{
+            width: 100px;
+            height: 100px;
+            border-radius: 90px;
+        }
     .inputlogin{
         width: 40%;
         height: auto;
