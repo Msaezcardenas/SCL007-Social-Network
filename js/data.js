@@ -381,9 +381,3 @@ function initializeFirebase(){
 	// eslint-disable-next-line no-undef
     firebase.initializeApp(config);
 }
-    
-
-  
-        
-       
-      
