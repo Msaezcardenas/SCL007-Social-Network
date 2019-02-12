@@ -6,29 +6,89 @@
      <meta http-equiv="X-UA-Compatible" content="ie=edge">
      <link rel="stylesheet" href="./style/styleMarce.css">
      <link rel="stylesheet" href="./style/stylesMolu.css">
+     <link rel="stylesheet" href="./style/stylesEC.css">
      <title>Social Vegan</title>
    <meta charset="utf-8">
  </head>
-<body class="bodyImg"> 
+<body class="bodyImg">
 <div class="divHeader">
-    <ul id="navInicio1" class="navInicio" style="display:block">   
+    <ul id="navInicio1" class="navInicio" style="display:block">
         <li><img src="imagenes/veg.png" class="imgHeader" /></li>
-        <li><a href="https://www.lacasadelvegan.cl/">Tiendas</a></li>
-        <li><a href="https://es-la.facebook.com/VeganBunker/">Restaurantes</a></li>
-        <li><a href="https://www.facebook.com/KuyenRayen/">Cosmética Vegana</a></li>
-        <li><a href="https://www.petalatino.com/blog/nuevo-estudio-sugiere-que-si-todos-fueramos-veganos-podriamos-salvar-8-millones-de-vidas-humanas-al-ano/">Estudios</a></li>
+
+        <li><select class="select"  id="shopsTiendas"  onchange="callWebPage(event)">
+              <option value="" disabled selected>Tiendas</option>
+              <option value= "https://www.facebook.com/pmaestra/">Planta Maestra</option>
+              <option value= "https://www.lacasadelvegan.cl/">La Casa del Vegan</option>
+          </select></li>
+
+        <!-- <li><a href="https://es-la.facebook.com/VeganBunker/">Restaurantes</a></li> -->
+        <li><select class="select"  id="shopsRestaurantes"  onchange="callWebPage(event)">
+          <option value="" disabled selected>Restaurantes/Delivery</option>
+          <option value= "https://www.facebook.com/vegandealer/">Vegan Dealer</option>
+          <option value= "https://www.facebook.com/Alfajoreriavegana/">Alfajoreria Vegana</option>
+          <option value= "https://www.facebook.com/labodeguitaverde7/">La Bodeguita Verde</option>
+          <option value= "https://www.facebook.com/leerteteteria/">LeerTetetería</option>
+          <option value= "https://www.facebook.com/VeganBunker/">VeganBunker</option>
+          <option value= "https://www.facebook.com/Emporio-Vegetal-306089922890184/">Emporio Vegetal</option>
+          <option value= "https://www.facebook.com/Restaurant-Soju-Vegetariano-427180647341017/">Restaurant Soju</option>
+          <option value= "https://www.facebook.com/manativegetariano/">Sanguchería Manati</option>
+          <option value= "https://www.facebook.com/SuculentaSangucheriaVegana/">Suculenta Sangucheria Vegana</option>
+        </select></li>
+
+        <!-- <li><a href="https://www.facebook.com/pepperland.bar/">Bar</a></li> -->
+        <li><select class="select"  id="shopsBars"  onchange="callWebPage(event)">
+              <option value="" disabled selected>Bares</option>
+              <option value= "https://www.facebook.com/pepperland.bar/">Pepperland Bar</option>
+              <option value= "https://www.facebook.com/Barelchanchoseis/">El Chancho Seis Bar</option>
+          </select></li>
+
+        <!-- <li><a href="https://www.facebook.com/KuyenRayen/">Cosmética Vegana</a></li> -->
+        <li><select class="select"  id="shopsCosmetics"  onchange="callWebPage(event)">
+              <option value="" disabled selected>Cosmética Vegana</option>
+              <option value= "https://www.facebook.com/KuyenRayen/">Kuyen Rayen</option>
+              <option value= "https://www.facebook.com/Verde.cosmetica">Verde Cosmética</option>
+              <option value= "https://www.facebook.com/vgcosmetics.cl/?eid=ARBfhqOc-Ss3-axF-iHEjy26mX6z-o7E86_4GZXCcaSBZKkJWvNTVqm9EDIGaoO2jENcJ0fD8e_8R-Zo">Vegan Cosmetics</option>
+          </select></li>
+
+        <!-- <li><a href=" https://www.facebook.com/Vegan-Boots-Chile-378361735969861/">Calzado</a></li> -->
+        <li><select class="select"  id="shopsShoes"  onchange="callWebPage(event)">
+              <option value="" disabled selected>Calzado</option>
+              <option value= "https://www.facebook.com/VerdeVidavegan/?eid=ARApeCq6JgYAkT1V9VaC1K77SRfI4rjp1ImaO7SgHmamlJzFssA4tTWVVpuLmw8sp4xIuF154QGAFfUo">Verde Vida Vegan </option>
+              <option value= "https://www.facebook.com/Vegan-Boots-Chile-378361735969861/">Vegan Boots Chile</option>
+
+        </select></li>
+
+        <!-- <li><a href="https://www.petalatino.com/blog/nuevo-estudio-sugiere-que-si-todos-fueramos-veganos-podriamos-salvar-8-millones-de-vidas-humanas-al-ano/">Noticias/Artículos</a></li> -->
+        <li><select class="select"  id="veganNews"  onchange="callWebPage(event)">
+              <option value="" disabled selected>Noticias/Artículos</option>
+              <option value= "https://www.petalatino.com/blog/nuevo-estudio-sugiere-que-si-todos-fueramos-veganos-podriamos-salvar-8-millones-de-vidas-humanas-al-ano/">Peta Latino</option>
+              <option value= "https://www.igualdadanimal.org/noticias">Igualdad Animal</option>
+
+        </select></li>
+
         <li><button id="callPerfil">Perfil Usuario</button></li>
+
+
       </ul>
   </div>
+
+<!-- PASARA A DOM -->
+<script type="text/javascript">
+  function callWebPage(event){
+    let webPagesShops=document.getElementById(event.target.id).value;
+    window.location=webPagesShops; }
+</script>
+
+
   <!--div que contiene comandos para editar si el usuario lo desea-->
-  <div id="divEdition" style="display: none" class="divlogin">
+  <div id="divEdition" style="display: block" class="divlogin">
        <h4>Editar perfil<img src="imagenes/edit.jpeg" class="imgEdit" ></h4>
        <button id="edit"> Editar </button> <br> <br>
       <input id="nameEdit" type="name" placeholder="Ingresa Nombre"> <br> <br>
       <input id="mailEdit" type="mail" placeholder="Ingresa correo"> <br> <br>
       <input type="file" id="imagEdit" name="file" multiple><br> <br><!--boton para subir imagen, type=fyle-->
       <button id="updateEdit"> Actualizar </button>
-      
+
   </div>
 <div id="userLogin" style="display: block" class="divlogin"><!--se crea para mostrar el login-->
   <h4>Ingreso de Usuarios</h4>
@@ -60,7 +120,7 @@
   <!-- Muro  -->
   <!-- Creación de post -->
   <div id="userWall" style="display: none"><!--se crea para mostrar el muro-->
-    
+
  <div class="divMuro">
     <form id="formMessage" class="divHeaderModal">
         <p></p>
