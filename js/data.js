@@ -123,9 +123,10 @@ function editMessageChild(key,keyChild){
         } 
     });
 }
-//console.log(datos);
+//cambia edición de comentarios (child)
 document.getElementById("btnModalEditChild").addEventListener("click", updateCommentChild)
 function updateCommentChild(){
+    debugger;
     let msg=document.getElementById("editTextAreaChild").value;
     if(msg != null && msg !=""){
         refmessage = firebase.database().ref().child("mensaje").child(keyEditChild).child(keyEditChildTwo);
@@ -241,7 +242,7 @@ function sendDataToFirebase(event){
   //función para actualizar los datos del usuario
   document.getElementById("updateEdit").addEventListener("click", updateUser);
   function updateUser(){
-       let updateName = document.getElementById('nameEdit').value;
+    let updateName = document.getElementById('nameEdit').value;
        let updateMail = document.getElementById('mailEdit').value;
        let updateImg = document.getElementById('imagEdit').files[0];
       let validate = 2;
@@ -275,6 +276,10 @@ function sendDataToFirebase(event){
             }
         }
         });
+        alert("Datos actualizados");
+        showImage(ext[1]);
+        document.getElementById("userWallPerfil").style.display = "block";
+        document.getElementById("divEdition").style.display = "none";
        } 
   }
   //muestra la imagen que sube el usuario
@@ -356,6 +361,13 @@ function sendDataToFirebasePerfil(){
     {
         alert("Mensaje y/o Usuario no puede estar en blanco");
     }
+}
+//boton editar perfil usuario
+document.getElementById("edit").addEventListener("click",editPerfil);
+function editPerfil(){
+    document.getElementById("userWallPerfil").style.display = "none";
+    document.getElementById("divEdition").style.display = "block";
+
 }
  //Parámetros para conexión de base de datos
 function initializeFirebase(){
