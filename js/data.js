@@ -4,6 +4,9 @@ window.onload = initialize;
 let formMessage;
 let refmessage;
 let messageBackground;
+import { saveUser } from './dataMolu.js';
+
+
 
 //inicializa la conección entre base de datos y javascript
 function initialize(){
@@ -12,6 +15,8 @@ function initialize(){
     messageBackground = document.getElementById("messageBackground");
     initializeFirebase();
     showMessageFromFirebase();
+    saveUser();
+
 }
 //mostrando mensaje de base de datos, ref=referencia
 function showMessageFromFirebase(){
@@ -284,8 +289,10 @@ function sendDataToFirebase(event){
     console.log(starsRef);
     starsRef.getDownloadURL().then(function(url) {
         // Insert url into an <img> tag to "download"
-        let img=document.getElementById("imagenPerfil");
-        img.src=url;
+        // let img=document.getElementById("imagenPerfil");
+        let imgReceta = document.getElementById("imagenReceta")
+        // img.src=url;
+        imgReceta.src = url;
         console.log(url);   
       });
 }
