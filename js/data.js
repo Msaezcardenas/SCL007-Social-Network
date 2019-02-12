@@ -4,7 +4,6 @@ window.onload = initialize;
 let formMessage;
 let refmessage;
 let messageBackground;
-
 //inicializa la conección entre base de datos y javascript
 function initialize(){
     formMessage = document.getElementById("formMessage");
@@ -15,7 +14,7 @@ function initialize(){
 }
 //mostrando mensaje de base de datos, ref=referencia
 function showMessageFromFirebase(){
-    refmessage = firebase.database().ref().child("mensaje");
+    let refmessage = firebase.database().ref().child("mensaje");
     refmessage.on("value",function(snap){
         let todosLosMensajes = "";
         document.getElementById("messageBackground").innerHTML ="";
@@ -58,17 +57,18 @@ function showMessageFromFirebase(){
   //funcion que recive y busca el mensaje
 function editMessage(key){
     let modal = document.getElementById('myModalEdit');
-    refmessage = firebase.database().ref().child("mensaje").child(key);
+    let refmessage = firebase.database().ref().child("mensaje").child(key);
     refmessage.on("value",function(snap){
     let datos = snap.val();
     if(datos.Email===document.getElementById("email2").value){  
         modal.style.display = "block";
-        document.getElementById('editTextArea').innerHTML=datos.Mensaje;
+        document.getElementById('editTextArea').value=datos.Mensaje;
         keyEdit=key;
     }
     else{
         alert("usted no puede modificar este mensaje");
         modal.style.display = "none";
+        document.getElementById('editTextArea').value="";
     }
 });
 }
@@ -86,6 +86,7 @@ function updateComment(){
     }
    let modal = document.getElementById('myModalEdit');
     modal.style.display = "none";
+    document.getElementById("editTextArea").value="";
 }
 
 //cambia estado del mensaje(actualiza si la persona borra)
@@ -108,18 +109,18 @@ function updateDelete(valor,email){
 let keyEditChild;
 let keyEditChildTwo;
 function editMessageChild(key,keyChild){
-    refmessage = firebase.database().ref().child("mensaje").child(key).child(keyChild);
+    let refmessage = firebase.database().ref().child("mensaje").child(key).child(keyChild);
     refmessage.on("value",function(snap){
         let datos = snap.val();
         if(datos.Email === document.getElementById("email2").value){
             document.getElementById('ModalEditChild').style.display="block";
-            document.getElementById("editTextAreaChild").value="";
             document.getElementById("editTextAreaChild").value=datos.Mensaje;
             keyEditChild=key;
             keyEditChildTwo=keyChild;
         }else{
             alert("Sólo puede modificar el dueño del mensaje");
             document.getElementById('ModalEditChild').style.display="none";
+            document.getElementById("editTextAreaChild").value="";
         } 
     });
 }
@@ -129,13 +130,13 @@ function updateCommentChild(){
     debugger;
     let msg=document.getElementById("editTextAreaChild").value;
     if(msg != null && msg !=""){
-        refmessage = firebase.database().ref().child("mensaje").child(keyEditChild).child(keyEditChildTwo);
+        let refmessage = firebase.database().ref().child("mensaje").child(keyEditChild).child(keyEditChildTwo);
         refmessage.update({
             Mensaje:msg
         });
-        document.getElementById("editTextAreaChild").value="";
     }
     document.getElementById('ModalEditChild').style.display="none";
+    document.getElementById("editTextAreaChild").value="";
 }
 document.getElementById("cerrarModalEditChild").addEventListener("click", closeModalEditChild)
   function closeModalEditChild()
@@ -146,7 +147,7 @@ document.getElementById("cerrarModalEditChild").addEventListener("click", closeM
 function updateDeleteChild(valor,valorChild,email){
     if(email === document.getElementById("email2").value){
         if(confirm("Desea eliminar mensaje")){
-            refmessage = firebase.database().ref().child("mensaje").child(valor).child(valorChild);
+            let refmessage = firebase.database().ref().child("mensaje").child(valor).child(valorChild);
             refmessage.update({
             Eliminado:1
             });
@@ -162,7 +163,7 @@ function updateDeleteChild(valor,valorChild,email){
  //sumatoria de me gusta
 function sumLike(keySum){
     let addLike = 0;
-    refmessageLike = firebase.database().ref().child("mensaje").child(keySum);
+    let refmessageLike = firebase.database().ref().child("mensaje").child(keySum);
     refmessageLike.on("value",function(snap){
         addLike = snap.val().Like;
     });
@@ -199,8 +200,7 @@ window.onclick = function(event) {
     if(usuario != "" && usuario != null && mensaje != "" && mensaje != null)
     { 
         let email=document.getElementById("email2").value;
-        console.log(email);  
-        refmessageAnswer= firebase.database().ref().child("mensaje").child(keyAnswerMessage);
+        let refmessageAnswer= firebase.database().ref().child("mensaje").child(keyAnswerMessage);
         refmessageAnswer.push({Mensaje:mensaje, Nombre:usuario, Eliminado:0,Principal:0,Like:0,Email:email});
         keyAnswerMessage="";
         document.getElementById("mesageResponse").value="";
@@ -216,7 +216,6 @@ window.onclick = function(event) {
 let keyAnswerMessage;
 function answerMessage(keyAnswer){
     //let messageAnswer = prompt("Respuesta");
-
     keyAnswerMessage=keyAnswer;
     let modal = document.getElementById("myModal");
     modal.style.display = "block";
@@ -229,16 +228,15 @@ function sendDataToFirebase(event){
     let usuario= document.getElementById("welcomeuser").innerHTML;
     console.log(usuario);
     if(event.target.mensaje.value != null && event.target.mensaje.value != "" ){
-       refmessage= firebase.database().ref().child("mensaje");
-        refmessage.push({Mensaje: event.target.mensaje.value, Nombre:usuario, Eliminado:0,Principal:0,Like:0,Email:email});
-        document.getElementById("mensaje").value="";
+       let refmessage= firebase.database().ref().child("mensaje");
+        refmessage.push({Mensaje: event.target.mensaje.value, Nombre:usuario, Eliminado:0,Principal:0,Like:0,Email:email}); 
     }
     else
     {
         alert("Mensaje y/o Usuario no puede estar en blanco");
     }
+    document.getElementById("mensaje").value="";
 }
-
   //función para actualizar los datos del usuario
   document.getElementById("updateEdit").addEventListener("click", updateUser);
   function updateUser(){
@@ -261,13 +259,13 @@ function sendDataToFirebase(event){
        if(validate === 2 ){
         let ext=[];//se usa para obtener la extencion del archivo
         ext=String(updateImg.name).split('.');
-        refmessage = firebase.database().ref().child("users");
+        let refmessage = firebase.database().ref().child("users");
         refmessage.on("value",function(snap){
             let datos = snap.val();
             for(var key in datos){
                 if(datos[key].email === updateMail){
-                 refmessage = firebase.database().ref().child("users").child(key);
-                 refmessage.update({
+                 let refmessageChild = firebase.database().ref().child("users").child(key);
+                 refmessageChild.update({
                  Nombre:updateName, extension:ext[1]
                 });
                 //se carga la imagen
@@ -298,7 +296,7 @@ function sendDataToFirebase(event){
 function showMessagePerfilFirebase(){
     let extension;
     //vamos a buscar la informacion del usuario por medio del correo
-    refmessage=firebase.database().ref().child("users");
+    let refmessage=firebase.database().ref().child("users");
     refmessage.on("value",function(snap){
         let datos=snap.val();
         for(key in datos){
@@ -348,7 +346,7 @@ function callPerfil(){
 }
 document.getElementById("sendMessagePerfil").addEventListener("click",sendDataToFirebasePerfil);
 function sendDataToFirebasePerfil(){
-    refmessage = firebase.database().ref().child("mensaje");
+    let refmessage = firebase.database().ref().child("mensaje");
     let email=document.getElementById("email2").value;
     let usuario=document.getElementById("namePerfil").innerHTML;
     let messagePerfil=document.getElementById("mensajePerfil").value;
