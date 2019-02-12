@@ -120,12 +120,8 @@ function editMessageChild(key,keyChild){
         }else{
             alert("Sólo puede modificar el dueño del mensaje");
             document.getElementById('ModalEditChild').style.display="none";
-<<<<<<< HEAD
-        }
-=======
             document.getElementById("editTextAreaChild").value="";
         } 
->>>>>>> 8a3541f3c4019b818a8c486464684be181a73a08
     });
 }
 //cambia edición de comentarios (child)
