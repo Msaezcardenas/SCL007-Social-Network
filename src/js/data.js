@@ -4,10 +4,13 @@ window.onload = initialize;
 let formMessage;
 let refmessage;
 let messageBackground;
+<<<<<<< HEAD
 import { saveUser } from './dataMolu.js';
 
 
 
+=======
+>>>>>>> 5bdbf2cc936d47bae4ada5bb16c0cd11761080a0
 //inicializa la conección entre base de datos y javascript
 function initialize(){
     formMessage = document.getElementById("formMessage");
@@ -20,7 +23,7 @@ function initialize(){
 }
 //mostrando mensaje de base de datos, ref=referencia
 function showMessageFromFirebase(){
-    refmessage = firebase.database().ref().child("mensaje");
+    let refmessage = firebase.database().ref().child("mensaje");
     refmessage.on("value",function(snap){
         let todosLosMensajes = "";
         document.getElementById("messageBackground").innerHTML ="";
@@ -39,14 +42,14 @@ function showMessageFromFirebase(){
                     if(datoChild[keyChild].Eliminado === 0){
                         todosLosMensajes += "<div class='divBodyResWall'><a class='aMuro'>" + datoChild[keyChild].Nombre + " : " + datoChild[keyChild].Mensaje+"</a> <img src='imagenes/borrar.png' class='imgMuroBorrar' onclick=updateDeleteChild('"+key+"','"+keyChild+"','"+datoChild[keyChild].Email+"')> <img src='imagenes/editvegan.png' class='imgMuroBorrar' onclick=editMessageChild('"+key+"','"+keyChild+"')></br></div>";
                     }
-               } 
+               }
              });
              todosLosMensajes+="<div class='divFooterWall'><div class='divSelect'><img src='imagenes/palta.png' class='imgMuro' onclick=sumLike('"+key+"')>" + datos[key].Like +"</div><div class='divSelect'><img src='imagenes/comm.png' class='imgMuro' onclick=answerMessage('"+key+"')></div><div class='divSelect'><img src='imagenes/borrar.png' class='imgMuro' onclick=updateDelete('"+key+"','"+datos[key].Email+"')></div><div class='divSelect'><img src='imagenes/editvegan.png' class='imgMuro' onclick=editMessage('"+key+"')></div></div>"
              todosLosMensajes+="</div></br>";
             }
         }
       //  messageBackground.innerHTML = todosLosMensajes;
-      
+
      document.getElementById("messageBackground").innerHTML += todosLosMensajes;
     })
 }
@@ -56,24 +59,25 @@ function showMessageFromFirebase(){
   {
     let modal = document.getElementById('myModalEdit');
     modal.style.display = "none";
-    
+
   }
   //esta key es para pasar el valor al modal
   let keyEdit;
   //funcion que recive y busca el mensaje
 function editMessage(key){
     let modal = document.getElementById('myModalEdit');
-    refmessage = firebase.database().ref().child("mensaje").child(key);
+    let refmessage = firebase.database().ref().child("mensaje").child(key);
     refmessage.on("value",function(snap){
     let datos = snap.val();
-    if(datos.Email===document.getElementById("email2").value){  
+    if(datos.Email===document.getElementById("email2").value){
         modal.style.display = "block";
-        document.getElementById('editTextArea').innerHTML=datos.Mensaje;
+        document.getElementById('editTextArea').value=datos.Mensaje;
         keyEdit=key;
     }
     else{
         alert("usted no puede modificar este mensaje");
         modal.style.display = "none";
+        document.getElementById('editTextArea').value="";
     }
 });
 }
@@ -91,6 +95,7 @@ function updateComment(){
     }
    let modal = document.getElementById('myModalEdit');
     modal.style.display = "none";
+    document.getElementById("editTextArea").value="";
 }
 
 //cambia estado del mensaje(actualiza si la persona borra)
@@ -100,7 +105,7 @@ function updateDelete(valor,email){
         if(confirm("Desea eliminar mensaje")){
             refmessage = firebase.database().ref().child("mensaje").child(valor);
             refmessage.update({
-            Eliminado:1    
+            Eliminado:1
             });
         }
     }
@@ -113,33 +118,34 @@ function updateDelete(valor,email){
 let keyEditChild;
 let keyEditChildTwo;
 function editMessageChild(key,keyChild){
-    refmessage = firebase.database().ref().child("mensaje").child(key).child(keyChild);
+    let refmessage = firebase.database().ref().child("mensaje").child(key).child(keyChild);
     refmessage.on("value",function(snap){
         let datos = snap.val();
         if(datos.Email === document.getElementById("email2").value){
             document.getElementById('ModalEditChild').style.display="block";
-            document.getElementById("editTextAreaChild").value="";
             document.getElementById("editTextAreaChild").value=datos.Mensaje;
             keyEditChild=key;
             keyEditChildTwo=keyChild;
         }else{
             alert("Sólo puede modificar el dueño del mensaje");
             document.getElementById('ModalEditChild').style.display="none";
+            document.getElementById("editTextAreaChild").value="";
         } 
     });
 }
-//console.log(datos);
+//cambia edición de comentarios (child)
 document.getElementById("btnModalEditChild").addEventListener("click", updateCommentChild)
 function updateCommentChild(){
+    debugger;
     let msg=document.getElementById("editTextAreaChild").value;
     if(msg != null && msg !=""){
-        refmessage = firebase.database().ref().child("mensaje").child(keyEditChild).child(keyEditChildTwo);
+        let refmessage = firebase.database().ref().child("mensaje").child(keyEditChild).child(keyEditChildTwo);
         refmessage.update({
             Mensaje:msg
         });
-        document.getElementById("editTextAreaChild").value="";
     }
     document.getElementById('ModalEditChild').style.display="none";
+    document.getElementById("editTextAreaChild").value="";
 }
 document.getElementById("cerrarModalEditChild").addEventListener("click", closeModalEditChild)
   function closeModalEditChild()
@@ -150,7 +156,7 @@ document.getElementById("cerrarModalEditChild").addEventListener("click", closeM
 function updateDeleteChild(valor,valorChild,email){
     if(email === document.getElementById("email2").value){
         if(confirm("Desea eliminar mensaje")){
-            refmessage = firebase.database().ref().child("mensaje").child(valor).child(valorChild);
+            let refmessage = firebase.database().ref().child("mensaje").child(valor).child(valorChild);
             refmessage.update({
             Eliminado:1
             });
@@ -161,12 +167,12 @@ function updateDeleteChild(valor,valorChild,email){
     {
         alert("Solo el usuario propietario puede eliminar el mensaje");
     }
-  
+
  }
  //sumatoria de me gusta
 function sumLike(keySum){
     let addLike = 0;
-    refmessageLike = firebase.database().ref().child("mensaje").child(keySum);
+    let refmessageLike = firebase.database().ref().child("mensaje").child(keySum);
     refmessageLike.on("value",function(snap){
         addLike = snap.val().Like;
     });
@@ -188,7 +194,7 @@ window.onclick = function(event) {
     if (event.target == modal3) {
       modal3.style.display = "none";
     }
-  }  
+  }
   document.getElementById("cerrarModal").addEventListener("click", closeModal)
   function closeModal()
   {
@@ -201,10 +207,9 @@ window.onclick = function(event) {
     let usuario=document.getElementById("nameResponse").innerHTML;
     let mensaje=document.getElementById("mesageResponse").value;
     if(usuario != "" && usuario != null && mensaje != "" && mensaje != null)
-    { 
+    {
         let email=document.getElementById("email2").value;
-        console.log(email);  
-        refmessageAnswer= firebase.database().ref().child("mensaje").child(keyAnswerMessage);
+        let refmessageAnswer= firebase.database().ref().child("mensaje").child(keyAnswerMessage);
         refmessageAnswer.push({Mensaje:mensaje, Nombre:usuario, Eliminado:0,Principal:0,Like:0,Email:email});
         keyAnswerMessage="";
         document.getElementById("mesageResponse").value="";
@@ -220,7 +225,6 @@ window.onclick = function(event) {
 let keyAnswerMessage;
 function answerMessage(keyAnswer){
     //let messageAnswer = prompt("Respuesta");
-
     keyAnswerMessage=keyAnswer;
     let modal = document.getElementById("myModal");
     modal.style.display = "block";
@@ -233,20 +237,19 @@ function sendDataToFirebase(event){
     let usuario= document.getElementById("welcomeuser").innerHTML;
     console.log(usuario);
     if(event.target.mensaje.value != null && event.target.mensaje.value != "" ){
-       refmessage= firebase.database().ref().child("mensaje");
-        refmessage.push({Mensaje: event.target.mensaje.value, Nombre:usuario, Eliminado:0,Principal:0,Like:0,Email:email});
-        document.getElementById("mensaje").value="";
+       let refmessage= firebase.database().ref().child("mensaje");
+        refmessage.push({Mensaje: event.target.mensaje.value, Nombre:usuario, Eliminado:0,Principal:0,Like:0,Email:email}); 
     }
     else
     {
         alert("Mensaje y/o Usuario no puede estar en blanco");
     }
+    document.getElementById("mensaje").value="";
 }
-
   //función para actualizar los datos del usuario
   document.getElementById("updateEdit").addEventListener("click", updateUser);
   function updateUser(){
-       let updateName = document.getElementById('nameEdit').value;
+    let updateName = document.getElementById('nameEdit').value;
        let updateMail = document.getElementById('mailEdit').value;
        let updateImg = document.getElementById('imagEdit').files[0];
       let validate = 2;
@@ -265,13 +268,13 @@ function sendDataToFirebase(event){
        if(validate === 2 ){
         let ext=[];//se usa para obtener la extencion del archivo
         ext=String(updateImg.name).split('.');
-        refmessage = firebase.database().ref().child("users");
+        let refmessage = firebase.database().ref().child("users");
         refmessage.on("value",function(snap){
             let datos = snap.val();
             for(var key in datos){
                 if(datos[key].email === updateMail){
-                 refmessage = firebase.database().ref().child("users").child(key);
-                 refmessage.update({
+                 let refmessageChild = firebase.database().ref().child("users").child(key);
+                 refmessageChild.update({
                  Nombre:updateName, extension:ext[1]
                 });
                 //se carga la imagen
@@ -280,27 +283,37 @@ function sendDataToFirebase(event){
             }
         }
         });
+        alert("Datos actualizados");
+        showImage(ext[1]);
+        document.getElementById("userWallPerfil").style.display = "block";
+        document.getElementById("divEdition").style.display = "none";
        } 
   }
   //muestra la imagen que sube el usuario
   function showImage(extension){
     let storageRef= firebase.storage().ref();
     let starsRef = storageRef.child('images/'+document.getElementById("email2").value+"."+extension);
-    console.log(starsRef);
+    
     starsRef.getDownloadURL().then(function(url) {
         // Insert url into an <img> tag to "download"
+<<<<<<< HEAD
         // let img=document.getElementById("imagenPerfil");
         let imgReceta = document.getElementById("imagenReceta")
         // img.src=url;
         imgReceta.src = url;
         console.log(url);   
+=======
+        let img=document.getElementById("imagenPerfil");
+        img.src=url;
+        console.log(url);
+>>>>>>> 5bdbf2cc936d47bae4ada5bb16c0cd11761080a0
       });
 }
 //mostrando mensaje de base de datos solo del usuario dueño del perfil, ref=referencia
 function showMessagePerfilFirebase(){
     let extension;
-    //vamos a buscar la inforamcion del usuario por medio del correo
-    refmessage=firebase.database().ref().child("users");
+    //vamos a buscar la informacion del usuario por medio del correo
+    let refmessage=firebase.database().ref().child("users");
     refmessage.on("value",function(snap){
         let datos=snap.val();
         for(key in datos){
@@ -308,7 +321,7 @@ function showMessagePerfilFirebase(){
                 document.getElementById("namePerfil").innerHTML=datos[key].Nombre;
                 extension=datos[key].extension;
             }
-        }    
+        }
     });
     showImage(extension);
     refmessage = firebase.database().ref().child("mensaje");
@@ -330,14 +343,14 @@ function showMessagePerfilFirebase(){
                     if(datoChild[keyChild].Eliminado === 0){
                         todosLosMensajes += "<div class='divBodyResWall'><a class='aMuro'>" + datoChild[keyChild].Nombre + " : " + datoChild[keyChild].Mensaje+"</a> <img src='imagenes/borrar.png' class='imgMuroBorrar' onclick=updateDeleteChild('"+key+"','"+keyChild+"','"+datoChild[keyChild].Email+"')> <img src='imagenes/editvegan.png' class='imgMuroBorrar' onclick=editMessageChild('"+key+"','"+keyChild+"')></br></div>";
                     }
-               } 
+               }
              });
              todosLosMensajes+="<div class='divFooterWall'><div class='divSelect'><img src='imagenes/palta.png' class='imgMuro' onclick=sumLike('"+key+"')>" + datos[key].Like +"</div><div class='divSelect'><img src='imagenes/comm.png' class='imgMuro' onclick=answerMessage('"+key+"')></div><div class='divSelect'><img src='imagenes/borrar.png' class='imgMuro' onclick=updateDelete('"+key+"','"+datos[key].Email+"')></div><div class='divSelect'><img src='imagenes/editvegan.png' class='imgMuro' onclick=editMessage('"+key+"')></div></div>"
              todosLosMensajes+="</div></br>";
             }
         }
       //  messageBackground.innerHTML = todosLosMensajes;
-      
+
      document.getElementById("messagePerfil").innerHTML += todosLosMensajes;
     })
 }
@@ -350,7 +363,7 @@ function callPerfil(){
 }
 document.getElementById("sendMessagePerfil").addEventListener("click",sendDataToFirebasePerfil);
 function sendDataToFirebasePerfil(){
-    refmessage = firebase.database().ref().child("mensaje");
+    let refmessage = firebase.database().ref().child("mensaje");
     let email=document.getElementById("email2").value;
     let usuario=document.getElementById("namePerfil").innerHTML;
     let messagePerfil=document.getElementById("mensajePerfil").value;
@@ -358,11 +371,18 @@ function sendDataToFirebasePerfil(){
     if(messagePerfil != null && messagePerfil != "" ){
         refmessage.push({Mensaje:messagePerfil , Nombre:usuario , Eliminado:0,Principal:0,Like:0,Email:email});
         document.getElementById("mensajePerfil").value="";
-    }
+s    }
     else
     {
         alert("Mensaje y/o Usuario no puede estar en blanco");
     }
+}
+//boton editar perfil usuario
+document.getElementById("edit").addEventListener("click",editPerfil);
+function editPerfil(){
+    document.getElementById("userWallPerfil").style.display = "none";
+    document.getElementById("divEdition").style.display = "block";
+
 }
  //Parámetros para conexión de base de datos
 function initializeFirebase(){
@@ -378,9 +398,3 @@ function initializeFirebase(){
 	// eslint-disable-next-line no-undef
     firebase.initializeApp(config);
 }
-    
-
-  
-        
-       
-      
