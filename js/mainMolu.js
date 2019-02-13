@@ -37,7 +37,7 @@ function login(){
         document.getElementById("perfilUser").style.display = "block";
         let extension;
         //se agrega codigo para buscar el usuario en la tabla de users
-        refmessage=firebase.database().ref().child("users");
+        let refmessage=firebase.database().ref().child("users");
         refmessage.on("value",function(snap){
         let datos=snap.val();
         let key;
