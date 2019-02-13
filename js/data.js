@@ -4,13 +4,6 @@ window.onload = initialize;
 let formMessage;
 let refmessage;
 let messageBackground;
-<<<<<<< HEAD
-import { saveUser } from './dataMolu.js';
-
-
-
-=======
->>>>>>> 5bdbf2cc936d47bae4ada5bb16c0cd11761080a0
 //inicializa la conección entre base de datos y javascript
 function initialize(){
     formMessage = document.getElementById("formMessage");
@@ -18,7 +11,6 @@ function initialize(){
     messageBackground = document.getElementById("messageBackground");
     initializeFirebase();
     showMessageFromFirebase();
-    saveUser();
 
 }
 //mostrando mensaje de base de datos, ref=referencia
@@ -296,17 +288,9 @@ function sendDataToFirebase(event){
     
     starsRef.getDownloadURL().then(function(url) {
         // Insert url into an <img> tag to "download"
-<<<<<<< HEAD
-        // let img=document.getElementById("imagenPerfil");
-        let imgReceta = document.getElementById("imagenReceta")
-        // img.src=url;
-        imgReceta.src = url;
-        console.log(url);   
-=======
         let img=document.getElementById("imagenPerfil");
         img.src=url;
         console.log(url);
->>>>>>> 5bdbf2cc936d47bae4ada5bb16c0cd11761080a0
       });
 }
 //mostrando mensaje de base de datos solo del usuario dueño del perfil, ref=referencia
