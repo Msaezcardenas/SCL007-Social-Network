@@ -1,4 +1,4 @@
-import {saveUser} from './dataMolu.js' 
+// import {saveUser} from './dataMolu.js'
 
 // Se declara función para registrar usuarios//
 document.getElementById("signIn").addEventListener("click", signIn)
@@ -46,10 +46,10 @@ function login(){
                     document.getElementById("welcomeuser").innerHTML=datos[key].Nombre;
                     showImage(datos[key].extension);//foto
                 }
-            }    
+            }
         });
 
-    }) 
+    })
     // si no se cumple alguna condición se ejecutara un error//
     .catch(function(error) {
         // Handle Errors here.
