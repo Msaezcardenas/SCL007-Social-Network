@@ -1,18 +1,15 @@
 //Para trabajar el DOM//
 // console.log("Hola")
 window.onload = initialize;
-let formMessage;
-let refmessage;
-let messageBackground;
+
 //inicializa la conección entre base de datos y javascript
 function initialize(){
-    formMessage = document.getElementById("formMessage");
-    formMessage.addEventListener("submit", sendDataToFirebase, false);
-    messageBackground = document.getElementById("messageBackground");
     initializeFirebase();
     showMessageFromFirebase();
 
 }
+
+document.getElementById("sendMessage").addEventListener("click",sendDataToFirebase)
 //mostrando mensaje de base de datos, ref=referencia
 function showMessageFromFirebase(){
     let refmessage = firebase.database().ref().child("mensaje");
@@ -49,35 +46,34 @@ function showMessageFromFirebase(){
   document.getElementById("cerrarModalEdit").addEventListener("click", closeModalEdit)
   function closeModalEdit()
   {
-    let modal = document.getElementById('myModalEdit');
+    let modal = document.getElementById('modalEdit');
     modal.style.display = "none";
+    document.getElementById('mesageResponseEdit').value="";
 
   }
   //esta key es para pasar el valor al modal
   let keyEdit;
   //funcion que recive y busca el mensaje
 function editMessage(key){
-    let modal = document.getElementById('myModalEdit');
     let refmessage = firebase.database().ref().child("mensaje").child(key);
     refmessage.on("value",function(snap){
     let datos = snap.val();
     if(datos.Email===document.getElementById("email2").value){
-        modal.style.display = "block";
-        document.getElementById('editTextArea').value=datos.Mensaje;
+        document.getElementById('mesageResponseEdit').value=datos.Mensaje;
+        document.getElementById("modalEdit").style.display = "block";
         keyEdit=key;
     }
     else{
         alert("usted no puede modificar este mensaje");
-        modal.style.display = "none";
-        document.getElementById('editTextArea').value="";
+        document.getElementById("modalEdit").style.display = "none";
+
     }
 });
 }
 //funcion para modificar el mensaje
-
 document.getElementById("btnModalEdit").addEventListener("click", updateComment)
 function updateComment(){
-    let msg=document.getElementById("editTextArea").value;
+    let msg=document.getElementById("mesageResponseEdit").value;
     if(msg != null && msg !=""){
         refmessage = firebase.database().ref().child("mensaje").child(keyEdit);
         refmessage.update({
@@ -85,14 +81,12 @@ function updateComment(){
         });
 
     }
-   let modal = document.getElementById('myModalEdit');
-    modal.style.display = "none";
-    document.getElementById("editTextArea").value="";
+    document.getElementById("modalEdit").style.display="none";
+    document.getElementById("mesageResponseEdit").value="";
 }
 
 //cambia estado del mensaje(actualiza si la persona borra)
 function updateDelete(valor,email){
-    debugger;
     if(email === document.getElementById("email2").value){
         if(confirm("Desea eliminar mensaje")){
             refmessage = firebase.database().ref().child("mensaje").child(valor);
@@ -119,7 +113,7 @@ function editMessageChild(key,keyChild){
             keyEditChild=key;
             keyEditChildTwo=keyChild;
         }else{
-            alert("Sólo puede modificar el dueño del mensaje");
+            alert("Sólo puede modificar el dueño del mensaje");  
             document.getElementById('ModalEditChild').style.display="none";
             document.getElementById("editTextAreaChild").value="";
         } 
@@ -128,7 +122,6 @@ function editMessageChild(key,keyChild){
 //cambia edición de comentarios (child)
 document.getElementById("btnModalEditChild").addEventListener("click", updateCommentChild)
 function updateCommentChild(){
-    debugger;
     let msg=document.getElementById("editTextAreaChild").value;
     if(msg != null && msg !=""){
         let refmessage = firebase.database().ref().child("mensaje").child(keyEditChild).child(keyEditChildTwo);
@@ -175,15 +168,15 @@ function sumLike(keySum){
 //para que el modal se cierre
 window.onclick = function(event) {
     let modal = document.getElementById('myModal');
-    if (event.target == modal) {
+    if (event.target === modal) {
       modal.style.display = "none";
     }
-    let modal2 = document.getElementById('myModalEdit');
-    if (event.target == modal2) {
+    let modal2 = document.getElementById('modalEdit');
+    if (event.target === modal2) {
       modal2.style.display = "none";
     }
     let modal3 = document.getElementById('ModalEditChild');
-    if (event.target == modal3) {
+    if (event.target === modal3) {
       modal3.style.display = "none";
     }
   }
@@ -195,7 +188,6 @@ window.onclick = function(event) {
   }
   document.getElementById("btnModal").addEventListener("click", cerrarModal)
   function cerrarModal(){
-    let modal = document.getElementById("myModal");
     let usuario=document.getElementById("nameResponse").innerHTML;
     let mensaje=document.getElementById("mesageResponse").value;
     if(usuario != "" && usuario != null && mensaje != "" && mensaje != null)
@@ -211,26 +203,26 @@ window.onclick = function(event) {
         modal.style.display = "none";
         alert("El mensaje o el usuario no puede estar en blanco");
     }
-    modal.style.display = "none";
+    document.getElementById("myModal").style.display = "none";
   }
 //usuario será el nombre y correo de usuario registrado
 let keyAnswerMessage;
 function answerMessage(keyAnswer){
     //let messageAnswer = prompt("Respuesta");
     keyAnswerMessage=keyAnswer;
-    let modal = document.getElementById("myModal");
-    modal.style.display = "block";
-    document.getElementById("nameResponse").innerHTML = document.getElementById("welcomeuser").innerHTML;
+    let usuario= document.getElementById("welcomeuser").innerHTML;
+    document.getElementById("nameResponse").innerHTML = usuario;
+    document.getElementById("myModal").style.display = "block";
+
 }
 //Envía datos a Firebase
 function sendDataToFirebase(event){
-    event.preventDefault();
     let email=document.getElementById("email2").value;
     let usuario= document.getElementById("welcomeuser").innerHTML;
-    console.log(usuario);
-    if(event.target.mensaje.value != null && event.target.mensaje.value != "" ){
+    let message=document.getElementById("messageBackground");
+    if(message != null && message != "" ){
        let refmessage= firebase.database().ref().child("mensaje");
-        refmessage.push({Mensaje: event.target.mensaje.value, Nombre:usuario, Eliminado:0,Principal:0,Like:0,Email:email}); 
+        refmessage.push({Mensaje: message, Nombre:usuario, Eliminado:0,Principal:0,Like:0,Email:email}); 
     }
     else
     {
@@ -316,7 +308,7 @@ function showMessagePerfilFirebase(){
         //aqui se dibujan los padres, mensaje que escribe usuario es el padre y el comentario el hijo(child)
         let key;
         for(key in datos){
-            if(datos[key].Eliminado === 0 && datos[key].Email === "marratiaf@hotmail.com"){
+            if(datos[key].Eliminado === 0 && datos[key].Email === document.getElementById("email2").value){
              todosLosMensajes += "<div class='divWallMessage'><div class='divHeaderMuro'>" + datos[key].Nombre + "</div><div class='divBodyWall'><br></br>" + datos[key].Mensaje+"<br></br></div>";
              //ahora que dibujamos los padres, dibujaremos a los hijos
              let refMessageChild=firebase.database().ref().child("mensaje").child(key);
@@ -355,7 +347,7 @@ function sendDataToFirebasePerfil(){
     if(messagePerfil != null && messagePerfil != "" ){
         refmessage.push({Mensaje:messagePerfil , Nombre:usuario , Eliminado:0,Principal:0,Like:0,Email:email});
         document.getElementById("mensajePerfil").value="";
-s    }
+   }
     else
     {
         alert("Mensaje y/o Usuario no puede estar en blanco");
@@ -367,6 +359,18 @@ function editPerfil(){
     document.getElementById("userWallPerfil").style.display = "none";
     document.getElementById("divEdition").style.display = "block";
 
+}
+//suma de proteínas en tabla nutricional
+document.getElementById("calcTable").addEventListener("click",totalCalories);
+function totalCalories(){
+    console.log("hola");
+    let sumQuantFruit=document.getElementById("quantFruit").value;
+    let sumQuantProtein=document.getElementById("proteinFruit").innerHTML;
+    let sumQuantGrease=document.getElementById("greaseFruit").innerHTML;
+    let sumQuantcarbohydrate=document.getElementById("carbohydrateFruit").innerHTML;
+    let sumTotalFruit= (sumQuantFruit*sumQuantProtein)+(sumQuantFruit*sumQuantGrease)+(sumQuantFruit*sumQuantcarbohydrate);
+    document.getElementById("total").innerHTML=sumTotalFruit;
+    //a document falta la suma de todos los alimentos despues de la fruta
 }
  //Parámetros para conexión de base de datos
 function initializeFirebase(){
