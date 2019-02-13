@@ -315,7 +315,7 @@ function showMessagePerfilFirebase(){
         //aqui se dibujan los padres, mensaje que escribe usuario es el padre y el comentario el hijo(child)
         let key;
         for(key in datos){
-            if(datos[key].Eliminado === 0 && datos[key].Email === "marratiaf@hotmail.com"){
+            if(datos[key].Eliminado === 0 && datos[key].Email === document.getElementById("email2").value){
              todosLosMensajes += "<div class='divWallMessage'><div class='divHeaderMuro'>" + datos[key].Nombre + "</div><div class='divBodyWall'><br></br>" + datos[key].Mensaje+"<br></br></div>";
              //ahora que dibujamos los padres, dibujaremos a los hijos
              let refMessageChild=firebase.database().ref().child("mensaje").child(key);
