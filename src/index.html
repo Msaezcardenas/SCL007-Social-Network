@@ -114,7 +114,7 @@
        <p></p>
         <label for="mensaje">Mensaje:</label>
         <textarea name="mensaje" id="mensaje" cols="" rows=""></textarea><p></p>
-        <input type="submit" name="" value="Enviar Mensaje" class="inputlogin">
+        <input type="button" name="" value="Enviar Mensaje" class="inputlogin" id="sendMessage">
       </form>
  </div>
 
@@ -123,7 +123,7 @@
 </div>
  <div id="root"></div>
  <!--Inicio modal de respuesta MArratia-->
- <div id="myModal" class="modal">
+ <div id="myModal" class="modal" style="display: none">
   <!-- Modal content -->
   <div class="modal-content">
     <div class="cerrarModal"><input type="button" value="X" id="cerrarModal"></div>
@@ -135,18 +135,20 @@
   </div>
 </div>
  <!--fin modal de respuesta-->
-  <!--Inicio modal de editar Padre MArratia-->
-  <div id="myModalEdit" class="modal">
-      <!-- Modal content -->
-      <div class="modal-content">
-        <div class="cerrarModal"><input type="button" value="X" id="cerrarModalEdit"></div>
-        <div class="divMuro">
-            <p class="divHeaderModal"> Mensaje : <textarea id="editTextArea"></textarea></p>
-            <p><input type="button" value="Enviar" id="btnModalEdit" class="inputlogin"></p>
-        </div>
+  <!--Inicio modal de editar padre MArratia-->
+  <div id="modalEdit" class="modal" style="display: none">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="cerrarModal"><input type="button" value="X" id="cerrarModalEdit"></div>
+      <div class="divMuro">
+          <p class="divHeaderModal">Nombre  : <label id="nameResponseEdit"></label></p>
+          <p class="divHeaderModal"> Mensaje : <textarea id="mesageResponseEdit"></textarea></p>
+          <p><input type="button" value="Enviar" id="btnModalEdit" class="inputlogin"></p>
       </div>
     </div>
-     <!--fin modal de editar padre-->
+  </div>
+   <!--fin modal de respuesta-->
+
        <!--Inicio modal de editar hijo MArratia-->
   <div id="ModalEditChild" class="modal">
       <!-- Modal content -->
