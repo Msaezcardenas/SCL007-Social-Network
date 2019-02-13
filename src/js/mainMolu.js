@@ -34,6 +34,7 @@ function login(){
         console.log('Ingresado');
         document.getElementById("userLogin").style.display = "none";
         document.getElementById("userWall").style.display = "block";
+        document.getElementById("perfilUser").style.display = "block";
         let extension;
         //se agrega codigo para buscar el usuario en la tabla de users
         refmessage=firebase.database().ref().child("users");

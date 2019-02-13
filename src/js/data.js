@@ -50,6 +50,7 @@ function showMessageFromFirebase(){
   {
     let modal = document.getElementById('myModalEdit');
     modal.style.display = "none";
+    document.getElementById('editTextArea').value="";
 
   }
   //esta key es para pasar el valor al modal
@@ -84,14 +85,12 @@ function updateComment(){
         });
 
     }
-   let modal = document.getElementById('myModalEdit');
-    modal.style.display = "none";
+    document.getElementById('myModalEdit').style.display="none";
     document.getElementById("editTextArea").value="";
 }
 
 //cambia estado del mensaje(actualiza si la persona borra)
 function updateDelete(valor,email){
-    debugger;
     if(email === document.getElementById("email2").value){
         if(confirm("Desea eliminar mensaje")){
             refmessage = firebase.database().ref().child("mensaje").child(valor);
@@ -127,7 +126,6 @@ function editMessageChild(key,keyChild){
 //cambia edición de comentarios (child)
 document.getElementById("btnModalEditChild").addEventListener("click", updateCommentChild)
 function updateCommentChild(){
-    debugger;
     let msg=document.getElementById("editTextAreaChild").value;
     if(msg != null && msg !=""){
         let refmessage = firebase.database().ref().child("mensaje").child(keyEditChild).child(keyEditChildTwo);
@@ -137,6 +135,7 @@ function updateCommentChild(){
     }
     document.getElementById('ModalEditChild').style.display="none";
     document.getElementById("editTextAreaChild").value="";
+    document.getElementById('myModalEdit').style.display="none";
 }
 document.getElementById("cerrarModalEditChild").addEventListener("click", closeModalEditChild)
   function closeModalEditChild()
@@ -315,7 +314,7 @@ function showMessagePerfilFirebase(){
         //aqui se dibujan los padres, mensaje que escribe usuario es el padre y el comentario el hijo(child)
         let key;
         for(key in datos){
-            if(datos[key].Eliminado === 0 && datos[key].Email === "marratiaf@hotmail.com"){
+            if(datos[key].Eliminado === 0 && datos[key].Email === document.getElementById("email2").value){
              todosLosMensajes += "<div class='divWallMessage'><div class='divHeaderMuro'>" + datos[key].Nombre + "</div><div class='divBodyWall'><br></br>" + datos[key].Mensaje+"<br></br></div>";
              //ahora que dibujamos los padres, dibujaremos a los hijos
              let refMessageChild=firebase.database().ref().child("mensaje").child(key);
