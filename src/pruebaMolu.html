@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <link rel="stylesheet" href="./style/styleMarce.css">
+     <link rel="stylesheet" href="./style/stylesMolu.css">
+     <title>Prueba</title>
+   <meta charset="utf-8">
+ </head>
+<body class="bodyImg">
+
+<div id="app">
+
+    <h2>¡Sube tu Receta!</h2>
+
+    <form id="enter-login" class="container-fluid2">
+        <div id="app1">
+            <p>Nombre de tu receta</p>
+            <input id="titleRecipe" type="text">
+
+            <p>Porciones</p>
+            <input id="idServes" type="text">
+
+            <p>Tiempo de Preparación</p>
+            <input id="idTime" type="text">
+
+        </div>
+
+        <div id="app2" class="form ingridients">
+            <p id="ingre">Ingredientes</p>
+            <textarea id="idIngredients" name="Ingredients" cols="30" rows="10"></textarea>
+        </div>
+
+        <div id="app3" class="form directions">
+            <p id="preRec">Preparación:</p>
+            <textarea id="insRecipes" name="" cols="30" rows="10"></textarea>
+        </div>
+
+        <div class="form upload">
+
+            <p id="app4">Imagen</p>
+            <progress value="0" max="100" id="uploader">0%</progress><br>
+            <br> <input type="file" value="upload" id="fileButton" name="elegir archivo" /></br>
+            <button id="sendRecipe">Enviar</button>
+        </div>
+
+    </form>
+</div>
+
+<div>
+    <button id="close">Cerrar sesion</button>
+</div>
+
+<div id="recipeContainer" class="container-fluid"></div>
+
+<script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
+<script src="./js/pruebaMolu.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</body>
+</html>
