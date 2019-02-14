@@ -115,10 +115,10 @@ function editMessageChild(key,keyChild){
             keyEditChild=key;
             keyEditChildTwo=keyChild;
         }else{
-            alert("Sólo puede modificar el dueño del mensaje");  
+            alert("Sólo puede modificar el dueño del mensaje");
             document.getElementById('ModalEditChild').style.display="none";
             document.getElementById("editTextAreaChild").value="";
-        } 
+        }
     });
 }
 //cambia edición de comentarios (child)
@@ -224,7 +224,7 @@ function sendDataToFirebase(){
     let message=document.getElementById("mensaje").value;
     if(message != null && message != "" ){
        let refmessage= firebase.database().ref().child("mensaje");
-        refmessage.push({Mensaje: message, Nombre:usuario, Eliminado:0,Principal:0,Like:0,Email:email}); 
+        refmessage.push({Mensaje: message, Nombre:usuario, Eliminado:0,Principal:0,Like:0,Email:email});
     }
     else
     {
@@ -273,13 +273,13 @@ function sendDataToFirebase(){
         showImage(ext[1]);
         document.getElementById("userWallPerfil").style.display = "block";
         document.getElementById("divEdition").style.display = "none";
-       } 
+       }
   }
   //muestra la imagen que sube el usuario
   function showImage(extension){
     let storageRef= firebase.storage().ref();
     let starsRef = storageRef.child('images/'+document.getElementById("email2").value+"."+extension);
-    
+
     starsRef.getDownloadURL().then(function(url) {
         // Insert url into an <img> tag to "download"
         let img=document.getElementById("imagenPerfil");

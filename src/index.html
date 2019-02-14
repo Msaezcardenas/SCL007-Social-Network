@@ -63,11 +63,28 @@
               <option value="" disabled selected>Noticias/Artículos</option>
               <option value= "https://www.petalatino.com/blog/nuevo-estudio-sugiere-que-si-todos-fueramos-veganos-podriamos-salvar-8-millones-de-vidas-humanas-al-ano/">Peta Latino</option>
               <option value= "https://www.igualdadanimal.org/noticias">Igualdad Animal</option>
-          </select>
-        </li>
-<div id="perfilUser" class="buttonUsers" style="display :none"><li><button id="callPerfil">Perfil Usuario</button></li></div> 
-</ul>
-</div>
+
+
+            </select>
+          </li>
+  <div id="perfilUser" class="buttonUsers" style="display :none"><li><button id="callPerfil">Perfil Usuario</button></li></div> 
+  </ul>
+   
+  </div>
+
+
+  <!-- PASARA A DOM -->
+  <script type="text/javascript">
+    function callWebPage(event){
+      let webPagesShops=document.getElementById(event.target.id).value;
+      window.location=webPagesShops; }
+  </script>
+  
+
+        
+
+
+
 <div id="userLogin" style="display: block" class="divlogin"><!--se crea para mostrar el login-->
  <h2>Ingreso de Usuarios</h2><p></p>
  <input id="email2" type="email" placeholder="Ingresa email" class="inputUserLogin"><p></p>
@@ -182,11 +199,13 @@
 <div id="messagePerfil"></div>
  </div><p></p> 
  <div id="divEdition" style="display: none" class="divlogin">
+
     <h2>Actualización de datos</h2><p></p>
   <input id="nameEdit" type="name" placeholder="Ingresa Nombre" class="inputUserLogin"> <br> <br>
   <input id="mailEdit" type="mail" placeholder="Ingresa correo" class="inputUserLogin"> <br> <br>
   <input type="file" id="imagEdit" name="file" multiple class="inputUserLogin"><br> <br><!--boton para subir imagen, type=fyle-->
   <button id="updateEdit" class="inputUserLogin"> Actualizar </button>        
+
 </div>
   <!-- Fin perfil usuario -->
 <div id="tablaNut" style="display: none">
