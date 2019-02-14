@@ -360,7 +360,12 @@ function editPerfil(){
     document.getElementById("divEdition").style.display = "block";
 
 }
-
+//aparece tabla nutricional
+document.getElementById("tableNut").addEventListener("click",tableVisible);
+function tableVisible(){
+    document.getElementById("userWallPerfil").style.display="none";
+    document.getElementById("tablaNut").style.display="block";
+}
  //Parámetros para conexión de base de datos
 function initializeFirebase(){
   // Initialize Firebase
