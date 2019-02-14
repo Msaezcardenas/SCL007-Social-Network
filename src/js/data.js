@@ -364,6 +364,7 @@ function editPerfil(){
     document.getElementById("divEdition").style.display = "block";
 
 }
+
 // //suma de proteínas en tabla nutricional
 // document.getElementById("calcTable").addEventListener("click",totalCalories);
 // function totalCalories(){
@@ -377,6 +378,14 @@ function editPerfil(){
 //     //a document falta la suma de todos los alimentos despues de la fruta
 // }
 
+
+
+//aparece tabla nutricional
+document.getElementById("tableNut").addEventListener("click",tableVisible);
+function tableVisible(){
+    document.getElementById("userWallPerfil").style.display="none";
+    document.getElementById("tablaNut").style.display="block";
+}
 
  //Parámetros para conexión de base de datos
 function initializeFirebase(){
