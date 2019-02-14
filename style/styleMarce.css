@@ -79,10 +79,26 @@
             text-align: center;
             font-size: 18px;
           }
+          .divTable{
+            width: 90%;
+            height: auto;
+            background:  #C9EEAC;
+            text-align: center;
+            color: black;
+            margin-top: 240px;
+            margin-left: 5%;
+            border-radius: 12px;
+            padding: 1%;
+            }
+            .foodTable{
+                width: 70%;
+                height: 50px; 
+                font-size: 1em;
+            }
       }
       /*div que edita información de usuario si lo desea*/
 /*responsive otros dispositivos*/
-@media screen and (min-width: 541px) and (max-width: 720px){
+@media screen and (min-width: 540px) and (max-width: 720px){
     .divlogin{
         width: 90%;
         height: auto;
@@ -109,7 +125,7 @@
         background-color:  #C9EEAC;
         color: black;
         border-style: solid;
-        border-color: red;
+        border-color: white;
         border-radius: 25px;
         text-align: left;
         margin-top: 240px
@@ -150,6 +166,22 @@
         text-align: center;
         font-size: 30px;
       }
+      .divTable{
+        width: 90%;
+        height: auto;
+        background:  #C9EEAC;
+        text-align: center;
+        color: black;
+        margin-top: 240px;
+        margin-left: 5%;
+        border-radius: 12px;
+        padding: 1%;
+        }
+        .foodTable{
+            width: 70%;
+            height: 50px; 
+            font-size: 1em;
+        }
 
 }
 /*responsive tablet o superior*/
@@ -244,6 +276,25 @@
         margin-left: 20%;
         margin-top: 500px;
         }
+        .sumTotal{
+            padding-block-start: 30%;
+        }
+        .divTable{
+            width: 90%;
+            height: auto;
+            background:  #C9EEAC;
+            text-align: center;
+            color: black;
+            margin-top: 240px;
+            margin-left: 5%;
+            border-radius: 12px;
+            padding: 1%;
+            }
+            .foodTable{
+                width: 70%;
+                height: 50px; 
+                font-size: 1em;
+            }
 }
 /*fondo de pantallas*/
  .bodyImg{
