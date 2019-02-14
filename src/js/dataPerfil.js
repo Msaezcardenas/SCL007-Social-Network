@@ -1,5 +1,5 @@
 
-//graceUser
+//graceUser, funcion para calcular la grasa corporal
 document.getElementById("calc").addEventListener("click",GrasaCorporal);
 function GrasaCorporal(){
     let heightUsers = document.getElementById("heightUsers").value;
@@ -36,6 +36,13 @@ function totalCalories(){
     let sumQuantGrease=document.getElementById("greaseFruit").innerHTML;
     let sumQuantcarbohydrate=document.getElementById("carbohydrateFruit").innerHTML;
     let sumTotalFruit= (sumQuantFruit*sumQuantProtein)+(sumQuantFruit*sumQuantGrease)+(sumQuantFruit*sumQuantcarbohydrate);
-    document.getElementById("total").innerHTML=sumTotalFruit;
+    let sumQuantVegetables=document.getElementById("quantVegetables").value;
+    let sumTotalVegetables= (sumQuantVegetables*sumQuantProtein)+(sumQuantVegetables*sumQuantGrease)+(sumQuantVegetables*sumQuantcarbohydrate);
+    let sumquantWhiteCereals=document.getElementById("quantWhiteCereals").value;
+    let sumTotalWhiteCereals= (sumquantWhiteCereals*sumQuantProtein)+(sumquantWhiteCereals*sumQuantGrease)+(sumquantWhiteCereals*sumQuantcarbohydrate);
+
+
+    document.getElementById("total").innerHTML=sumTotalFruit+sumTotalVegetables+sumTotalWhiteCereals;
+
     //a document falta la suma de todos los alimentos despues de la fruta
 }

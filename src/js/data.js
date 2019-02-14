@@ -8,6 +8,8 @@ function initialize(){
     showMessageFromFirebase();
 }
 
+
+
 document.getElementById("sendMessage").addEventListener("click",sendDataToFirebase)
 //mostrando mensaje de base de datos, ref=referencia
 function showMessageFromFirebase(){
@@ -25,8 +27,7 @@ function showMessageFromFirebase(){
              let refMessageChild=firebase.database().ref().child("mensaje").child(key);
              refMessageChild.on("value",function(snap){
                  let datoChild=snap.val();
-                 let keychild;
-                 for(keyChild in datoChild){
+                 for(let keyChild in datoChild){
                     if(datoChild[keyChild].Eliminado === 0){
                         todosLosMensajes += "<div class='divBodyResWall'><a class='aMuro'>" + datoChild[keyChild].Nombre + " : " + datoChild[keyChild].Mensaje+"</a> <img src='imagenes/borrar.png' class='imgMuroBorrar' onclick=updateDeleteChild('"+key+"','"+keyChild+"','"+datoChild[keyChild].Email+"')> <img src='imagenes/editvegan.png' class='imgMuroBorrar' onclick=editMessageChild('"+key+"','"+keyChild+"')></br></div>";
                     }
@@ -215,10 +216,10 @@ function answerMessage(keyAnswer){
 
 }
 //Envía datos a Firebase
-function sendDataToFirebase(event){
+function sendDataToFirebase(){
     let email=document.getElementById("email2").value;
     let usuario= document.getElementById("welcomeuser").innerHTML;
-    let message=document.getElementById("messageBackground");
+    let message=document.getElementById("mensaje").value;
     if(message != null && message != "" ){
        let refmessage= firebase.database().ref().child("mensaje");
         refmessage.push({Mensaje: message, Nombre:usuario, Eliminado:0,Principal:0,Like:0,Email:email});
@@ -359,18 +360,7 @@ function editPerfil(){
     document.getElementById("divEdition").style.display = "block";
 
 }
-//suma de proteínas en tabla nutricional
-document.getElementById("calcTable").addEventListener("click",totalCalories);
-function totalCalories(){
-    console.log("hola");
-    let sumQuantFruit=document.getElementById("quantFruit").value;
-    let sumQuantProtein=document.getElementById("proteinFruit").innerHTML;
-    let sumQuantGrease=document.getElementById("greaseFruit").innerHTML;
-    let sumQuantcarbohydrate=document.getElementById("carbohydrateFruit").innerHTML;
-    let sumTotalFruit= (sumQuantFruit*sumQuantProtein)+(sumQuantFruit*sumQuantGrease)+(sumQuantFruit*sumQuantcarbohydrate);
-    document.getElementById("total").innerHTML=sumTotalFruit;
-    //a document falta la suma de todos los alimentos despues de la fruta
-}
+
  //Parámetros para conexión de base de datos
 function initializeFirebase(){
   // Initialize Firebase
