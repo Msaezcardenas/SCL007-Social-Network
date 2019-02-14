@@ -12,6 +12,8 @@ function initialize(){
 
 }
 
+
+
 document.getElementById("sendMessage").addEventListener("click",sendDataToFirebase)
 //mostrando mensaje de base de datos, ref=referencia
 function showMessageFromFirebase(){
@@ -115,10 +117,10 @@ function editMessageChild(key,keyChild){
             keyEditChild=key;
             keyEditChildTwo=keyChild;
         }else{
-            alert("Sólo puede modificar el dueño del mensaje");  
+            alert("Sólo puede modificar el dueño del mensaje");
             document.getElementById('ModalEditChild').style.display="none";
             document.getElementById("editTextAreaChild").value="";
-        } 
+        }
     });
 }
 //cambia edición de comentarios (child)
@@ -218,13 +220,13 @@ function answerMessage(keyAnswer){
 
 }
 //Envía datos a Firebase
-function sendDataToFirebase(event){
+function sendDataToFirebase(){
     let email=document.getElementById("email2").value;
     let usuario= document.getElementById("welcomeuser").innerHTML;
-    let message=document.getElementById("messageBackground");
+    let message=document.getElementById("mensaje").value;
     if(message != null && message != "" ){
        let refmessage= firebase.database().ref().child("mensaje");
-        refmessage.push({Mensaje: message, Nombre:usuario, Eliminado:0,Principal:0,Like:0,Email:email}); 
+        refmessage.push({Mensaje: message, Nombre:usuario, Eliminado:0,Principal:0,Like:0,Email:email});
     }
     else
     {
@@ -273,13 +275,13 @@ function sendDataToFirebase(event){
         showImage(ext[1]);
         document.getElementById("userWallPerfil").style.display = "block";
         document.getElementById("divEdition").style.display = "none";
-       } 
+       }
   }
   //muestra la imagen que sube el usuario
   function showImage(extension){
     let storageRef= firebase.storage().ref();
     let starsRef = storageRef.child('images/'+document.getElementById("email2").value+"."+extension);
-    
+
     starsRef.getDownloadURL().then(function(url) {
         // Insert url into an <img> tag to "download"
         let img=document.getElementById("imagenPerfil");
@@ -374,6 +376,8 @@ function editPerfil(){
 //     document.getElementById("total").innerHTML=sumTotalFruit;
 //     //a document falta la suma de todos los alimentos despues de la fruta
 // }
+
+
  //Parámetros para conexión de base de datos
 function initializeFirebase(){
   // Initialize Firebase
