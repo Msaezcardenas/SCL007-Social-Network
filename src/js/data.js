@@ -1,3 +1,5 @@
+import {stateChanged} from './mainMolu.js';
+
 //Para trabajar el DOM//
 // console.log("Hola")
 window.onload = initialize;
@@ -6,6 +8,7 @@ window.onload = initialize;
 function initialize(){
     initializeFirebase();
     showMessageFromFirebase();
+    stateChanged();
 
 }
 
@@ -26,8 +29,7 @@ function showMessageFromFirebase(){
              let refMessageChild=firebase.database().ref().child("mensaje").child(key);
              refMessageChild.on("value",function(snap){
                  let datoChild=snap.val();
-                 let keychild;
-                 for(keyChild in datoChild){
+                 for(let keyChild in datoChild){
                     if(datoChild[keyChild].Eliminado === 0){
                         todosLosMensajes += "<div class='divBodyResWall'><a class='aMuro'>" + datoChild[keyChild].Nombre + " : " + datoChild[keyChild].Mensaje+"</a> <img src='imagenes/borrar.png' class='imgMuroBorrar' onclick=updateDeleteChild('"+key+"','"+keyChild+"','"+datoChild[keyChild].Email+"')> <img src='imagenes/editvegan.png' class='imgMuroBorrar' onclick=editMessageChild('"+key+"','"+keyChild+"')></br></div>";
                     }
@@ -360,18 +362,18 @@ function editPerfil(){
     document.getElementById("divEdition").style.display = "block";
 
 }
-//suma de proteínas en tabla nutricional
-document.getElementById("calcTable").addEventListener("click",totalCalories);
-function totalCalories(){
-    console.log("hola");
-    let sumQuantFruit=document.getElementById("quantFruit").value;
-    let sumQuantProtein=document.getElementById("proteinFruit").innerHTML;
-    let sumQuantGrease=document.getElementById("greaseFruit").innerHTML;
-    let sumQuantcarbohydrate=document.getElementById("carbohydrateFruit").innerHTML;
-    let sumTotalFruit= (sumQuantFruit*sumQuantProtein)+(sumQuantFruit*sumQuantGrease)+(sumQuantFruit*sumQuantcarbohydrate);
-    document.getElementById("total").innerHTML=sumTotalFruit;
-    //a document falta la suma de todos los alimentos despues de la fruta
-}
+// //suma de proteínas en tabla nutricional
+// document.getElementById("calcTable").addEventListener("click",totalCalories);
+// function totalCalories(){
+//     console.log("hola");
+//     let sumQuantFruit=document.getElementById("quantFruit").value;
+//     let sumQuantProtein=document.getElementById("proteinFruit").innerHTML;
+//     let sumQuantGrease=document.getElementById("greaseFruit").innerHTML;
+//     let sumQuantcarbohydrate=document.getElementById("carbohydrateFruit").innerHTML;
+//     let sumTotalFruit= (sumQuantFruit*sumQuantProtein)+(sumQuantFruit*sumQuantGrease)+(sumQuantFruit*sumQuantcarbohydrate);
+//     document.getElementById("total").innerHTML=sumTotalFruit;
+//     //a document falta la suma de todos los alimentos despues de la fruta
+// }
  //Parámetros para conexión de base de datos
 function initializeFirebase(){
   // Initialize Firebase

@@ -1,18 +1,18 @@
-const saveUserIntoDatabase = () => {
-    const userId = firebase.auth().currentUser.uid;
-    const userEmail = firebase.auth().currentUser.email;
-    saveUser(userId, userEmail);
-  }
+// const saveUserIntoDatabase = () => {
+//     const userId = firebase.auth().currentUser.uid;
+//     const userEmail = firebase.auth().currentUser.email;
+//     saveUser(userId, userEmail);
+//   }
   
-  const saveRecipesIntoDatabase = () => {
-  const recipeTitle = titleRecipe.value;
-  const recipeImage = imgUrl;
-  const ownerName = firebase.auth().currentUser.email;
-  const insRecipe = insRecipes.value;
-  const recipeIngredients = idIngredients.value;
-  const recipeServes = idServes.value;
-  saveRecipe(recipeTitle, recipeImage, ownerName, insRecipe, recipeIngredients, recipeServes);
-  }
+//   const saveRecipesIntoDatabase = () => {
+//   const recipeTitle = titleRecipe.value;
+//   const recipeImage = imgUrl;
+//   const ownerName = firebase.auth().currentUser.email;
+//   const insRecipe = insRecipes.value;
+//   const recipeIngredients = idIngredients.value;
+//   const recipeServes = idServes.value;
+//   saveRecipe(recipeTitle, recipeImage, ownerName, insRecipe, recipeIngredients, recipeServes);
+//   }
   
   const readRecipesFromDatabase = () => {
     readRecipes((recipe)=>{
@@ -56,7 +56,3 @@ const saveUserIntoDatabase = () => {
    
      });
    };
-   
-   
-   
-   
