@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-=======
 // import {saveUser} from './dataMolu.js'
 
->>>>>>> 1f405e83cf4222b17c8fc1849bf730c5a0365937
 // Se declara función para registrar usuarios//
 document.getElementById("signIn").addEventListener("click", signIn)
 function signIn(){
@@ -33,25 +30,12 @@ function login(){
     let email2 = document.getElementById('email2').value;
     let password2 = document.getElementById('password2').value;
 
-    firebase.auth().signInWithEmailAndPassword(email2, password2).then(function(){
-        console.log('Ingresado');
-        document.getElementById("userLogin").style.display = "none";
-        document.getElementById("userWall").style.display = "block";
-        document.getElementById("perfilUser").style.display = "block";
-        let extension;
-        //se agrega codigo para buscar el usuario en la tabla de users
-        let refmessage=firebase.database().ref().child("users");
-        refmessage.on("value",function(snap){
-        let datos=snap.val();
-            for(let key in datos){
-                if(datos[key].email===document.getElementById("email2").value){
-                    document.getElementById("welcomeuser").innerHTML=datos[key].Nombre;
-                    showImage(datos[key].extension);//foto
-                }
-            }
-        });
+    firebase.auth().signInWithEmailAndPassword(email2, password2)
 
+    .then(function(){
+        console.log('Ingresado');
     })
+
     // si no se cumple alguna condición se ejecutara un error//
     .catch(function(error) {
         // Handle Errors here.
@@ -59,19 +43,7 @@ function login(){
         let errorMessage = error.message;
         console.log(errorCode);
         console.log(errorMessage);
-        alert("Combinación de Usuario y Contraseña incorrecta!");
         // ...
-      });
-}
-//imgWall este control dibujara la imagen
-let extension="";
-function showImage(extension){
-    let storageRef= firebase.storage().ref();
-    let starsRef = storageRef.child('images/'+document.getElementById("email2").value+"."+extension);
-    starsRef.getDownloadURL().then(function(url) {
-        // Insert url into an <img> tag to "download"
-        let img=document.getElementById("imgWall");
-        img.src=url;
       });
 }
 
@@ -85,10 +57,13 @@ export const stateChanged = function (){
             aparece(user);
           // Si el usuario existes
           let displayName = user.displayName;
+
           let email = user.email;
+
           console.log('*****************');
           console.log(user.emailVerified)
           console.log('*****************');
+
           let emailVerified = user.emailVerified;
           let photoURL = user.photoURL;
           let isAnonymous = user.isAnonymous;
@@ -111,7 +86,10 @@ function aparece(user){
     let userDos = user;
     let contenido = document.getElementById('contenido');
     if(user.emailVerified){
-        contenido.innerHTML = "<p>Bienvenido</p> <button onclick='cerrar()'>Cerrar sesión</button>";
+        contenido.innerHTML = `
+        <p>Bienvenido!</p>
+        <button onclick="cerrar()">Cerrar sesión</button>
+        `;
     }
 }
 
@@ -132,39 +110,15 @@ function verficar(){
     user.sendEmailVerification().then(function() {
       // Email sent.
       console.log('Enviando correo...');
-      alert("Usuario registrado");
-      document.getElementById("userLogin").style.display = "block";
-      document.getElementById("userRegister").style.display = "none";
     }).catch(function(error) {
       // An error happened.
-      alert("datos ya registrados");
       console.log(error);
     });
 }
 //se crea funcion para registro usuario
-document.getElementById("signIn").addEventListener("click", registerUser);
+document.getElementById("registrar").addEventListener("click", registerUser);
 function registerUser(){
-    document.getElementById("userLogin").style.display = "block";
-    document.getElementById("userRegister").style.display = "block";
-
-}
-/*se agrega para mostrar el div del registro y ocultar el div del login*/
-document.getElementById("registerNew").addEventListener("click",registerDiv);
-function registerDiv(){
     document.getElementById("userLogin").style.display = "none";
     document.getElementById("userRegister").style.display = "block";
-}
-document.getElementById("login").addEventListener("click", showNavbar);
-function showNavbar(){
-    document.getElementById("navInicio1").style.display = "block";
-}
-/*
-let saveUserDatabase = "";
-const saveUser = (email, uid) => {
-   firebase.database().ref(`users/${uid}`).set({
-    email : email,
-    id : uid,
-   });
-}
-*/
 
+}
