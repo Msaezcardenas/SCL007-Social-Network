@@ -1,5 +1,3 @@
-import {saveUser} from './dataMolu.js' 
-
 // Se declara función para registrar usuarios//
 document.getElementById("signIn").addEventListener("click", signIn)
 function signIn(){
@@ -40,8 +38,7 @@ function login(){
         let refmessage=firebase.database().ref().child("users");
         refmessage.on("value",function(snap){
         let datos=snap.val();
-        let key;
-            for(key in datos){
+            for(let key in datos){
                 if(datos[key].email===document.getElementById("email2").value){
                     document.getElementById("welcomeuser").innerHTML=datos[key].Nombre;
                     showImage(datos[key].extension);//foto
@@ -62,6 +59,7 @@ function login(){
       });
 }
 //imgWall este control dibujara la imagen
+let extension="";
 function showImage(extension){
     let storageRef= firebase.storage().ref();
     let starsRef = storageRef.child('images/'+document.getElementById("email2").value+"."+extension);
@@ -138,3 +136,30 @@ function verficar(){
       console.log(error);
     });
 }
+//se crea funcion para registro usuario
+document.getElementById("signIn").addEventListener("click", registerUser);
+function registerUser(){
+    document.getElementById("userLogin").style.display = "block";
+    document.getElementById("userRegister").style.display = "block";
+
+}
+/*se agrega para mostrar el div del registro y ocultar el div del login*/
+document.getElementById("registerNew").addEventListener("click",registerDiv);
+function registerDiv(){
+    document.getElementById("userLogin").style.display = "none";
+    document.getElementById("userRegister").style.display = "block";
+}
+document.getElementById("login").addEventListener("click", showNavbar);
+function showNavbar(){
+    document.getElementById("navInicio1").style.display = "block";
+}
+/*
+let saveUserDatabase = "";
+const saveUser = (email, uid) => {
+   firebase.database().ref(`users/${uid}`).set({
+    email : email,
+    id : uid,
+   });
+}
+*/
+
