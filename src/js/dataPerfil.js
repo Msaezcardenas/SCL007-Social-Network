@@ -40,9 +40,38 @@ function totalCalories(){
     let sumTotalVegetables= (sumQuantVegetables*sumQuantProtein)+(sumQuantVegetables*sumQuantGrease)+(sumQuantVegetables*sumQuantcarbohydrate);
     let sumquantWhiteCereals=document.getElementById("quantWhiteCereals").value;
     let sumTotalWhiteCereals= (sumquantWhiteCereals*sumQuantProtein)+(sumquantWhiteCereals*sumQuantGrease)+(sumquantWhiteCereals*sumQuantcarbohydrate);
+    let sumquantquantHighCereals=document.getElementById("quantHighCereals").value;
+    let sumTotalHighCereals= (sumquantquantHighCereals*sumQuantProtein)+(sumquantquantHighCereals*sumQuantGrease)+(sumquantquantHighCereals*sumQuantcarbohydrate);
+    let sumquantBread=document.getElementById("quantBread").value;
+    let sumTotalBread= (sumquantBread*sumQuantProtein)+(sumquantBread*sumQuantGrease)+(sumquantBread*sumQuantcarbohydrate);
+    let sumquantMoldBread=document.getElementById("quantMoldBread").value;
+    let sumTotalMoldBread= (sumquantMoldBread*sumQuantProtein)+(sumquantMoldBread*sumQuantGrease)+(sumquantMoldBread*sumQuantcarbohydrate);
+    let sumquantPotatoes=document.getElementById("quantPotatoes").value;
+    let sumTotalPotatoes= (sumquantPotatoes*sumQuantProtein)+(sumquantPotatoes*sumQuantGrease)+(sumquantPotatoes*sumQuantcarbohydrate);
+    let sumquantDriedFruitsSeeds=document.getElementById("quantDriedFruitsSeeds").value;
+    let sumTotalDriedFruitsSeeds= (sumquantDriedFruitsSeeds*sumQuantProtein)+(sumquantDriedFruitsSeeds*sumQuantGrease)+(sumquantDriedFruitsSeeds*sumQuantcarbohydrate);
+    let sumquantDriedFruits=document.getElementById("quantDriedFruits").value;
+    let sumTotalDriedFruits= (sumquantDriedFruits*sumQuantProtein)+(sumquantDriedFruits*sumQuantGrease)+(sumquantDriedFruits*sumQuantcarbohydrate);
+    let sumquantAvocado=document.getElementById("quantAvocado").value;
+    let sumTotalAvocado= (sumquantAvocado*sumQuantProtein)+(sumquantAvocado*sumQuantGrease)+(sumquantAvocado*sumQuantcarbohydrate);
+    let sumquantOils=document.getElementById("quantOils").value;
+    let sumTotalOils= (sumquantOils*sumQuantProtein)+(sumquantOils*sumQuantGrease)+(sumquantOils*sumQuantcarbohydrate);
+    let sumquantMilk=document.getElementById("quantMilk").value;
+    let sumTotalMilk= (sumquantMilk*sumQuantProtein)+(sumquantMilk*sumQuantGrease)+(sumquantMilk*sumQuantcarbohydrate);
+    let sumquantSoyDrink=document.getElementById("quantSoyDrink").value;
+    let sumTotalSoyDrink= (sumquantSoyDrink*sumQuantProtein)+(sumquantSoyDrink*sumQuantGrease)+(sumquantSoyDrink*sumQuantcarbohydrate);
+    let sumquantSoyYogurt=document.getElementById("quantSoyYogurt").value;
+    let sumTotalSoyYogurt= (sumquantSoyYogurt*sumQuantProtein)+(sumquantSoyYogurt*sumQuantGrease)+(sumquantSoyYogurt*sumQuantcarbohydrate);
+    let sumquantSoyMeat=document.getElementById("quantSoyMeat").value;
+    let sumTotalSoyMeat= (sumquantSoyMeat*sumQuantProtein)+(sumquantSoyMeat*sumQuantGrease)+(sumquantSoyMeat*sumQuantcarbohydrate);
+    let sumquantSoyBurger=document.getElementById("quantSoyBurger").value;
+    let sumTotalSoyBurger= (sumquantSoyBurger*sumQuantProtein)+(sumquantSoyBurger*sumQuantGrease)+(sumquantSoyBurger*sumQuantcarbohydrate);
+    let sumquantTofu=document.getElementById("quantTofu").value;
+    let sumTotalTofu= (sumquantTofu*sumQuantProtein)+(sumquantTofu*sumQuantGrease)+(sumquantTofu*sumQuantcarbohydrate);
 
 
-    document.getElementById("total").innerHTML=sumTotalFruit+sumTotalVegetables+sumTotalWhiteCereals;
+    document.getElementById("total").innerHTML=sumTotalFruit+sumTotalVegetables+sumTotalWhiteCereals+sumTotalHighCereals+sumTotalBread+sumTotalMoldBread+sumTotalPotatoes
+    +sumTotalDriedFruitsSeeds+sumTotalDriedFruits+sumTotalAvocado+sumTotalOils+sumTotalMilk+sumTotalSoyDrink+sumTotalSoyYogurt+sumTotalSoyMeat+sumTotalSoyBurger+sumTotalTofu;
 
     //a document falta la suma de todos los alimentos despues de la fruta
 }
