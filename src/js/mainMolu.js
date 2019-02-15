@@ -39,8 +39,7 @@ function login(){
         let refmessage=firebase.database().ref().child("users");
         refmessage.on("value",function(snap){
         let datos=snap.val();
-        let key;
-            for(key in datos){
+            for(let key in datos){
                 if(datos[key].email===document.getElementById("email2").value){
                     document.getElementById("welcomeuser").innerHTML=datos[key].Nombre;
                     showImage(datos[key].extension);//foto
@@ -61,6 +60,7 @@ function login(){
       });
 }
 //imgWall este control dibujara la imagen
+let extension="";
 function showImage(extension){
     let storageRef= firebase.storage().ref();
     let starsRef = storageRef.child('images/'+document.getElementById("email2").value+"."+extension);
@@ -158,7 +158,6 @@ document.getElementById("login").addEventListener("click", showNavbar);
 function showNavbar(){
     document.getElementById("navInicio1").style.display = "block";
 }
-
   
 let saveUserDatabase = "";
  const saveUser = (email, uid) => {   
@@ -167,4 +166,5 @@ let saveUserDatabase = "";
      id : uid,
     });
 };
+
 
