@@ -1,4 +1,3 @@
-// import {saveUser} from './dataMolu.js'
 
 // Se declara función para registrar usuarios//
 document.getElementById("signIn").addEventListener("click", signIn)
@@ -23,8 +22,7 @@ function signIn(){
       });
 }
 // Se declara función para ingresar una vez registrado//
-document.getElementById("login").addEventListener("click", login)
-
+//document.getElementById("login").addEventListener("click", login)
 function login(){
 
     let email2 = document.getElementById('email2').value;
@@ -32,23 +30,7 @@ function login(){
 
     firebase.auth().signInWithEmailAndPassword(email2, password2).then(function(){
         console.log('Ingresado');
-        document.getElementById("userLogin").style.display = "none";
-        document.getElementById("userWall").style.display = "block";
-        document.getElementById("perfilUser").style.display = "block";
-        let extension;
         //se agrega codigo para buscar el usuario en la tabla de users
-        let refmessage=firebase.database().ref().child("users");
-        refmessage.on("value",function(snap){
-        let datos=snap.val();
-        let key;
-            for(key in datos){
-                if(datos[key].email===document.getElementById("email2").value){
-                    document.getElementById("welcomeuser").innerHTML=datos[key].Nombre;
-                    showImage(datos[key].extension);//foto
-                }
-            }
-        });
-
     })
     // si no se cumple alguna condición se ejecutara un error//
     .catch(function(error) {
@@ -67,6 +49,7 @@ function showImage(extension){
     let starsRef = storageRef.child('images/'+document.getElementById("email2").value+"."+extension);
     starsRef.getDownloadURL().then(function(url) {
         // Insert url into an <img> tag to "download"
+        console.log(url);
         let img=document.getElementById("imgWall");
         img.src=url;
       });
@@ -74,7 +57,6 @@ function showImage(extension){
 
 //Esta función monitorea si hay un nuevo registro de usuario o si hay una sesión abierta//
 // se agrega export para utilizar la función en data.js
-
 export const stateChanged = function (){
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
@@ -138,3 +120,30 @@ function verficar(){
       console.log(error);
     });
 }
+//se crea funcion para registro usuario
+document.getElementById("signIn").addEventListener("click", registerUser);
+function registerUser(){
+    document.getElementById("userLogin").style.display = "block";
+    document.getElementById("userRegister").style.display = "block";
+
+}
+/*se agrega para mostrar el div del registro y ocultar el div del login*/
+document.getElementById("registerNew").addEventListener("click",registerDiv);
+function registerDiv(){
+    document.getElementById("userLogin").style.display = "none";
+    document.getElementById("userRegister").style.display = "block";
+}
+document.getElementById("login").addEventListener("click", showNavbar);
+function showNavbar(){
+    document.getElementById("navInicio1").style.display = "block";
+}
+
+let saveUserDatabase = "";
+const saveUser = (email, uid) => {
+   firebase.database().ref(`users/${uid}`).set({
+    email : email,
+    id : uid,
+   });
+}
+
+
