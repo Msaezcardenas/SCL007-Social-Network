@@ -1,3 +1,4 @@
+
 // Se declara función para registrar usuarios//
 document.getElementById("signIn").addEventListener("click", signIn)
 function signIn(){
