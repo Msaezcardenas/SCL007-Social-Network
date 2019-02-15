@@ -1,8 +1,7 @@
-<<<<<<< HEAD
-=======
+
 // import {saveUser} from './dataMolu.js'
 
->>>>>>> 1f405e83cf4222b17c8fc1849bf730c5a0365937
+
 // Se declara función para registrar usuarios//
 document.getElementById("signIn").addEventListener("click", signIn)
 function signIn(){
