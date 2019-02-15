@@ -1,4 +1,7 @@
-//import {stateChanged} from './mainMolu.js';
+
+import {stateChanged} from './mainMolu.js';
+
+
 //Para trabajar el DOM//
 // console.log("Hola")
 window.onload = initialize;
@@ -53,7 +56,9 @@ function login(){
 function initialize(){
     initializeFirebase();
     showMessageFromFirebase();
-   //stateChanged();
+    stateChanged();
+
+
 }
 document.getElementById("sendMessage").addEventListener("click",sendDataToFirebase)
 //mostrando mensaje de base de datos, ref=referencia
