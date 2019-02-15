@@ -11,60 +11,91 @@
    <meta charset="utf-8">
  </head>
 <body class="bodyImg">
-<div class="divHeader">
-    <ul id="navInicio1" class="navInicio" style="display:block">
-        <li><img src="imagenes/logoverde.jpg" class="imgHeader" /></li>
 
-        <li><select class="select"  id="shopsTiendas"  onchange="callWebPage(event)">
-              <option value="" disabled selected>Tiendas</option>
-              <option value= "https://www.facebook.com/pmaestra/" target="_blanck">Planta Maestra</option>
-              <option value= "https://www.lacasadelvegan.cl/">La Casa del Vegan</option>
-          </select></li>
+    <div class="topnav" id="myTopnav">
+      <a href="#home" class="active">Home</a>
 
-        <!-- <li><a href="https://es-la.facebook.com/VeganBunker/">Restaurantes</a></li> -->
-        <li><select class="select"  id="shopsRestaurantes"  onchange="callWebPage(event)">
-          <option value="" disabled selected>Restaurantes/Delivery</option>
-          <option value= "https://www.facebook.com/vegandealer/">Vegan Dealer</option>
-          <option value= "https://www.facebook.com/Alfajoreriavegana/">Alfajoreria Vegana</option>
-          <option value= "https://www.facebook.com/labodeguitaverde7/">La Bodeguita Verde</option>
-          <option value= "https://www.facebook.com/leerteteteria/">LeerTetetería</option>
-          <option value= "https://www.facebook.com/VeganBunker/">VeganBunker</option>
-          <option value= "https://www.facebook.com/Emporio-Vegetal-306089922890184/">Emporio Vegetal</option>
-          <option value= "https://www.facebook.com/Restaurant-Soju-Vegetariano-427180647341017/">Restaurant Soju</option>
-          <option value= "https://www.facebook.com/manativegetariano/">Sanguchería Manati</option>
-          <option value= "https://www.facebook.com/SuculentaSangucheriaVegana/">Suculenta Sangucheria Vegana</option>
-        </select></li>
+      <div class="dropShop">
+        <button class="shopBtn"> Tiendas 
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-shop">
+          <a href= "https://www.facebook.com/pmaestra/">Planta Maestra</a>
+          <a href= "https://www.lacasadelvegan.cl/">La Casa del Vegan</a>
+        </div>
+      </div> 
 
-        <!-- <li><a href="https://www.facebook.com/pepperland.bar/">Bar</a></li> -->
-        <li><select class="select"  id="shopsBars"  onchange="callWebPage(event)">
-              <option value="" disabled selected>Bares</option>
-              <option value= "https://www.facebook.com/pepperland.bar/">Pepperland Bar</option>
-              <option value= "https://www.facebook.com/Barelchanchoseis/">El Chancho Seis Bar</option>
-          </select></li>
 
-        <!-- <li><a href="https://www.facebook.com/KuyenRayen/">Cosmética Vegana</a></li> -->
-        <li><select class="select"  id="shopsCosmetics"  onchange="callWebPage(event)">
-              <option value="" disabled selected>Cosmética Vegana</option>
-              <option value= "https://www.facebook.com/KuyenRayen/">Kuyen Rayen</option>
-              <option value= "https://www.facebook.com/Verde.cosmetica">Verde Cosmética</option>
-              <option value= "https://www.facebook.com/vgcosmetics.cl/?eid=ARBfhqOc-Ss3-axF-iHEjy26mX6z-o7E86_4GZXCcaSBZKkJWvNTVqm9EDIGaoO2jENcJ0fD8e_8R-Zo">Vegan Cosmetics</option>
-          </select></li>
+      <div class="dropBar">
+        <button class="barBtn"> Bar
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-bar">
+          <a href="https://www.facebook.com/pepperland.bar/">Pepperland Bar</a>
+          <a href="https://www.facebook.com/Barelchanchoseis/">El Chancho Seis Bar</a>
+        </div>
+      </div>
 
-        <!-- <li><a href=" https://www.facebook.com/Vegan-Boots-Chile-378361735969861/">Calzado</a></li> -->
-        <li><select class="select"  id="shopsShoes"  onchange="callWebPage(event)">
-              <option value="" disabled selected>Calzado</option>
-              <option value= "https://www.facebook.com/VerdeVidavegan/?eid=ARApeCq6JgYAkT1V9VaC1K77SRfI4rjp1ImaO7SgHmamlJzFssA4tTWVVpuLmw8sp4xIuF154QGAFfUo">Verde Vida Vegan </option>
-              <option value= "https://www.facebook.com/Vegan-Boots-Chile-378361735969861/">Vegan Boots Chile</option>
+      <div class="dropMakeUp">
+        <button class="makeUpBtn"> Cosmetica Vegana
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-makeUp">
+          <a href="https://www.facebook.com/KuyenRayen/">Kuyen Rayen</a>
+          <a href="https://www.facebook.com/Verde.cosmetica">Verde Cosmética</a>
+          <a href="https://www.facebook.com/vgcosmetics.cl/?eid=ARBfhqOc-Ss3-axF-iHEjy26mX6z-o7E86_4GZXCcaSBZKkJWvNTVqm9EDIGaoO2jENcJ0fD8e_8R-Zo">Vegan Cosmetics</a>
+        </div>
+      </div>
 
-        </select></li>
-        <!-- <li><a href="https://www.petalatino.com/blog/nuevo-estudio-sugiere-que-si-todos-fueramos-veganos-podriamos-salvar-8-millones-de-vidas-humanas-al-ano/">Noticias/Artículos</a></li> -->
-        <li>
-          <select class="select"  id="veganNews"  onchange="callWebPage(event)">
-              <option value="" disabled selected>Noticias/Artículos</option>
-              <option value= "https://www.petalatino.com/blog/nuevo-estudio-sugiere-que-si-todos-fueramos-veganos-podriamos-salvar-8-millones-de-vidas-humanas-al-ano/">Peta Latino</option>
-              <option value= "https://www.igualdadanimal.org/noticias">Igualdad Animal</option>
-          </select>
-        </li>
+      <div class="dropFootwear">
+        <button class="footwearBtn"> Calzado
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-footwear">
+          <a href="https://www.facebook.com/VerdeVidavegan/?eid=ARApeCq6JgYAkT1V9VaC1K77SRfI4rjp1ImaO7SgHmamlJzFssA4tTWVVpuLmw8sp4xIuF154QGAFfUo">Verde Vida </a>
+          <a href="https://www.facebook.com/Vegan-Boots-Chile-378361735969861/">Vegan Boots Chile</a>
+
+        </div>
+      </div>
+
+      <div class="dropArticle">
+        <button class="articleBtn"> Articulos 
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-article ">
+          <a href="https://www.petalatino.com/blog/nuevo-estudio-sugiere-que-si-todos-fueramos-veganos-podriamos-salvar-8-millones-de-vidas-humanas-al-ano/">Peta Latino</a>
+          <a href="https://www.igualdadanimal.org/noticias">Igualdad Animal</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="dropbtn"> Restaurantes 
+        </button>
+        <div class="dropdown-content">
+          <a href="https://www.facebook.com/vegandealer/"> Vegan Dealer </a>
+          <a href="https://www.facebook.com/Alfajoreriavegana/">Alfajoreria Vegana</a>
+          <a href="https://www.facebook.com/labodeguitaverde7/"> La Bodeguita Verde</a>
+          <a href = "https://www.facebook.com/leerteteteria/">LeerTetetería</a>
+          <a href =  "https://www.facebook.com/VeganBunker/">VeganBunker</a>
+          <a href= "https://www.facebook.com/Emporio-Vegetal-306089922890184/">Emporio Vegetal</a>
+          <a href= "https://www.facebook.com/Restaurant-Soju-Vegetariano-427180647341017/">Restaurant Soju</a>
+          <a href= "https://www.facebook.com/manativegetariano/">Sanguchería Manati</a>
+          <a href= "https://www.facebook.com/SuculentaSangucheriaVegana/">Suculenta Sangucheria Vegana</a>
+        </div>
+      </div>
+      <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+    </div>
+
+    <script>
+    function myFunction() {
+      var x = document.getElementById("myTopnav");
+      if (x.className === "topnav") {
+        x.className += " responsive";
+      } else {
+        x.className = "topnav";
+      }
+    }
+    </script>
 <div id="perfilUser" class="buttonUsers" style="display :none"><li><button id="callPerfil">Perfil Usuario</button></li></div> 
 </ul>
 </div>
