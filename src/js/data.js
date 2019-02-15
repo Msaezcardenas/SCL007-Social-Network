@@ -437,6 +437,13 @@ function wallVisible(){
     document.getElementById("userWallPerfil").style.display="none";
     document.getElementById("userWall").style.display="block";
 }
+
+document.getElementById("recetasVeg").addEventListener("click",recetaVisible);
+function recetaVisible(){
+    document.getElementById("userWallPerfil").style.display="none";
+    document.getElementById("recetas").style.display="block";
+}
+
  //Parámetros para conexión de base de datos
 function initializeFirebase(){
   // Initialize Firebase

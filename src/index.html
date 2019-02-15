@@ -180,6 +180,7 @@
     <div>
       <!--boton tabla nutricional-->
       <input type="button" class="inputloginPerfil" id="tableNut" value="Tabla Nutricional">
+      <input type="button" class="inputloginPerfil" id="recetasVeg"  value="Recetas">
     </div>
     <div></div>
   </div>
@@ -194,6 +195,40 @@
   <input type="file" id="imagEdit" name="file" accept="image/png, image/jpeg" class="inputUserLogin"><br> <br><!--boton para subir imagen, type=fyle-->
   <button id="updateEdit" class="inputUserLogin"> Actualizar </button>        
 </div>
+ <!-- RECETAS -->
+
+
+<div id="recetas" style="display:none">
+ <div class="recetasEstilo">
+  <input type="button" class="inputloginPerfil" id="returnButton" value="Volver">
+    <h2>¡Sube tu Receta!</h2>
+
+    <form id="enter-login" class="container-fluid2">
+        <div id="app1">
+            <p>Nombre de tu receta</p>
+            <input id="titleRecipe" type="text">
+
+            <p>Porciones</p>
+            <input id="idServes" type="text">
+
+            <p>Tiempo de Preparación</p>
+            <input id="idTime" type="text">
+
+        </div>
+
+        <div id="app2" class="form ingridients">
+            <p id="ingre">Ingredientes</p>
+            <textarea id="idIngredients" name="Ingredients" cols="30" rows="10"></textarea>
+        </div>
+
+        <div id="app3" class="form directions">
+            <p id="preRec">Preparación:</p>
+            <textarea id="insRecipes" name="" cols="30" rows="10"></textarea>
+        </div>
+    </form>
+  </div>
+</div>
+
   <!-- Fin perfil usuario -->
 <div id="tablaNut" style="display: none">
       <div class="divMuro">
