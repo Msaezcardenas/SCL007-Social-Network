@@ -118,6 +118,17 @@
             border-radius: 12px;
             padding: 1%;
             }
+            .divTableSum{
+                width: 90%;
+                height: auto;
+                background:  #C9EEAC;
+                text-align: center;
+                font-size: 12px;
+                color: black;
+                margin-left: 5%;
+                border-radius: 12px;
+                padding: 1%;
+                }
             .foodTable{
                 width: 70%;
                 height: 50px; 
@@ -406,4 +417,9 @@
   .divPerfilAjust{
     width: 40%;
     display:inline-block;
+  }
+  .foodTableName{
+    text-align: left;
+    font-size: 11px;
+
   }
