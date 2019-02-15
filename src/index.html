@@ -63,28 +63,11 @@
               <option value="" disabled selected>Noticias/Artículos</option>
               <option value= "https://www.petalatino.com/blog/nuevo-estudio-sugiere-que-si-todos-fueramos-veganos-podriamos-salvar-8-millones-de-vidas-humanas-al-ano/">Peta Latino</option>
               <option value= "https://www.igualdadanimal.org/noticias">Igualdad Animal</option>
-
-
-            </select>
-          </li>
-  <div id="perfilUser" class="buttonUsers" style="display :none"><li><button id="callPerfil">Perfil Usuario</button></li></div> 
-  </ul>
-   
-  </div>
-
-
-  <!-- PASARA A DOM -->
-  <script type="text/javascript">
-    function callWebPage(event){
-      let webPagesShops=document.getElementById(event.target.id).value;
-      window.location=webPagesShops; }
-  </script>
-  
-
-        
-
-
-
+          </select>
+        </li>
+<div id="perfilUser" class="buttonUsers" style="display :none"><li><button id="callPerfil">Perfil Usuario</button></li></div> 
+</ul>
+</div>
 <div id="userLogin" style="display: block" class="divlogin"><!--se crea para mostrar el login-->
  <h2>Ingreso de Usuarios</h2><p></p>
  <input id="email2" type="email" placeholder="Ingresa email" class="inputUserLogin"><p></p>
@@ -98,11 +81,11 @@
    <!-- Registro e Ingreso de usuarios -->
 <div id="userRegister" style="display: none"  class="divlogin"> <!--se crea para mostrar el registro de usuario-->
     <h4>Registro de Usuarios</h4>
-    <input id="name" placeholder="Nombre">
-    <input id="lastName" placeholder="apellido"> <br> <br>
-    <input id="email" type="email" placeholder="Ingresa email"> <br> <br>
-    <input id="password" type="password" placeholder="Ingresa contraseña"><br> <br>
-    <button id="signIn"> Registrarse </button>
+    <input id="name" placeholder="Nombre" class="inputUserLogin">
+    <input id="lastName" placeholder="apellido" class="inputUserLogin"> <br> <br>
+    <input id="email" type="email" placeholder="Ingresa email" class="inputUserLogin"> <br> <br>
+    <input id="password" type="password" placeholder="Ingresa contraseña" class="inputUserLogin"><br> <br>
+    <button id="signIn" class="inputlogin"> Registrarse </button>
 </div>
   <div id= "contenido">
    </div>
@@ -172,9 +155,14 @@
   <div class="divMuroPerfil">
     <!--Creando perfil de usuario-->
   <!--div que contiene comandos para editar si el usuario lo desea-->   
- <div id="divPerfil" style="display: block" class="divMuroPerfil">
+ <div id="divPerfil" style="display: block" >
   <div>
-      <h4>Editar perfil<img src="imagenes/edit.jpeg" id="edit" class="imgEdit" ></h4>
+    <div class="divPerfilAjust">
+        <input type="button" class="inputloginPerfil" id="returnWall" value="Volver">
+    </div>
+    <div class="divPerfilAjustWall">
+        <h4>Editar perfil<img src="imagenes/edit.jpeg" id="edit" class="imgEdit" ></h4>
+    </div>
     <div class="divPerfilAjust">
         <img id="imagenPerfil" class="imgResponsive"><p></p> 
     </div>
@@ -186,10 +174,11 @@
           </form><p></p>
     </div>
   </div>
-  </div>
+  </div> 
   <p></p>
   <div>
     <div>
+      <!--boton tabla nutricional-->
       <input type="button" class="inputloginPerfil" id="tableNut" value="Tabla Nutricional">
     </div>
     <div></div>
@@ -199,102 +188,105 @@
 <div id="messagePerfil"></div>
  </div><p></p> 
  <div id="divEdition" style="display: none" class="divlogin">
-
     <h2>Actualización de datos</h2><p></p>
   <input id="nameEdit" type="name" placeholder="Ingresa Nombre" class="inputUserLogin"> <br> <br>
   <input id="mailEdit" type="mail" placeholder="Ingresa correo" class="inputUserLogin"> <br> <br>
-  <input type="file" id="imagEdit" name="file" multiple class="inputUserLogin"><br> <br><!--boton para subir imagen, type=fyle-->
+  <input type="file" id="imagEdit" name="file" accept="image/png, image/jpeg" class="inputUserLogin"><br> <br><!--boton para subir imagen, type=fyle-->
   <button id="updateEdit" class="inputUserLogin"> Actualizar </button>        
-
 </div>
   <!-- Fin perfil usuario -->
 <div id="tablaNut" style="display: none">
       <div class="divMuro">
+          <input type="button" class="inputloginPerfil" id="returnButton" value="Volver">
         <h1>Datos personales</h1>
-          <h6> Gnero <select class="select"  id="genero"   onchange="">
+          <h4> Género <select class="inputUserLogin"  id="genero"   onchange="">
             <option>seleccione</option>
             <option value="1">Femenino</option>
             <option value="2">Masculino</option>
-          </select></h6><p></p>
-          <h6> Edad<input type="text" name="ageUser" id="ageUser" placeholder="Edad" > </h6> <p></p>
-          <h6> Altura<input type="text" name="heightUsers" id="heightUsers" placeholder="Metros" > </h6> <p></p>
-          <h6> Peso<input type="text" name="weightUsers" id="weightUsers" placeholder="Kilos"> </h6><p></p>
-          <h6> Nivel de actividad<select class="select"  id="activity"   onchange="">
+          </select></h4><p></p>
+          <h4> Edad     <input type="text" name="ageUser" id="ageUser" placeholder="Edad" class="inputUserLogin"> </h4> <p></p>
+          <h4> Altura   <input type="text" name="heightUsers" id="heightUsers" placeholder="Metros" class="inputUserLogin" ></h4> <p></p>
+          <h4> Peso<input type="text" name="weightUsers" id="weightUsers" placeholder="Kilos" class="inputUserLogin"> </h4><p></p>
+          <h4>Nivel de actividad  <select class="inputUserLogin" id="activity" inputloginonchange="">
                 <option value="sel">Seleccione</option>
-                <option value="1.200">No realiza actividad física; trabaja sentado la mayor parte del tiempo; camina muy poco</option><p></p>
-                <option value="1.375">Caminar distancias largas, se traslada en bicicleta, o realiza ejercicio moderado de 1 a 3 días/ semana</option><p></p>
+                <option value="1.200">No realiza actividad física; trabaja sentado</option><p></p>
+                <option value="1.375">Caminar distancias largas o se traslada en bicicleta</option><p></p>
                 <option value="1.550">Ejercicio moderado o intenso de 3 a 5 días por semana</option><p></p>
                 <option value="1.725">Ejercicio intenso de 6 a 7 días por semana</option><p></p>
-                <option value="1.900">Entrena 2 veces al día. Nivel recomendado para deportistas profesionales</option><p></p>
-              </select> </h6>
-           <h6>IMC <label id="imcUsers"></label></h6> <p></p>
-           <h6>Grasa Corporal <label id="grasaUser"></label></h6> <p></p>
-           <h6>Masa Magra <label id="magraUser"></label></h6> <p></p>
-           <h6>Requerimientos Energéticos Totales <label id="retUser"></label></h6> <p></p>
-           <input type="button" value="Calcular" id="calc">
+                <option value="1.900">Entrena 2 veces al día. Nivel para deportistas profesionales</option><p></p>
+              </select> </h4>
+              <h4>IMC <label id="imcUsers" ></label></h4> <p></p>
+                <h4>Grasa Corporal <label id="grasaUser"></label></h4> <p></p>
+                  <h4>Masa Magra <label id="magraUser"></label></h4><p></p>
+                    <h4>Requerimientos Energéticos Totales <label id="retUser"></label></h4><p></p>
+           <input type="button" value="Calcular" id="calc" class="inputlogin">
       <p></p>
-  </div> 
-  <div id="divTable" style="display: block" class="divTable">
+  </div><p></p>
+  <div id="divTable" style="display: block" class="divTableSum">
+    <h4>Cálculo Tabla nutricional</h4>
+      <p></p>
+
     <table>
       <tr>
-        <td>Alimento</td><td>Proteínas</td><td>Grasas</td><td>Carbohidratos</td>
+        <td>Alimento</td><td>Cantidad</td><td>Proteínas</td><td>Grasas</td><td>Carbohidratos</td>
+      </tr>
+
+      <tr>
+        <td class="foodTableName">Frutas</td> <td><input type="text" class="textSize" id="quantFruit"></td><td><label id="proteinFruit"> 1</label></td><td><label id="greaseFruit">0</label></td><td><label id="carbohydrateFruit">18</label></td>
       </tr>
       <tr>
-        <td>Frutas <input type="text" style="width:10px;height:5px" id="quantFruit"></td><td><label id="proteinFruit"> 1</label></td><td><label id="greaseFruit">0</label></td><td><label id="carbohydrateFruit">18</label></td>
-      </tr>
-      <tr>
-        <td class="foodTable">Legumbres <input type="text" style="width:10px;height:5px" id="quantVegetables"></td><td><label id="proteinVegetables"> 10</label></td><td><label id="greaseVegetables">1</label></td><td><label id="carbohydrateVegetables">26</label></td>
+        <td class="foodTableName">Legumbres</td><td><input type="text" class="textSize" id="quantVegetables"></td><td><label id="proteinVegetables"> 10</label></td><td><label id="greaseVegetables">1</label></td><td><label id="carbohydrateVegetables">26</label></td>
       </tr><tr>
-        <td>Cereales Blancos <input type="text" style="width:10px;height:5px" id="quantWhiteCereals"></td><td><label id="proteinWhiteCereals"> 3</label></td><td><label id="greaseWhiteCereals">0</label></td><td><label id="carbohydrateWhiteCereals">27</label></td>
+        <td class="foodTableName">Cereales Blancos</td><td> <input type="text" class="textSize" id="quantWhiteCereals"></td><td><label id="proteinWhiteCereals"> 3</label></td><td><label id="greaseWhiteCereals">0</label></td><td><label id="carbohydrateWhiteCereals">27</label></td>
       </tr><tr>
-          <td>Cereales Altos en Proteínas <input type="text" style="width:10px;height:5px" id="quantHighCereals"></td><td><label id="proteinHighCereals"> 7</label></td><td><label id="greaseHighCereals">3</label></td><td><label id="carbohydrateHighCereals">35</label></td>
+          <td class="foodTableName">Cereales Altos en Proteínas</td> <td><input type="text" class="textSize" id="quantHighCereals"></td><td><label id="proteinHighCereals"> 7</label></td><td><label id="greaseHighCereals">3</label></td><td><label id="carbohydrateHighCereals">35</label></td>
         </tr>
       <tr>
-        <td>Pan <input type="text" style="width:10px;height:5px" id="quantBread"></td><td><label id="proteinBread"> 7</label></td><td><label id="greaseBread">1</label></td><td><label id="carbohydrateBread">6</label></td>
+        <td class="foodTableName">Pan </td><td><input type="text" class="textSize" id="quantBread"></td><td><label id="proteinBread"> 7</label></td><td><label id="greaseBread">1</label></td><td><label id="carbohydrateBread">6</label></td>
       </tr>
       <tr>
-        <td>Pan Molde <input type="text" style="width:10px;height:5px" id="quantMoldBread"></td><td><label id="proteinMoldBread"> 2</label></td><td><label id="greaseMoldBread">1</label></td><td><label id="carbohydrateMoldBread">15</label></td>
+        <td class="foodTableName">Pan Molde</td> <td><input type="text" class="textSize" id="quantMoldBread"></td><td><label id="proteinMoldBread"> 2</label></td><td><label id="greaseMoldBread">1</label></td><td><label id="carbohydrateMoldBread">15</label></td>
       </tr>
       <tr>
-        <td>Papas<input type="text" style="width:10px;height:5px" id="quantPotatoes"></td><td><label id="proteinPotatoes">4</label></td><td><label id="greasePotatoes">11</label></td><td><label id="carbohydratePotatoes">4</label></td>
+        <td class="foodTableName">Papas</td><td><input type="text" class="textSize" id="quantPotatoes"></td><td><label id="proteinPotatoes">4</label></td><td><label id="greasePotatoes">11</label></td><td><label id="carbohydratePotatoes">4</label></td>
       </tr>
       <tr>
-        <td>Frutos Secos y Semillas<input type="text" style="width:10px;height:5px" id="quantDriedFruitsSeeds"></td><td><label id="proteinDriedFruitsSeeds"> 4</label></td><td><label id="greaseDriedFruitsSeeds">11</label></td><td><label id="carbohydrateDriedFruitsSeeds">4</label></td>
+        <td class="foodTableName">Frutos Secos y Semillas</td><td><input type="text" class="textSize" id="quantDriedFruitsSeeds"></td><td><label id="proteinDriedFruitsSeeds"> 4</label></td><td><label id="greaseDriedFruitsSeeds">11</label></td><td><label id="carbohydrateDriedFruitsSeeds">4</label></td>
       </tr>
       <tr>
-        <td>Frutas Desecadas<input type="text" style="width:10px;height:5px" id="quantDriedFruits"></td><td><label id="proteinDriedFruitsuit"> 3</label></td><td><label id="greaseDriedFruits">0</label></td><td><label id="carbohydrateDriedFruits">77</label></td>
+        <td class="foodTableName">Frutas Desecadas</td><td><input type="text" class="textSize" id="quantDriedFruits"></td><td><label id="proteinDriedFruitsuit"> 3</label></td><td><label id="greaseDriedFruits">0</label></td><td><label id="carbohydrateDriedFruits">77</label></td>
       </tr>
       <tr>
-        <td>Palta<input type="text" style="width:10px;height:5px" id="quantAvocado"></td><td><label id="proteinAvocado"> 2</label></td><td><label id="greaseAvocado">18</label></td><td><label id="carbohydrateAvocado">6</label></td>
+        <td class="foodTableName">Palta</td><td><input type="text" class="textSize" id="quantAvocado"></td><td><label id="proteinAvocado"> 2</label></td><td><label id="greaseAvocado">18</label></td><td><label id="carbohydrateAvocado">6</label></td>
       </tr>
       <tr>
-        <td>Aceites <input type="text" style="width:10px;height:5px" id="quantOils"></td><td><label id="proteinOils"> 0</label></td><td><label id="greaseOils">5</label></td><td><label id="carbohydrateOils">0</label></td>
+        <td class="foodTableName">Aceites</td> <td><input type="text" class="textSize" id="quantOils"></td><td><label id="proteinOils"> 0</label></td><td><label id="greaseOils">5</label></td><td><label id="carbohydrateOils">0</label></td>
       </tr>
       <tr>
-        <td>Leches o Bebidas Vegetales<input type="text" style="width:30px;height:5px" id="quantMilk"></td><td><label id="proteinMilk"> 1</label></td><td><label id="greaseMilk">0</label></td><td><label id="carbohydrateMilk">23</label></td>
+        <td class="foodTableName">Leches o Bebidas Vegetales</td><td><input type="text" class="textSize" id="quantMilk"></td><td><label id="proteinMilk"> 1</label></td><td><label id="greaseMilk">0</label></td><td><label id="carbohydrateMilk">23</label></td>
       </tr>
       <tr>
-        <td>Leche o Bebida de Soja <input type="text" style="width:30px;height:5px" id="quantSoyDrink"></td><td><label id="proteinSoyDrink"> 3</label></td><td><label id="greaseSoyDrink">2</label></td><td><label id="carbohydrateSoyDrink">6</label></td>
+        <td class="foodTableName">Leche o Bebida de Soja</td><td> <input type="text" class="textSize" id="quantSoyDrink"></td><td><label id="proteinSoyDrink"> 3</label></td><td><label id="greaseSoyDrink">2</label></td><td><label id="carbohydrateSoyDrink">6</label></td>
       </tr>
       <tr>
-        <td>Yogur de Soja <input type="text" style="width:10px;height:5px" id="quantSoyYogurt"></td><td><label id="proteinSoyYogurt"> 4</label></td><td><label id="greaseSoyYogurt">2</label></td><td><label id="carbohydrateSoyYogurt">15</label></td>
+        <td class="foodTableName">Yogur de Soja</td><td> <input type="text" class="textSize" id="quantSoyYogurt"></td><td><label id="proteinSoyYogurt"> 4</label></td><td><label id="greaseSoyYogurt">2</label></td><td><label id="carbohydrateSoyYogurt">15</label></td>
       </tr>
       <tr>
-        <td>Carne de Soja <input type="text" style="width:10px;height:5px" id="quantSoyMeat"></td><td><label id="proteinSoyMeat"> 24</label></td><td><label id="greaseSoyMeat">4</label></td><td><label id="carbohydrateSoyMeat">2</label></td>
+        <td class="foodTableName">Carne de Soja</td><td> <input type="text" class="textSize" id="quantSoyMeat"></td><td><label id="proteinSoyMeat"> 24</label></td><td><label id="greaseSoyMeat">4</label></td><td><label id="carbohydrateSoyMeat">2</label></td>
       </tr>
       <tr>
-        <td>Hamburguesa de Soja <input type="text" style="width:10px;height:5px" id="quantSoyBurger"></td><td><label id="proteinSoyBurger"> 17</label></td><td><label id="greaseSoyBurger">7</label></td><td><label id="carbohydrateSoyBurger">8</label></td>
+        <td class="foodTableName">Hamburguesa de Soja</td><td>  <input type="text" class="textSize" id="quantSoyBurger"></td><td><label id="proteinSoyBurger"> 17</label></td><td><label id="greaseSoyBurger">7</label></td><td><label id="carbohydrateSoyBurger">8</label></td>
       </tr>
       <tr>
-        <td>Tofu <input type="text" style="width:10px;height:5px" id="quantTofu"></td><td><label id="proteinTofu"> 7</label></td><td><label id="greaseTofu">4</label></td><td><label id="carbohydrateTofu">1</label></td>
+        <td class="foodTableName">Tofu</td> <td> <input type="text" class="textSize" id="quantTofu"></td><td><label id="proteinTofu"> 7</label></td><td><label id="greaseTofu">4</label></td><td><label id="carbohydrateTofu">1</label></td>
       </tr>
     </table>
   <p></p>
-    <input type="button" value="Calcular" id="calcTable"><label id="total"> Total :</label> 
+    <input type="button" value="Calcular" id="calcTable" class="inputlogin"><label id="total"> Total :</label> 
    </div>
   </div>
    <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
-       <script src="./js/main.js" type="module"></script>
+       
        <script src="./js/mainMolu.js" type="module"></script>
        <script src="./js/data.js"></script>
        <script src="./js/dataPerfil.js"></script>
