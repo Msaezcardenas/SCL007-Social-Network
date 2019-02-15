@@ -156,6 +156,11 @@
                 font-size: 11px;
             
               }
+              .textSize{
+                font-size: 11px;
+                height: 10px;
+                width: 15px;
+            }
       }
       /*div que edita información de usuario si lo desea*/
 /*responsive otros dispositivos*/
@@ -313,6 +318,11 @@
                 font-size: 11px;
             
               }
+              .textSize{
+                font-size: 18px;
+                height: 15px;
+                width: 20px;
+            }
 }
 /*responsive tablet o superior*/
 @media screen and (min-width: 721px){
