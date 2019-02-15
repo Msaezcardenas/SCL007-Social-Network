@@ -6,100 +6,71 @@
      <meta http-equiv="X-UA-Compatible" content="ie=edge">
      <link rel="stylesheet" href="./style/styleMarce.css">
      <link rel="stylesheet" href="./style/stylesMolu.css">
-     <link rel="stylesheet" href="./style/pruebaMolu.css">
      <!-- <link rel="stylesheet" href="./style/stylesEC.css"> -->
      <title>Social Vegan</title>
    <meta charset="utf-8">
  </head>
 <body class="bodyImg">
+<div class="divHeader">
+    <ul id="navInicio1" class="navInicio" style="display:block">
+        <li><img src="imagenes/logoverde.jpg" class="imgHeader" /></li>
 
+        <li><select class="select"  id="shopsTiendas"  onchange="callWebPage(event)">
+              <option value="" disabled selected>Tiendas</option>
+              <option value= "https://www.facebook.com/pmaestra/" target="_blanck">Planta Maestra</option>
+              <option value= "https://www.lacasadelvegan.cl/">La Casa del Vegan</option>
+          </select></li>
+
+        <!-- <li><a href="https://es-la.facebook.com/VeganBunker/">Restaurantes</a></li> -->
+        <li><select class="select"  id="shopsRestaurantes"  onchange="callWebPage(event)">
+          <option value="" disabled selected>Restaurantes/Delivery</option>
+          <option value= "https://www.facebook.com/vegandealer/">Vegan Dealer</option>
+          <option value= "https://www.facebook.com/Alfajoreriavegana/">Alfajoreria Vegana</option>
+          <option value= "https://www.facebook.com/labodeguitaverde7/">La Bodeguita Verde</option>
+          <option value= "https://www.facebook.com/leerteteteria/">LeerTetetería</option>
+          <option value= "https://www.facebook.com/VeganBunker/">VeganBunker</option>
+          <option value= "https://www.facebook.com/Emporio-Vegetal-306089922890184/">Emporio Vegetal</option>
+          <option value= "https://www.facebook.com/Restaurant-Soju-Vegetariano-427180647341017/">Restaurant Soju</option>
+          <option value= "https://www.facebook.com/manativegetariano/">Sanguchería Manati</option>
+          <option value= "https://www.facebook.com/SuculentaSangucheriaVegana/">Suculenta Sangucheria Vegana</option>
+        </select></li>
+
+        <!-- <li><a href="https://www.facebook.com/pepperland.bar/">Bar</a></li> -->
+        <li><select class="select"  id="shopsBars"  onchange="callWebPage(event)">
+              <option value="" disabled selected>Bares</option>
+              <option value= "https://www.facebook.com/pepperland.bar/">Pepperland Bar</option>
+              <option value= "https://www.facebook.com/Barelchanchoseis/">El Chancho Seis Bar</option>
+          </select></li>
+
+        <!-- <li><a href="https://www.facebook.com/KuyenRayen/">Cosmética Vegana</a></li> -->
+        <li><select class="select"  id="shopsCosmetics"  onchange="callWebPage(event)">
+              <option value="" disabled selected>Cosmética Vegana</option>
+              <option value= "https://www.facebook.com/KuyenRayen/">Kuyen Rayen</option>
+              <option value= "https://www.facebook.com/Verde.cosmetica">Verde Cosmética</option>
+              <option value= "https://www.facebook.com/vgcosmetics.cl/?eid=ARBfhqOc-Ss3-axF-iHEjy26mX6z-o7E86_4GZXCcaSBZKkJWvNTVqm9EDIGaoO2jENcJ0fD8e_8R-Zo">Vegan Cosmetics</option>
+          </select></li>
+
+        <!-- <li><a href=" https://www.facebook.com/Vegan-Boots-Chile-378361735969861/">Calzado</a></li> -->
+        <li><select class="select"  id="shopsShoes"  onchange="callWebPage(event)">
+              <option value="" disabled selected>Calzado</option>
+              <option value= "https://www.facebook.com/VerdeVidavegan/?eid=ARApeCq6JgYAkT1V9VaC1K77SRfI4rjp1ImaO7SgHmamlJzFssA4tTWVVpuLmw8sp4xIuF154QGAFfUo">Verde Vida Vegan </option>
+              <option value= "https://www.facebook.com/Vegan-Boots-Chile-378361735969861/">Vegan Boots Chile</option>
+
+        </select></li>
+        <!-- <li><a href="https://www.petalatino.com/blog/nuevo-estudio-sugiere-que-si-todos-fueramos-veganos-podriamos-salvar-8-millones-de-vidas-humanas-al-ano/">Noticias/Artículos</a></li> -->
+        <li>
+          <select class="select"  id="veganNews"  onchange="callWebPage(event)">
+              <option value="" disabled selected>Noticias/Artículos</option>
+              <option value= "https://www.petalatino.com/blog/nuevo-estudio-sugiere-que-si-todos-fueramos-veganos-podriamos-salvar-8-millones-de-vidas-humanas-al-ano/">Peta Latino</option>
+              <option value= "https://www.igualdadanimal.org/noticias">Igualdad Animal</option>
+
+
+            </select>
+          </li>
   <div id="perfilUser" class="buttonUsers" style="display :none"><li><button id="callPerfil">Perfil Usuario</button></li></div> 
+  </ul>
    
-  </div> 
-    <div class="topnav" id="myTopnav">
-      <a href="#home" class="active">Home</a>
-
-      <div class="dropShop">
-        <button class="shopBtn"> Tiendas 
-          <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-shop">
-          <a href= "https://www.facebook.com/pmaestra/">Planta Maestra</a>
-          <a href= "https://www.lacasadelvegan.cl/">La Casa del Vegan</a>
-        </div>
-      </div> 
-
-
-      <div class="dropBar">
-        <button class="barBtn"> Bar
-          <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-bar">
-          <a href="https://www.facebook.com/pepperland.bar/">Pepperland Bar</a>
-          <a href="https://www.facebook.com/Barelchanchoseis/">El Chancho Seis Bar</a>
-        </div>
-      </div>
-
-      <div class="dropMakeUp">
-        <button class="makeUpBtn"> Cosmetica Vegana
-          <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-makeUp">
-          <a href="https://www.facebook.com/KuyenRayen/">Kuyen Rayen</a>
-          <a href="https://www.facebook.com/Verde.cosmetica">Verde Cosmética</a>
-          <a href="https://www.facebook.com/vgcosmetics.cl/?eid=ARBfhqOc-Ss3-axF-iHEjy26mX6z-o7E86_4GZXCcaSBZKkJWvNTVqm9EDIGaoO2jENcJ0fD8e_8R-Zo">Vegan Cosmetics</a>
-        </div>
-      </div>
-
-      <div class="dropFootwear">
-        <button class="footwearBtn"> Calzado
-          <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-footwear">
-          <a href="https://www.facebook.com/VerdeVidavegan/?eid=ARApeCq6JgYAkT1V9VaC1K77SRfI4rjp1ImaO7SgHmamlJzFssA4tTWVVpuLmw8sp4xIuF154QGAFfUo">Verde Vida </a>
-          <a href="https://www.facebook.com/Vegan-Boots-Chile-378361735969861/">Vegan Boots Chile</a>
-
-        </div>
-      </div>
-
-      <div class="dropArticle">
-        <button class="articleBtn"> Articulos 
-          <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-article ">
-          <a href="https://www.petalatino.com/blog/nuevo-estudio-sugiere-que-si-todos-fueramos-veganos-podriamos-salvar-8-millones-de-vidas-humanas-al-ano/">Peta Latino</a>
-          <a href="https://www.igualdadanimal.org/noticias">Igualdad Animal</a>
-        </div>
-      </div>
-
-      <div class="dropdown">
-        <button class="dropbtn"> Restaurantes 
-        </button>
-        <div class="dropdown-content">
-          <a href="https://www.facebook.com/vegandealer/"> Vegan Dealer </a>
-          <a href="https://www.facebook.com/Alfajoreriavegana/">Alfajoreria Vegana</a>
-          <a href="https://www.facebook.com/labodeguitaverde7/"> La Bodeguita Verde</a>
-          <a href = "https://www.facebook.com/leerteteteria/">LeerTetetería</a>
-          <a href =  "https://www.facebook.com/VeganBunker/">VeganBunker</a>
-          <a href= "https://www.facebook.com/Emporio-Vegetal-306089922890184/">Emporio Vegetal</a>
-          <a href= "https://www.facebook.com/Restaurant-Soju-Vegetariano-427180647341017/">Restaurant Soju</a>
-          <a href= "https://www.facebook.com/manativegetariano/">Sanguchería Manati</a>
-          <a href= "https://www.facebook.com/SuculentaSangucheriaVegana/">Suculenta Sangucheria Vegana</a>
-        </div>
-      </div>
-      <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
-    </div>
-    
-    <script>
-    function myFunction() {
-      var x = document.getElementById("myTopnav");
-      if (x.className === "topnav") {
-        x.className += " responsive";
-      } else {
-        x.className = "topnav";
-      }
-    }
-    </script>
+  </div>
 
 
   <!-- PASARA A DOM -->
@@ -113,13 +84,14 @@
         
 
 
+
 <div id="userLogin" style="display: block" class="divlogin"><!--se crea para mostrar el login-->
- <h4>Ingreso de Usuarios</h4>
- <input id="email2" type="email" placeholder="Ingresa email">
- <input id="password2" type="password" placeholder="Ingresa contraseña">
- <button id="login"> Acceder </button>
+ <h2>Ingreso de Usuarios</h2><p></p>
+ <input id="email2" type="email" placeholder="Ingresa email" class="inputUserLogin"><p></p>
+ <input id="password2" type="password" placeholder="Ingresa contraseña" class="inputUserLogin"><p></p>
+ <button id="login" class="inputlogin"> Acceder </button>
  <!--se agrega el link para crear el registro-->
- <p>Si desea crear una cuenta presione <button id="registerNew">aquí</button></p>
+ <p>Si desea crear una cuenta presione <button id="registerNew" class="inputlogin">aquí</button></p>
 </div>
 <br>
 <br>
@@ -148,7 +120,7 @@
        <p></p>
         <label for="mensaje">Mensaje:</label>
         <textarea name="mensaje" id="mensaje" cols="" rows=""></textarea><p></p>
-        <input type="button" name="" value="Enviar Mensaje" class="inputlogin" id="sendMessage">
+        <input type="button" name="" value="Enviar Mensaje" class="inputUserLogin" id="sendMessage">
       </form>
  </div>
  <p></p>
@@ -197,41 +169,135 @@
 <!--Creando perfil de usuario-->
 
  <div id="userWallPerfil" style="display: none" ><!--se crea para mostrar el muro-->
-  <div class="divMuro">
+  <div class="divMuroPerfil">
     <!--Creando perfil de usuario-->
-    
- <div id="divPerfil" style="display: block" class="divMuro">
-  
-     <form id="formMessagePerfil" class="divHeaderModal"><p></p>
-      
-      <img id="imagenPerfil" class="imgResponsive"><p></p> 
-       <!--div que contiene comandos para editar si el usuario lo desea--> 
-           <h4>Editar perfil<img src="imagenes/edit.jpeg" id="edit" class="imgEdit" ></h4>
-          <label id="namePerfil"></label><p></p>
-         <textarea name="mensaje" id="mensajePerfil" cols="" rows="" placeholder="Comenta" ></textarea><p></p>
-         <input type="button" name="" id="sendMessagePerfil" value="Enviar Comentario" class="inputComent">
-       </form><p></p>
+  <!--div que contiene comandos para editar si el usuario lo desea-->   
+ <div id="divPerfil" style="display: block" class="divMuroPerfil">
+  <div>
+      <h4>Editar perfil<img src="imagenes/edit.jpeg" id="edit" class="imgEdit" ></h4>
+    <div class="divPerfilAjust">
+        <img id="imagenPerfil" class="imgResponsive"><p></p> 
+    </div>
+    <div class="divPerfilAjust">
+        <form id="formMessagePerfil" class="divHeaderModal"><p></p>
+             <label id="namePerfil"></label><p></p>
+            <textarea name="mensaje" id="mensajePerfil" cols="" rows="" placeholder="Comenta" ></textarea><p></p>
+            <input type="button" name="" id="sendMessagePerfil" value="Enviar Comentario" class="inputloginPerfil">
+          </form><p></p>
+    </div>
+  </div>
   </div>
   <p></p>
+  <div>
+    <div>
+      <input type="button" class="inputloginPerfil" id="tableNut" value="Tabla Nutricional">
+    </div>
+    <div></div>
+  </div>
 </div>
   <p></p>
 <div id="messagePerfil"></div>
- </div><p></p>
- 
+ </div><p></p> 
  <div id="divEdition" style="display: none" class="divlogin">
-  <input id="nameEdit" type="name" placeholder="Ingresa Nombre"> <br> <br>
-  <input id="mailEdit" type="mail" placeholder="Ingresa correo"> <br> <br>
-  <input type="file" id="imagEdit" name="file" multiple><br> <br><!--boton para subir imagen, type=fyle-->
-  <button id="updateEdit"> Actualizar </button>
+
+    <h2>Actualización de datos</h2><p></p>
+  <input id="nameEdit" type="name" placeholder="Ingresa Nombre" class="inputUserLogin"> <br> <br>
+  <input id="mailEdit" type="mail" placeholder="Ingresa correo" class="inputUserLogin"> <br> <br>
+  <input type="file" id="imagEdit" name="file" multiple class="inputUserLogin"><br> <br><!--boton para subir imagen, type=fyle-->
+  <button id="updateEdit" class="inputUserLogin"> Actualizar </button>        
+
 </div>
   <!-- Fin perfil usuario -->
-
+<div id="tablaNut" style="display: none">
+      <div class="divMuro">
+        <h1>Datos personales</h1>
+          <h6> Gnero <select class="select"  id="genero"   onchange="">
+            <option>seleccione</option>
+            <option value="1">Femenino</option>
+            <option value="2">Masculino</option>
+          </select></h6><p></p>
+          <h6> Edad<input type="text" name="ageUser" id="ageUser" placeholder="Edad" > </h6> <p></p>
+          <h6> Altura<input type="text" name="heightUsers" id="heightUsers" placeholder="Metros" > </h6> <p></p>
+          <h6> Peso<input type="text" name="weightUsers" id="weightUsers" placeholder="Kilos"> </h6><p></p>
+          <h6> Nivel de actividad<select class="select"  id="activity"   onchange="">
+                <option value="sel">Seleccione</option>
+                <option value="1.200">No realiza actividad física; trabaja sentado la mayor parte del tiempo; camina muy poco</option><p></p>
+                <option value="1.375">Caminar distancias largas, se traslada en bicicleta, o realiza ejercicio moderado de 1 a 3 días/ semana</option><p></p>
+                <option value="1.550">Ejercicio moderado o intenso de 3 a 5 días por semana</option><p></p>
+                <option value="1.725">Ejercicio intenso de 6 a 7 días por semana</option><p></p>
+                <option value="1.900">Entrena 2 veces al día. Nivel recomendado para deportistas profesionales</option><p></p>
+              </select> </h6>
+           <h6>IMC <label id="imcUsers"></label></h6> <p></p>
+           <h6>Grasa Corporal <label id="grasaUser"></label></h6> <p></p>
+           <h6>Masa Magra <label id="magraUser"></label></h6> <p></p>
+           <h6>Requerimientos Energéticos Totales <label id="retUser"></label></h6> <p></p>
+           <input type="button" value="Calcular" id="calc">
+      <p></p>
+  </div> 
+  <div id="divTable" style="display: block" class="divTable">
+    <table>
+      <tr>
+        <td>Alimento</td><td>Proteínas</td><td>Grasas</td><td>Carbohidratos</td>
+      </tr>
+      <tr>
+        <td>Frutas <input type="text" style="width:10px;height:5px" id="quantFruit"></td><td><label id="proteinFruit"> 1</label></td><td><label id="greaseFruit">0</label></td><td><label id="carbohydrateFruit">18</label></td>
+      </tr>
+      <tr>
+        <td class="foodTable">Legumbres <input type="text" style="width:10px;height:5px" id="quantVegetables"></td><td><label id="proteinVegetables"> 10</label></td><td><label id="greaseVegetables">1</label></td><td><label id="carbohydrateVegetables">26</label></td>
+      </tr><tr>
+        <td>Cereales Blancos <input type="text" style="width:10px;height:5px" id="quantWhiteCereals"></td><td><label id="proteinWhiteCereals"> 3</label></td><td><label id="greaseWhiteCereals">0</label></td><td><label id="carbohydrateWhiteCereals">27</label></td>
+      </tr><tr>
+          <td>Cereales Altos en Proteínas <input type="text" style="width:10px;height:5px" id="quantHighCereals"></td><td><label id="proteinHighCereals"> 7</label></td><td><label id="greaseHighCereals">3</label></td><td><label id="carbohydrateHighCereals">35</label></td>
+        </tr>
+      <tr>
+        <td>Pan <input type="text" style="width:10px;height:5px" id="quantBread"></td><td><label id="proteinBread"> 7</label></td><td><label id="greaseBread">1</label></td><td><label id="carbohydrateBread">6</label></td>
+      </tr>
+      <tr>
+        <td>Pan Molde <input type="text" style="width:10px;height:5px" id="quantMoldBread"></td><td><label id="proteinMoldBread"> 2</label></td><td><label id="greaseMoldBread">1</label></td><td><label id="carbohydrateMoldBread">15</label></td>
+      </tr>
+      <tr>
+        <td>Papas<input type="text" style="width:10px;height:5px" id="quantPotatoes"></td><td><label id="proteinPotatoes">4</label></td><td><label id="greasePotatoes">11</label></td><td><label id="carbohydratePotatoes">4</label></td>
+      </tr>
+      <tr>
+        <td>Frutos Secos y Semillas<input type="text" style="width:10px;height:5px" id="quantDriedFruitsSeeds"></td><td><label id="proteinDriedFruitsSeeds"> 4</label></td><td><label id="greaseDriedFruitsSeeds">11</label></td><td><label id="carbohydrateDriedFruitsSeeds">4</label></td>
+      </tr>
+      <tr>
+        <td>Frutas Desecadas<input type="text" style="width:10px;height:5px" id="quantDriedFruits"></td><td><label id="proteinDriedFruitsuit"> 3</label></td><td><label id="greaseDriedFruits">0</label></td><td><label id="carbohydrateDriedFruits">77</label></td>
+      </tr>
+      <tr>
+        <td>Palta<input type="text" style="width:10px;height:5px" id="quantAvocado"></td><td><label id="proteinAvocado"> 2</label></td><td><label id="greaseAvocado">18</label></td><td><label id="carbohydrateAvocado">6</label></td>
+      </tr>
+      <tr>
+        <td>Aceites <input type="text" style="width:10px;height:5px" id="quantOils"></td><td><label id="proteinOils"> 0</label></td><td><label id="greaseOils">5</label></td><td><label id="carbohydrateOils">0</label></td>
+      </tr>
+      <tr>
+        <td>Leches o Bebidas Vegetales<input type="text" style="width:30px;height:5px" id="quantMilk"></td><td><label id="proteinMilk"> 1</label></td><td><label id="greaseMilk">0</label></td><td><label id="carbohydrateMilk">23</label></td>
+      </tr>
+      <tr>
+        <td>Leche o Bebida de Soja <input type="text" style="width:30px;height:5px" id="quantSoyDrink"></td><td><label id="proteinSoyDrink"> 3</label></td><td><label id="greaseSoyDrink">2</label></td><td><label id="carbohydrateSoyDrink">6</label></td>
+      </tr>
+      <tr>
+        <td>Yogur de Soja <input type="text" style="width:10px;height:5px" id="quantSoyYogurt"></td><td><label id="proteinSoyYogurt"> 4</label></td><td><label id="greaseSoyYogurt">2</label></td><td><label id="carbohydrateSoyYogurt">15</label></td>
+      </tr>
+      <tr>
+        <td>Carne de Soja <input type="text" style="width:10px;height:5px" id="quantSoyMeat"></td><td><label id="proteinSoyMeat"> 24</label></td><td><label id="greaseSoyMeat">4</label></td><td><label id="carbohydrateSoyMeat">2</label></td>
+      </tr>
+      <tr>
+        <td>Hamburguesa de Soja <input type="text" style="width:10px;height:5px" id="quantSoyBurger"></td><td><label id="proteinSoyBurger"> 17</label></td><td><label id="greaseSoyBurger">7</label></td><td><label id="carbohydrateSoyBurger">8</label></td>
+      </tr>
+      <tr>
+        <td>Tofu <input type="text" style="width:10px;height:5px" id="quantTofu"></td><td><label id="proteinTofu"> 7</label></td><td><label id="greaseTofu">4</label></td><td><label id="carbohydrateTofu">1</label></td>
+      </tr>
+    </table>
+  <p></p>
+    <input type="button" value="Calcular" id="calcTable"><label id="total"> Total :</label> 
+   </div>
+  </div>
    <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
        <script src="./js/main.js" type="module"></script>
        <script src="./js/mainMolu.js" type="module"></script>
-       <script src="./js/pruebaMolu.js" type="module"></script>
-       <script src="./js/data.js" type="module"></script>
+       <script src="./js/data.js"></script>
+       <script src="./js/dataPerfil.js"></script>
        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   </body>
-
 </html>

@@ -1,3 +1,5 @@
+// import {saveUser} from './dataMolu.js'
+
 // Se declara función para registrar usuarios//
 document.getElementById("signIn").addEventListener("click", signIn)
 function signIn(){
@@ -90,17 +92,14 @@ export const stateChanged = function (){
           let uid = user.uid;
           let providerData = user.providerData;
           saveUser(email, uid);
-
-
           // ...
         } else {
           // User is signed out.
           console.log('no existe usuario activo')
           // ...
         }
-    })
- }
-
+      });
+}
 //con esta línea declaro que al ejecutarse main.js se ejecutará automaticamente stateChanged//
 //observador();
 
@@ -139,31 +138,3 @@ function verficar(){
       console.log(error);
     });
 }
-
-//se crea funcion para registro usuario
-document.getElementById("signIn").addEventListener("click", registerUser);
-function registerUser(){
-    document.getElementById("userLogin").style.display = "block";
-    document.getElementById("userRegister").style.display = "block";
-
-}
-/*se agrega para mostrar el div del registro y ocultar el div del login*/
-document.getElementById("registerNew").addEventListener("click",registerDiv);
-function registerDiv(){
-    document.getElementById("userLogin").style.display = "none";
-    document.getElementById("userRegister").style.display = "block";
-}
-document.getElementById("login").addEventListener("click", showNavbar);
-function showNavbar(){
-    document.getElementById("navInicio1").style.display = "block";
-}
-
-  
-let saveUserDatabase = "";
- const saveUser = (email, uid) => {   
-    firebase.database().ref(`users/${uid}`).set({
-     email : email,
-     id : uid,
-    });
-};
-
