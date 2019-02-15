@@ -2,16 +2,59 @@
 //Para trabajar el DOM//
 // console.log("Hola")
 window.onload = initialize;
+document.getElementById("login").addEventListener("click", login)
+function login(){
+    let email2 = document.getElementById('email2').value;
+    let password2 = document.getElementById('password2').value;
 
+    firebase.auth().signInWithEmailAndPassword(email2, password2).then(function(){
+        let refmessage=firebase.database().ref().child("users");
+        refmessage.on("value",function(snap){
+        let datos=snap.val();
+            let existe=false;
+            for(let key in datos){
+                if(datos[key].email===document.getElementById("email2").value){
+                    if(!datos[key].Nombre){
+                        existe=false;
+                    }
+                    else
+                    {
+                        existe=true;
+                        document.getElementById("welcomeuser").innerHTML=datos[key].Nombre;
+                        showImage(datos[key].extension);//foto
+                        document.getElementById("userLogin").style.display = "none";
+                        document.getElementById("userWall").style.display = "block";
+                        document.getElementById("perfilUser").style.display = "block";
+                    }   
+                }
+            }
+            if(!existe){
+                alert("Sus datos no estan actualizados, favor completar perfil para poder utilizar el sitio");
+                document.getElementById("divEdition").style.display="Block";
+                document.getElementById("userLogin").style.display = "none";
+                document.getElementById("userWall").style.display = "none";
+                document.getElementById("perfilUser").style.display = "none";
+            }
+        });
+    })
+    // si no se cumple alguna condición se ejecutara un error//
+    .catch(function(error) {
+        // Handle Errors here.
+        let errorCode = error.code;
+        let errorMessage = error.message;
+        console.log(errorCode);
+        console.log(errorMessage);
+        alert("Combinación de Usuario y Contraseña incorrecta!");
+        // ...
+      });
+    
+}
 //inicializa la conección entre base de datos y javascript
 function initialize(){
     initializeFirebase();
     showMessageFromFirebase();
    //stateChanged();
 }
-
-
-
 document.getElementById("sendMessage").addEventListener("click",sendDataToFirebase)
 //mostrando mensaje de base de datos, ref=referencia
 function showMessageFromFirebase(){
@@ -33,7 +76,7 @@ function showMessageFromFirebase(){
                     if(datoChild[keyChild].Eliminado === 0){
                         todosLosMensajes += "<div class='divBodyResWall'><a class='aMuro'>" + datoChild[keyChild].Nombre + " : " + datoChild[keyChild].Mensaje+"</a> <img src='imagenes/borrar.png' class='imgMuroBorrar' onclick=updateDeleteChild('"+key+"','"+keyChild+"','"+datoChild[keyChild].Email+"')> <img src='imagenes/editvegan.png' class='imgMuroBorrar' onclick=editMessageChild('"+key+"','"+keyChild+"')></br></div>";
                     }
-               }
+               } 
              });
              todosLosMensajes+="<div class='divFooterWall'><div class='divSelect'><img src='imagenes/palta.png' class='imgMuro' onclick=sumLike('"+key+"')>" + datos[key].Like +"</div><div class='divSelect'><img src='imagenes/comm.png' class='imgMuro' onclick=answerMessage('"+key+"')></div><div class='divSelect'><img src='imagenes/borrar.png' class='imgMuro' onclick=updateDelete('"+key+"','"+datos[key].Email+"')></div><div class='divSelect'><img src='imagenes/editvegan.png' class='imgMuro' onclick=editMessage('"+key+"')></div></div>"
              todosLosMensajes+="</div></br>";
@@ -239,6 +282,7 @@ function sendDataToFirebase(){
        let updateMail = document.getElementById('mailEdit').value;
        let updateImg = document.getElementById('imagEdit').files[0];
       let validate = 2;
+      let existe=false;
        if(updateName === null || updateName ===""){
         alert("Ingrese nombre");
         validate=1;
@@ -266,13 +310,24 @@ function sendDataToFirebase(){
                 //se carga la imagen
               let storageRef= firebase.storage().ref();
                storageRef.child('images/'+updateMail+'.'+ext[1]).put(updateImg);/*sube imagen a firebase */
+               existe=true;
             }
         }
         });
+        if(!existe){
+            let saveUser = firebase.database().ref().child("users");
+            saveUser.push({
+                 Nombre:updateName, extension:ext[1],email:document.getElementById("email2").value
+                });
+        }
         alert("Datos actualizados");
         showImage(ext[1]);
         document.getElementById("userWallPerfil").style.display = "block";
         document.getElementById("divEdition").style.display = "none";
+        //limpiando los controles
+        document.getElementById('nameEdit').value="";
+        document.getElementById('mailEdit').value="";
+        document.getElementById('imagEdit').files[0]="";
        }
   }
   //muestra la imagen que sube el usuario
@@ -282,11 +337,14 @@ function sendDataToFirebase(){
 
     starsRef.getDownloadURL().then(function(url) {
         // Insert url into an <img> tag to "download"
+        let imgMuro=document.getElementById("imgWall");
+        imgMuro.src=url;
         let img=document.getElementById("imagenPerfil");
         img.src=url;
-        console.log(url);
+      
       });
 }
+
 //mostrando mensaje de base de datos solo del usuario dueño del perfil, ref=referencia
 function showMessagePerfilFirebase(){
     let extension;
@@ -345,7 +403,6 @@ function sendDataToFirebasePerfil(){
     let email=document.getElementById("email2").value;
     let usuario=document.getElementById("namePerfil").innerHTML;
     let messagePerfil=document.getElementById("mensajePerfil").value;
-    console.log(email,usuario,messagePerfil);
     if(messagePerfil != null && messagePerfil != "" ){
         refmessage.push({Mensaje:messagePerfil , Nombre:usuario , Eliminado:0,Principal:0,Like:0,Email:email});
         document.getElementById("mensajePerfil").value="";
@@ -367,6 +424,18 @@ document.getElementById("tableNut").addEventListener("click",tableVisible);
 function tableVisible(){
     document.getElementById("userWallPerfil").style.display="none";
     document.getElementById("tablaNut").style.display="block";
+}
+
+//desaparece tabla nutricional
+document.getElementById("returnButton").addEventListener("click",tableInVisible);
+function tableInVisible(){
+    document.getElementById("userWallPerfil").style.display="block";
+    document.getElementById("tablaNut").style.display="none";
+}
+document.getElementById("returnWall").addEventListener("click",wallVisible);
+function wallVisible(){
+    document.getElementById("userWallPerfil").style.display="none";
+    document.getElementById("userWall").style.display="block";
 }
  //Parámetros para conexión de base de datos
 function initializeFirebase(){
