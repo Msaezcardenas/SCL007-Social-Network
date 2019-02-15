@@ -1,6 +1,4 @@
 
-import {stateChanged} from './mainMolu.js';
-
 
 //Para trabajar el DOM//
 // console.log("Hola")
@@ -56,7 +54,6 @@ function login(){
 function initialize(){
     initializeFirebase();
     showMessageFromFirebase();
-    stateChanged();
 
 
 }
